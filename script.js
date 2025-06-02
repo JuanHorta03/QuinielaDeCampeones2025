@@ -298,31 +298,10 @@ document.getElementById("quinielaForm").addEventListener("submit", async functio
 
     // --- 3. GESTIONAR EL FALLBACK DE WHATSAPP SI NO SE ABRIÓ ---
     if (!whatsappOpened) {
-        // Reemplazamos 'confirm' con un alert para seguir las directrices de no usar confirm/alert
-        // Para una confirmación real, se necesitaría un modal personalizado.
-        // Aquí simplemente mostramos el mensaje y la opción de copiar.
         alert(
             'Parece que el navegador ha bloqueado la apertura de WhatsApp, o no tienes la aplicación instalada.\n\n' +
-            '¡Importante! Hemos intentado guardar tus quinielas en Google Sheets.\n\n' +
-            'Por favor, copia el mensaje manualmente y pégalo en WhatsApp.'
+            '¡Importante! Hemos intentado guardar tus quinielas en Google Sheets.'
         );
-
-        // Intentar copiar el mensaje al portapapeles automáticamente
-        navigator.clipboard.writeText(rawWhatsAppMessage)
-            .then(() => {
-                alert('¡Mensaje copiado al portapapeles! Ahora abre WhatsApp y pégalo.');
-                window.open(`https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`, '_blank'); // Abre WhatsApp Web
-            })
-            .catch(err => {
-                console.error('Error al copiar al portapapeles:', err);
-                alert(
-                    'No se pudo copiar el mensaje automáticamente. Por favor, cópialo manualmente:\n\n' +
-                    '-----------------------------------------------------------\n' +
-                    rawWhatsAppMessage + // Mostrar el mensaje legible
-                    '\n-----------------------------------------------------------\n\n' +
-                    'Luego, abre WhatsApp y pégalo en el chat con el organizador.'
-                );
-            });
     }
 
     // --- 4. LIMPIAR EL FORMULARIO ---
