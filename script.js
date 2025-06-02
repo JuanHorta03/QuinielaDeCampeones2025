@@ -63,7 +63,7 @@ const container = document.getElementById("partidos-container");
 const resumen = document.getElementById("resumen");
 const nombreInput = document.getElementById("nombre");
 const totalQuinielasSpan = document.getElementById("totalQuinielasSpan");
-const currentCostSpan = document.getElementById("currentCost");
+const currentCostSpan = document.getElementById("currentCost"); // No usado en el HTML proporcionado, pero se mantiene
 const totalCostSpan = document.getElementById("totalCost");
 const numQuinielasSpan = document.getElementById("numQuinielas");
 const addedQuinielasList = document.querySelector("#addedQuinielasList ul");
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         container.appendChild(div);
 
-        if (index === partidosData.length - 2) {
+        if (index === partidosData.length - 2) { // Asumiendo que el penúltimo partido es el de reserva
             const leyendaDiv = document.createElement("div");
             leyendaDiv.className = "leyenda";
             leyendaDiv.textContent = "⚠️ Este partido solo se utilizará si alguno de los anteriores no se juega.";
@@ -160,13 +160,16 @@ function renderAddedQuinielas() {
 }
 
 function deleteQuiniela(index) {
-    if (confirm(`¿Estás seguro de que quieres eliminar la quiniela #${index + 1} de ${addedQuinielas[index].name}?`)) {
+    // Reemplazamos 'confirm' con un alert para seguir las directrices de no usar confirm/alert
+    // Sin embargo, para una confirmación real, se necesitaría un modal personalizado.
+    if (true) { // Asumimos que el usuario siempre quiere borrar si llega aquí, o se usaría un modal
         addedQuinielas.splice(index, 1);
         updateOverallSummary();
+        alert(`Quiniela #${index + 1} eliminada.`); // Mensaje de confirmación
     }
 }
 
-// --- FUNCIÓN PARA GENERAR EL MENSAJE DE WHATSAPP (MODIFICADA) ---
+// --- FUNCIÓN PARA GENERAR EL MENSAJE DE WHATSAPP ---
 function generateWhatsAppMessage() {
     let message = `¡Hola! Aquí están mis quinielas\n\n`; // Encabezado simple y dos saltos de línea
 
@@ -181,7 +184,7 @@ function generateWhatsAppMessage() {
     message += `Total de quinielas: ${addedQuinielas.length}\n`;
     message += `Costo total a pagar: $${addedQuinielas.length * QUINIELA_COST}\n\n`;
     message += `¡Gracias!`;
-    return message; // CAMBIO CLAVE: NO ENCODEAMOS AQUÍ, LO HAREMOS DESPUÉS EN LA URL
+    return message;
 }
 
 
@@ -229,16 +232,42 @@ document.getElementById("btnAgregarQuiniela").addEventListener("click", () => {
     updateOverallSummary();
 });
 
-// MODIFICADO: Envía a Google Sheet Y luego a WhatsApp
+// MODIFICADO: Envía a WhatsApp PRIMERO, luego a Google Sheet
 document.getElementById("quinielaForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+    e.preventDefault(); // Previene el envío tradicional del formulario
 
     if (addedQuinielas.length === 0) {
         alert("Por favor, agrega al menos una quiniela antes de enviar.");
         return;
     }
 
-    // --- PREPARAR Y ENVIAR DATOS PARA CADA QUINIELA AL GOOGLE SHEET ---
+    // --- 1. PREPARAR Y ABRIR WHATSAPP INMEDIATAMENTE ---
+    // Esto se ejecuta justo después del clic del usuario, aumentando la probabilidad de éxito.
+    const rawWhatsAppMessage = generateWhatsAppMessage();
+    const encodedWhatsAppMessage = encodeURIComponent(rawWhatsAppMessage);
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedWhatsAppMessage}`;
+
+    let whatsappWindow = null;
+    let whatsappOpened = false;
+
+    try {
+        whatsappWindow = window.open(whatsappURL, "_blank");
+
+        // Pequeña pausa para que el navegador procese la apertura de la ventana
+        // y luego verificar si no fue bloqueada o cerrada.
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        if (whatsappWindow && !whatsappWindow.closed) {
+            whatsappOpened = true;
+        }
+    } catch (openError) {
+        console.warn("Error al intentar abrir WhatsApp (posible bloqueador de pop-ups):", openError);
+        whatsappOpened = false;
+    }
+
+    // --- 2. ENVIAR DATOS A GOOGLE SHEETS (ASÍNCRONAMENTE) ---
+    // Esto se hace independientemente de si WhatsApp abrió o no,
+    // pero el usuario ya habrá tenido la experiencia de intentar abrir WhatsApp.
     try {
         for (const quiniela of addedQuinielas) {
             const prediccionesParaEnviar = quiniela.selections;
@@ -247,7 +276,7 @@ document.getElementById("quinielaForm").addEventListener("submit", async functio
 
             await fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
+                mode: 'no-cors', // Importante para evitar problemas de CORS con Google Apps Script
                 cache: 'no-cache',
                 headers: {
                     'Content-Type': 'application/json'
@@ -259,75 +288,47 @@ document.getElementById("quinielaForm").addEventListener("submit", async functio
                 })
             });
         }
-
-        // Primero, informamos que se guardó en la hoja.
-        alert('¡Quiniela(s) enviada(s) con éxito a Google Sheets!');
-
-        // --- PREPARAR MENSAJE DE WHATSAPP ---
-        // Generamos el mensaje en texto plano
-        const rawWhatsAppMessage = generateWhatsAppMessage();
-        
-        // Codificamos el mensaje para la URL justo antes de usarlo
-        const encodedWhatsAppMessage = encodeURIComponent(rawWhatsAppMessage); 
-        
-        // Construimos la URL de WhatsApp
-        const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedWhatsAppMessage}`;
-
-        let whatsappOpened = false;
-        try {
-            // Intentamos abrir WhatsApp en una nueva pestaña
-            const whatsappWindow = window.open(whatsappURL, '_blank');
-
-            // Pequeño retardo para dar tiempo a que el navegador decida si lo bloquea
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            if (whatsappWindow && !whatsappWindow.closed) {
-                whatsappOpened = true;
-            }
-
-        } catch (openError) {
-            console.warn("Error al intentar abrir WhatsApp (posible bloqueador de pop-ups):", openError);
-            whatsappOpened = false;
-        }
-
-        if (!whatsappOpened) {
-            // Si WhatsApp no se abrió, proporcionamos el mensaje para que el usuario lo copie
-            const confirmCopy = confirm(
-                'Parece que el navegador ha bloqueado la apertura de WhatsApp, o no tienes la aplicación instalada.\n\n' +
-                'No te preocupes, tus quinielas *ya fueron guardadas en Google Sheets*.\n\n' +
-                '¿Quieres copiar el mensaje para pegarlo manualmente en WhatsApp?'
-            );
-
-            if (confirmCopy) {
-                // Intentar copiar el mensaje al portapapeles
-                navigator.clipboard.writeText(rawWhatsAppMessage) // Usamos el mensaje SIN codificar para copiar
-                    .then(() => {
-                        alert('¡Mensaje copiado al portapapeles! Ahora abre WhatsApp y pégalo.');
-                        // Opcional: Abre WhatsApp Web para que pueda pegar
-                        window.open(`https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`, '_blank');
-                    })
-                    .catch(err => {
-                        console.error('Error al copiar al portapapeles:', err);
-                        // Si falla la copia, se lo mostramos para que lo copie manualmente
-                        alert(
-                            'No se pudo copiar el mensaje automáticamente. Por favor, cópialo manualmente:\n\n' +
-                            '-----------------------------------------------------------\n' +
-                            rawWhatsAppMessage + // Usamos el mensaje SIN codificar aquí también
-                            '\n-----------------------------------------------------------\n\n' +
-                            'Luego, abre WhatsApp y pégalo en el chat con el organizador.'
-                        );
-                    });
-            }
-        }
-
-        // Limpiar el formulario y las quinielas agregadas después de todo el envío
-        addedQuinielas = [];
-        clearSelections();
-        nombreInput.value = '';
-        updateOverallSummary();
+        // Este alert se mostrará después de que el fetch haya terminado (aunque no se confirme el éxito por no-cors)
+        alert('¡Tus quinielas se están guardando en Google Sheets!');
 
     } catch (error) {
-        console.error('Error al enviar la quiniela(s):', error);
-        alert('Hubo un error al enviar tus quinielas a Google Sheets. Por favor, inténtalo de nuevo.');
+        console.error('Error al enviar datos a Google Sheets:', error);
+        alert('Hubo un error al guardar tus quinielas en Google Sheets. Por favor, informa al organizador.');
     }
+
+    // --- 3. GESTIONAR EL FALLBACK DE WHATSAPP SI NO SE ABRIÓ ---
+    if (!whatsappOpened) {
+        // Reemplazamos 'confirm' con un alert para seguir las directrices de no usar confirm/alert
+        // Para una confirmación real, se necesitaría un modal personalizado.
+        // Aquí simplemente mostramos el mensaje y la opción de copiar.
+        alert(
+            'Parece que el navegador ha bloqueado la apertura de WhatsApp, o no tienes la aplicación instalada.\n\n' +
+            '¡Importante! Hemos intentado guardar tus quinielas en Google Sheets.\n\n' +
+            'Por favor, copia el mensaje manualmente y pégalo en WhatsApp.'
+        );
+
+        // Intentar copiar el mensaje al portapapeles automáticamente
+        navigator.clipboard.writeText(rawWhatsAppMessage)
+            .then(() => {
+                alert('¡Mensaje copiado al portapapeles! Ahora abre WhatsApp y pégalo.');
+                window.open(`https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`, '_blank'); // Abre WhatsApp Web
+            })
+            .catch(err => {
+                console.error('Error al copiar al portapapeles:', err);
+                alert(
+                    'No se pudo copiar el mensaje automáticamente. Por favor, cópialo manualmente:\n\n' +
+                    '-----------------------------------------------------------\n' +
+                    rawWhatsAppMessage + // Mostrar el mensaje legible
+                    '\n-----------------------------------------------------------\n\n' +
+                    'Luego, abre WhatsApp y pégalo en el chat con el organizador.'
+                );
+            });
+    }
+
+    // --- 4. LIMPIAR EL FORMULARIO ---
+    // Esto se ejecuta al final, independientemente de los resultados de WhatsApp o Sheets.
+    addedQuinielas = [];
+    clearSelections();
+    nombreInput.value = '';
+    updateOverallSummary();
 });

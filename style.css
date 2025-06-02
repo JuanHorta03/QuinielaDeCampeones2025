@@ -26,7 +26,7 @@ body {
     margin: 0;
     padding: 0;
     /* Degradado sutil de azul oscuro medio a azul muy oscuro */
-   background: linear-gradient(#092e24, #041914);
+    background: linear-gradient(#092e24, #041914);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -46,7 +46,7 @@ body {
     justify-content: center;
     align-items: center;
     /* Color azul oscuro medio claro para el banner */
-    background-color: #063c2c; 
+    background-color: #063c2c;
     min-height: 150px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
@@ -165,11 +165,12 @@ body {
     color: var(--white);
     border-color: var(--green-dark);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* Ajustes para el ícono de balón: */
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Futbol_soccer_ball.svg');
-    background-size: 20px;
+    background-size: 20px; /* Tamaño del balón */
     background-repeat: no-repeat;
-    background-position: center right 5px;
-    padding-right: 30px;
+    background-position: center right 5px; /* Posición del balón */
+    padding-right: 30px; /* Espacio extra para el balón */
 }
 
 .leyenda {
@@ -424,7 +425,7 @@ body {
     }
 
     .partido {
-        flex-direction: column;
+        flex-direction: column; /* Apila los elementos (equipos y opciones) */
         align-items: center;
         text-align: center;
         padding: 15px;
@@ -433,9 +434,10 @@ body {
 
     .equipo {
         width: 100%;
-        justify-content: center;
-        margin-bottom: 5px;
-        flex-direction: row;
+        justify-content: center; /* Centra el logo y nombre dentro del equipo */
+        margin-bottom: 8px; /* Espacio entre los equipos apilados */
+        flex-direction: column; /* Apila el logo y el nombre */
+        gap: 5px; /* Espacio entre logo y nombre */
     }
 
     .equipo:last-child {
@@ -444,29 +446,38 @@ body {
     }
 
     .logo-equipo {
-        margin: 0 10px;
+        margin: 0; /* Elimina márgenes laterales si el logo está apilado */
+        width: 50px; /* Ajusta tamaño de logo para móvil */
+        height: 50px;
     }
 
-    .equipo:last-child .nombre-equipo {
-        margin-right: 10px;
-        margin-left: 0;
+    .nombre-equipo {
+        font-size: 0.9em; /* Ajusta tamaño de fuente del nombre del equipo */
+        margin: 0; /* Elimina márgenes si el nombre está apilado */
     }
 
+    /* Ajustes específicos para el segundo equipo si aún hay conflicto de margen */
+    .equipo:last-child .nombre-equipo,
     .equipo:last-child .logo-equipo {
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0; /* Asegura que no haya márgenes inesperados */
     }
 
     .opciones {
         width: 100%;
         margin-top: 10px;
+        gap: 5px; /* Espacio entre los botones L E V */
     }
 
     .btn-opcion {
-        padding: 10px;
-        margin: 0 5px;
-        min-width: unset;
-        flex-grow: 1;
+        padding: 10px 0; /* Más padding vertical, 0 horizontal si flex-grow 1 */
+        margin: 0 3px;
+        min-width: 38px; /* Un poco más grande para facilitar el toque */
+        flex-grow: 1; /* Permite que los botones se expandan */
+        font-size: 0.9em; /* Ajusta tamaño de fuente para legibilidad */
+        /* Ajustes para el ícono de balón en móvil */
+        background-size: 18px; /* Tamaño del balón más pequeño en móvil */
+        background-position: center right 3px; /* Posición del balón más ajustada */
+        padding-right: 25px; /* Espacio extra para el balón reducido */
     }
 
     .cost-and-closing {
@@ -476,14 +487,15 @@ body {
     }
 
     .acciones-inferiores .row-botones {
-        flex-direction: column;
+        flex-direction: column; /* Apila los botones de acción */
         align-items: center;
+        gap: 10px; /* Espacio entre los botones apilados */
     }
 
     .acciones-inferiores button {
-        width: 90%;
-        max-width: 250px;
-        margin-bottom: 10px;
+        width: 90%; /* Ocupa la mayoría del ancho */
+        max-width: 250px; /* Limita el ancho máximo */
+        margin-bottom: 0; /* Elimina el margen inferior si ya están apilados con gap */
     }
 
     .enviar {
@@ -493,10 +505,76 @@ body {
 
     .form-nombre input {
         width: 90%;
+        font-size: 1em; /* Ajusta el tamaño de la fuente del input */
+        padding: 10px 12px;
     }
 
     .summary-footer {
         flex-direction: column;
         gap: 15px;
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    #addedQuinielasList li {
+        flex-direction: column; /* Apila el texto y el botón de borrar */
+        align-items: flex-start; /* Alinea el texto a la izquierda */
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .delete-quiniela-btn {
+        margin-left: 0; /* Elimina margen si está apilado */
+        margin-top: 5px; /* Espacio entre texto y botón */
+        align-self: flex-end; /* Alinea el botón a la derecha en su propia línea */
+    }
+}
+
+/* Media Query para pantallas muy pequeñas (ej. iPhone SE) */
+@media (max-width: 400px) {
+    .marco {
+        padding: 10px;
+    }
+
+    .partido {
+        padding: 10px 0;
+    }
+
+    .equipo {
+        gap: 3px;
+    }
+
+    .logo-equipo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nombre-equipo {
+        font-size: 0.8em;
+    }
+
+    .btn-opcion {
+        padding: 8px 0;
+        min-width: 32px;
+        font-size: 0.8em;
+        background-size: 16px;
+        background-position: center right 2px;
+        padding-right: 22px;
+    }
+
+    .acciones-inferiores button {
+        width: 95%; /* Un poco más de ancho en pantallas muy pequeñas */
+    }
+
+    .form-nombre input {
+        width: 95%;
+    }
+
+    .summary-line {
+        font-size: 1em;
+    }
+
+    #addedQuinielasList li {
+        font-size: 0.85em;
     }
 }
