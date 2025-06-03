@@ -6,6 +6,17 @@ const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script que me proporcionaste.
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV6n9edZwQwDAsOesHd4awFxpQn16aEsf3Oys-O7ZmintcyR5XqOwQ8ORsqLjYkCwTld/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
 
+// Configuración del horario de bloqueo/apertura para la PRUEBA
+// SE BLOQUEA HOY (LUNES) A LAS 6:39 PM
+const BLOCKING_DAY_OF_WEEK = new Date().getDay(); // Hoy (Lunes, si es el día actual)
+const BLOCKING_HOUR = 18;      // 18 para 6 PM
+const BLOCKING_MINUTE = 39;    // 39 minutos
+
+// SE DESBLOQUEA HOY (LUNES) A LAS 6:45 PM
+const OPENING_DAY_OF_WEEK = new Date().getDay();  // Hoy (Lunes, si es el día actual)
+const OPENING_HOUR = 18;         // 18 para 6 PM
+const OPENING_MINUTE = 45;       // 45 minutos
+
 const partidosData = [
     ["TOLUCA", "AMÉRICA"],
     ["AT. BILBAO", "BARCELONA"],
@@ -160,12 +171,10 @@ function renderAddedQuinielas() {
 }
 
 function deleteQuiniela(index) {
-    // Reemplazamos 'confirm' con un alert para seguir las directrices de no usar confirm/alert
-    // Sin embargo, para una confirmación real, se necesitaría un modal personalizado.
-    if (true) { // Asumimos que el usuario siempre quiere borrar si llega aquí, o se usaría un modal
+    if (confirm(`¿Estás seguro de que quieres eliminar la quiniela #${index + 1}?`)) {
         addedQuinielas.splice(index, 1);
         updateOverallSummary();
-        alert(`Quiniela #${index + 1} eliminada.`); // Mensaje de confirmación
+        alert(`Quiniela #${index + 1} eliminada.`);
     }
 }
 
@@ -185,6 +194,46 @@ function generateWhatsAppMessage() {
     message += `Costo total a pagar: $${addedQuinielas.length * QUINIELA_COST}\n\n`;
     message += `¡Gracias!`;
     return message;
+}
+
+// FUNCIÓN PARA VERIFICAR SI EL ENVÍO ESTÁ PERMITIDO con horarios de apertura y cierre (PARA PRUEBA)
+function isSubmissionAllowed() {
+    const now = new Date();
+    const currentDay = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 5 = Viernes
+
+    // Calcular la fecha y hora de bloqueo
+    let blockingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), BLOCKING_HOUR, BLOCKING_MINUTE, 0, 0);
+
+    // Calcular la fecha y hora de apertura
+    let openingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), OPENING_HOUR, OPENING_MINUTE, 0, 0);
+
+    // Si la hora actual ya pasó la hora de bloqueo de HOY, pero no ha llegado la hora de apertura de HOY/MAÑANA,
+    // significa que estamos en la ventana de BLOQUEO.
+    // También si la hora actual está antes de la hora de apertura de HOY.
+
+    // Ajustar openingDate si ya pasó para que siempre apunte al futuro o al momento actual
+    if (now > openingDate && now < blockingDate) {
+        // Si ya estamos en la ventana abierta pero aún no pasamos el bloqueo
+        // No necesitamos ajustar openingDate para el futuro en este caso de prueba simple.
+    } else if (now > openingDate && now > blockingDate) {
+        // Si ya pasamos tanto la apertura como el bloqueo de hoy,
+        // esto significaría que la ventana de apertura para hoy ya terminó.
+        // Para este caso de prueba simple, si la hora actual ya superó ambas,
+        // mantendremos blockingDate y openingDate de hoy para la comparación.
+        // La lógica de `return now >= openingDate && now < blockingDate` lo maneja.
+    }
+
+
+    // Para depuración (descomentar para ver en consola):
+    console.log("Current Time:", now.toLocaleString());
+    console.log("Blocking Time (PRUEBA):", blockingDate.toLocaleString());
+    console.log("Opening Time (PRUEBA):", openingDate.toLocaleString());
+
+
+    // La submission está permitida si:
+    // 1. La hora actual es después o igual a la hora de apertura.
+    // 2. Y la hora actual es estrictamente antes de la hora de bloqueo.
+    return now >= openingDate && now < blockingDate;
 }
 
 
@@ -235,6 +284,29 @@ document.getElementById("btnAgregarQuiniela").addEventListener("click", () => {
 // MODIFICADO: Envía a WhatsApp PRIMERO, luego a Google Sheet
 document.getElementById("quinielaForm").addEventListener("submit", async function(e) {
     e.preventDefault(); // Previene el envío tradicional del formulario
+
+    // VERIFICAR SI EL ENVÍO ESTÁ PERMITIDO
+    if (!isSubmissionAllowed()) {
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMinute = now.getMinutes();
+
+        let message = "";
+        // Bloqueado (entre 6:39 PM y 6:45 PM)
+        if (currentHour === BLOCKING_HOUR && currentMinute >= BLOCKING_MINUTE && (currentHour < OPENING_HOUR || (currentHour === OPENING_HOUR && currentMinute < OPENING_MINUTE))) {
+             message = `¡El plazo para enviar quinielas ha terminado por ahora! Se reabrirá hoy a las ${OPENING_HOUR}:${OPENING_MINUTE < 10 ? '0' : ''}${OPENING_MINUTE} PM.`;
+        } else if (now > new Date(now.getFullYear(), now.getMonth(), now.getDate(), OPENING_HOUR, OPENING_MINUTE, 0, 0)) {
+            // Ya es después de la hora de apertura
+            message = "El plazo para enviar quinielas ha terminado. Espera el próximo ciclo de prueba."; // Esto es para cuando ya pasó la ventana de apertura/cierre de hoy
+        } else {
+             // Es antes de la hora de apertura (antes de las 6:45 PM)
+            message = `El envío de quinielas estará disponible hoy a partir de las ${OPENING_HOUR}:${OPENING_MINUTE < 10 ? '0' : ''}${OPENING_MINUTE} PM.`;
+        }
+
+
+        alert(message);
+        return; // Detener el envío si no está permitido
+    }
 
     if (addedQuinielas.length === 0) {
         alert("Por favor, agrega al menos una quiniela antes de enviar.");
