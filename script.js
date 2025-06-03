@@ -6,16 +6,12 @@ const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script que me proporcionaste.
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV6n9edZwQwDAsOesHd4awFxpQn16aEsf3Oys-O7ZmintcyR5XqOwQ8ORsqLjYkCwTld/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
 
-// Configuración del horario de bloqueo/apertura para la PRUEBA
-// SE BLOQUEA HOY (LUNES) A LAS 6:39 PM
-const BLOCKING_DAY_OF_WEEK = new Date().getDay(); // Hoy (Lunes, si es el día actual)
-const BLOCKING_HOUR = 18;      // 18 para 6 PM
-const BLOCKING_MINUTE = 39;    // 39 minutos
+// Configuración del horario de bloqueo/apertura para el proyecto principal
+const BLOCKING_DAY_OF_WEEK = 5; // 5 = Viernes
+const BLOCKING_HOUR = 19;      // 19 para 7 PM (hora militar)
 
-// SE DESBLOQUEA HOY (LUNES) A LAS 6:45 PM
-const OPENING_DAY_OF_WEEK = new Date().getDay();  // Hoy (Lunes, si es el día actual)
-const OPENING_HOUR = 18;         // 18 para 6 PM
-const OPENING_MINUTE = 45;       // 45 minutos
+const OPENING_DAY_OF_WEEK = 1;  // 1 = Lunes
+const OPENING_HOUR = 7;         // 7 para 7 AM (hora militar)
 
 const partidosData = [
     ["TOLUCA", "AMÉRICA"],
@@ -196,38 +192,52 @@ function generateWhatsAppMessage() {
     return message;
 }
 
-// FUNCIÓN PARA VERIFICAR SI EL ENVÍO ESTÁ PERMITIDO con horarios de apertura y cierre (PARA PRUEBA)
+// FUNCIÓN PARA VERIFICAR SI EL ENVÍO ESTÁ PERMITIDO con horarios de apertura y cierre
 function isSubmissionAllowed() {
     const now = new Date();
     const currentDay = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 5 = Viernes
 
-    // Calcular la fecha y hora de bloqueo
-    let blockingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), BLOCKING_HOUR, BLOCKING_MINUTE, 0, 0);
+    // Calcular la fecha y hora de bloqueo (Viernes 7 PM de esta semana o la próxima)
+    let blockingDate = new Date(now.getTime());
+    let daysUntilBlockingDay = BLOCKING_DAY_OF_WEEK - currentDay;
+    if (daysUntilBlockingDay < 0) {
+        // El Viernes ya pasó esta semana, apuntar al Viernes de la próxima semana
+        daysUntilBlockingDay += 7;
+    }
+    blockingDate.setDate(now.getDate() + daysUntilBlockingDay);
+    blockingDate.setHours(BLOCKING_HOUR, 0, 0, 0);
 
-    // Calcular la fecha y hora de apertura
-    let openingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), OPENING_HOUR, OPENING_MINUTE, 0, 0);
+    // Calcular la fecha y hora de apertura (Lunes 7 AM de esta semana o la próxima)
+    let openingDate = new Date(now.getTime());
+    let daysUntilOpeningDay = OPENING_DAY_OF_WEEK - currentDay;
+    if (daysUntilOpeningDay < 0) {
+        // El Lunes ya pasó esta semana, apuntar al Lunes de la próxima semana
+        daysUntilOpeningDay += 7;
+    }
+    openingDate.setDate(now.getDate() + daysUntilOpeningDay);
+    openingDate.setHours(OPENING_HOUR, 0, 0, 0);
 
-    // Si la hora actual ya pasó la hora de bloqueo de HOY, pero no ha llegado la hora de apertura de HOY/MAÑANA,
-    // significa que estamos en la ventana de BLOQUEO.
-    // También si la hora actual está antes de la hora de apertura de HOY.
-
-    // Ajustar openingDate si ya pasó para que siempre apunte al futuro o al momento actual
-    if (now > openingDate && now < blockingDate) {
-        // Si ya estamos en la ventana abierta pero aún no pasamos el bloqueo
-        // No necesitamos ajustar openingDate para el futuro en este caso de prueba simple.
-    } else if (now > openingDate && now > blockingDate) {
-        // Si ya pasamos tanto la apertura como el bloqueo de hoy,
-        // esto significaría que la ventana de apertura para hoy ya terminó.
-        // Para este caso de prueba simple, si la hora actual ya superó ambas,
-        // mantendremos blockingDate y openingDate de hoy para la comparación.
-        // La lógica de `return now >= openingDate && now < blockingDate` lo maneja.
+    // Si la fecha de apertura calculada ya pasó (es decir, ya es Lunes y la hora de apertura ya pasó),
+    // y no estamos en el día de apertura inicial, o ya pasó la hora de apertura del día de apertura,
+    // debemos avanzar la `openingDate` al próximo ciclo si `now` ya está en el pasado de `openingDate`.
+    // La lógica es que `openingDate` siempre debe ser el *próximo* momento de apertura o el actual si estamos en él.
+    if (now > openingDate && (currentDay !== OPENING_DAY_OF_WEEK || now.getHours() >= OPENING_HOUR || now.getMinutes() >= 0)) {
+        // Si ya pasó el Lunes 7 AM de la semana actual, o si estamos en Lunes y la hora ya pasó
+        // debemos asegurar que openingDate apunte al Lunes de la próxima semana.
+        // La condición `now > openingDate` es suficiente para avanzar la fecha de apertura si ya ha pasado.
+        // Se añade 7 días para el siguiente ciclo.
+        if (now > openingDate && (currentDay !== OPENING_DAY_OF_WEEK || (currentDay === OPENING_DAY_OF_WEEK && now.getHours() >= OPENING_HOUR))) {
+             // Solo avanzamos si ya ha pasado el punto de apertura y estamos fuera de la ventana de apertura del Lunes actual
+             // (o sea, si openingDate es del pasado y no estamos en la ventana de apertura en este mismo momento).
+             openingDate.setDate(openingDate.getDate() + 7);
+        }
     }
 
 
-    // Para depuración (descomentar para ver en consola):
-    console.log("Current Time:", now.toLocaleString());
-    console.log("Blocking Time (PRUEBA):", blockingDate.toLocaleString());
-    console.log("Opening Time (PRUEBA):", openingDate.toLocaleString());
+    // Para depuración:
+    console.log("Current Time:", now.toLocaleString('es-MX', { timeZone: 'America/Mexico_City' }));
+    console.log("Blocking Time (Viernes 7 PM):", blockingDate.toLocaleString('es-MX', { timeZone: 'America/Mexico_City' }));
+    console.log("Opening Time (Lunes 7 AM):", openingDate.toLocaleString('es-MX', { timeZone: 'America/Mexico_City' }));
 
 
     // La submission está permitida si:
@@ -281,29 +291,28 @@ document.getElementById("btnAgregarQuiniela").addEventListener("click", () => {
     updateOverallSummary();
 });
 
-// MODIFICADO: Envía a WhatsApp PRIMERO, luego a Google Sheet
+// Envía a WhatsApp PRIMERO, luego a Google Sheet
 document.getElementById("quinielaForm").addEventListener("submit", async function(e) {
     e.preventDefault(); // Previene el envío tradicional del formulario
 
     // VERIFICAR SI EL ENVÍO ESTÁ PERMITIDO
     if (!isSubmissionAllowed()) {
         const now = new Date();
+        const currentDay = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 5 = Viernes
         const currentHour = now.getHours();
-        const currentMinute = now.getMinutes();
 
+        // Mensaje más específico según el estado de bloqueo
         let message = "";
-        // Bloqueado (entre 6:39 PM y 6:45 PM)
-        if (currentHour === BLOCKING_HOUR && currentMinute >= BLOCKING_MINUTE && (currentHour < OPENING_HOUR || (currentHour === OPENING_HOUR && currentMinute < OPENING_MINUTE))) {
-             message = `¡El plazo para enviar quinielas ha terminado por ahora! Se reabrirá hoy a las ${OPENING_HOUR}:${OPENING_MINUTE < 10 ? '0' : ''}${OPENING_MINUTE} PM.`;
-        } else if (now > new Date(now.getFullYear(), now.getMonth(), now.getDate(), OPENING_HOUR, OPENING_MINUTE, 0, 0)) {
-            // Ya es después de la hora de apertura
-            message = "El plazo para enviar quinielas ha terminado. Espera el próximo ciclo de prueba."; // Esto es para cuando ya pasó la ventana de apertura/cierre de hoy
+        // Si ya es Viernes 7 PM o más tarde, o Sábado/Domingo
+        if (currentDay === BLOCKING_DAY_OF_WEEK && currentHour >= BLOCKING_HOUR || currentDay === 6 || currentDay === 0) {
+             message = `¡El plazo para enviar quinielas ha terminado por esta semana! Estará disponible de nuevo el Lunes a las ${OPENING_HOUR}:00 AM.`;
+        } else if (currentDay < OPENING_DAY_OF_WEEK || (currentDay === OPENING_DAY_OF_WEEK && currentHour < OPENING_HOUR)) {
+            // Es antes del Lunes 7 AM (ej. Domingo por la tarde)
+            message = `El envío de quinielas estará disponible a partir del Lunes a las ${OPENING_HOUR}:00 AM. ¡Prepárate!`;
         } else {
-             // Es antes de la hora de apertura (antes de las 6:45 PM)
-            message = `El envío de quinielas estará disponible hoy a partir de las ${OPENING_HOUR}:${OPENING_MINUTE < 10 ? '0' : ''}${OPENING_MINUTE} PM.`;
+            // Un caso inesperado, pero para seguridad.
+            message = "El plazo para enviar quinielas no está activo en este momento. Por favor, verifica los horarios de apertura.";
         }
-
-
         alert(message);
         return; // Detener el envío si no está permitido
     }
