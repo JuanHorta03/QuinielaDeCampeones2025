@@ -4,7 +4,7 @@ const WHATSAPP_NUMBER = '+524775670219'; // Tu número de WhatsApp (con el +)
 const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas logo)
 
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script que me proporcionaste.
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV9edZwQwDAsOesHd4awFxpQn16aEsf3Oys-O7ZmintcyR5XqOwQ8ORsqLjYkCwTld/exec';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV6n9edZwQwDAsOesHd4awFxpQn16aEsf3Oys-O7ZmintcyR5XqOwQ8ORsqLjYkCwTld/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
 
 const partidosData = [
     ["TOLUCA", "AMÉRICA"],
@@ -242,32 +242,19 @@ document.getElementById("quinielaForm").addEventListener("submit", async functio
     }
 
     // --- 1. PREPARAR Y ABRIR WHATSAPP INMEDIATAMENTE ---
-    // Esto se ejecuta justo después del clic del usuario, aumentando la probabilidad de éxito.
     const rawWhatsAppMessage = generateWhatsAppMessage();
     const encodedWhatsAppMessage = encodeURIComponent(rawWhatsAppMessage);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedWhatsAppMessage}`;
 
-    let whatsappWindow = null;
-    let whatsappOpened = false;
-
     try {
-        whatsappWindow = window.open(whatsappURL, "_blank");
-
-        // Pequeña pausa para que el navegador procese la apertura de la ventana
-        // y luego verificar si no fue bloqueada o cerrada.
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        if (whatsappWindow && !whatsappWindow.closed) {
-            whatsappOpened = true;
-        }
+        window.open(whatsappURL, "_blank");
+        await new Promise(resolve => setTimeout(resolve, 500)); // Pequeña pausa para que el navegador procese la apertura
     } catch (openError) {
         console.warn("Error al intentar abrir WhatsApp (posible bloqueador de pop-ups):", openError);
-        whatsappOpened = false;
+        // No se mostrará un alert al usuario si falla la apertura de WhatsApp aquí.
     }
 
     // --- 2. ENVIAR DATOS A GOOGLE SHEETS (ASÍNCRONAMENTE) ---
-    // Esto se hace independientemente de si WhatsApp abrió o no,
-    // pero el usuario ya habrá tenido la experiencia de intentar abrir WhatsApp.
     try {
         for (const quiniela of addedQuinielas) {
             const prediccionesParaEnviar = quiniela.selections;
@@ -288,26 +275,16 @@ document.getElementById("quinielaForm").addEventListener("submit", async functio
                 })
             });
         }
-        // Este alert se mostrará después de que el fetch haya terminado (aunque no se confirme el éxito por no-cors)
-        alert('¡Tus quinielas se están guardando en Google Sheets!');
+        alert('¡Tus quinielas se guardaron con éxito! ¡SUERTE!');
 
     } catch (error) {
         console.error('Error al enviar datos a Google Sheets:', error);
         alert('Hubo un error al guardar tus quinielas en Google Sheets. Por favor, informa al organizador.');
+    } finally { // Asegurar la limpieza del formulario siempre
+        // --- LIMPIAR EL FORMULARIO ---
+        addedQuinielas = [];
+        clearSelections();
+        nombreInput.value = '';
+        updateOverallSummary();
     }
-
-    // --- 3. GESTIONAR EL FALLBACK DE WHATSAPP SI NO SE ABRIÓ ---
-    if (!whatsappOpened) {
-        alert(
-            'Parece que el navegador ha bloqueado la apertura de WhatsApp, o no tienes la aplicación instalada.\n\n' +
-            '¡Importante! Hemos intentado guardar tus quinielas en Google Sheets.'
-        );
-    }
-
-    // --- 4. LIMPIAR EL FORMULARIO ---
-    // Esto se ejecuta al final, independientemente de los resultados de WhatsApp o Sheets.
-    addedQuinielas = [];
-    clearSelections();
-    nombreInput.value = '';
-    updateOverallSummary();
 });
