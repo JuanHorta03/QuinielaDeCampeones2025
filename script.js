@@ -25,8 +25,8 @@ const partidosData = [
 const logos = {
     "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/toluca.png",
     "AMÉRICA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/america.png",
-    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-bilbao.png",
-    "INTER MIAI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/barcelona.png",
+    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/al_ahly.png",
+    "INTER MIAI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/inter-miami.png",
     "GIRONA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/girona.png",
     "AT. MADRID": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-madrid.png",
     "VILLARREAL": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/villareal.png",
