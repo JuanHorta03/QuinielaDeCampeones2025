@@ -4,7 +4,7 @@ const WHATSAPP_NUMBER = '+524775670219'; // Tu número de WhatsApp (con el +)
 const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas logo)
 
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script que me proporcionaste.
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV6n9edZwQwDAsOesHd4awFxpQn16aEsf3Oys-O7ZmintcyR5XqOwQ8ORsqLjYkCwTld/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
 
 // Horarios de bloqueo/apertura eliminados. La quiniela estará siempre activa.
 
