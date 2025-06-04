@@ -9,16 +9,16 @@ const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7J
 // Horarios de bloqueo/apertura eliminados. La quiniela estará siempre activa.
 
 const partidosData = [
-    ["TOLUCA", "AMÉRICA"],
+    ["MEXICO", "REP. DOMINICANA"],
     ["AL AHLY SC", "INTER MIAMI"],
-    ["GIRONA", "AT. MADRID"],
-    ["VILLARREAL", "SEVILLA"],
-    ["FULHAM", "MAN CITY"],
-    ["LIVERPOOL", "CRYSTAL P."],
-    ["MAN UNITED", "ASTON VILLA"],
-    ["NOTTINGHAM", "CHELSEA"],
-    ["TOTTENHAM", "BRIGHTON"],
-    ["VENEZIA", "JUVENTUS"] // Partido de reserva
+    ["BAYERN MUNICH", "AUCKLAND CITY"],
+    ["PSG", "ATLETICO DE MADRID"],
+    ["BOTAFOGO", "SEATTLE SOUNDERS"],
+    ["PALMEIRAS", "PORTO"],
+    ["CHELSEA", "LOS ANGELES FC"],
+    ["FLAMENGO", "ESPERANCE ST"],
+    ["BOCA JRS", "BENFICA"],
+    ["HAITI", "ARABIA SAUDITA"] // Partido de reserva
 ];
 
 // URLs de logos de equipos. ¡ACTUALIZADAS CON TUS LOGOS DE GITHUB!
