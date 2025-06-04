@@ -10,7 +10,7 @@ const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7J
 
 const partidosData = [
     ["TOLUCA", "AMÉRICA"],
-    ["AT. BILBAO", "BARCELONA"],
+    ["AL AHLY SC", "INTER MIAMI"],
     ["GIRONA", "AT. MADRID"],
     ["VILLARREAL", "SEVILLA"],
     ["FULHAM", "MAN CITY"],
@@ -25,8 +25,8 @@ const partidosData = [
 const logos = {
     "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/toluca.png",
     "AMÉRICA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/america.png",
-    "AT. BILBAO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-bilbao.png",
-    "BARCELONA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/barcelona.png",
+    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-bilbao.png",
+    "INTER MIAI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/barcelona.png",
     "GIRONA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/girona.png",
     "AT. MADRID": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-madrid.png",
     "VILLARREAL": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/villareal.png",
