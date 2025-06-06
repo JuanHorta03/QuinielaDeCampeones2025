@@ -25,7 +25,7 @@ const partidosData = [
 const logos = {
     "MEXICO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/toluca.png",
     "DOMINICANA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/america.png",
-    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/al_ahly.png",
+    "AL AHLY SC": "https://github.com/JuanHorta03/QuinielaDeCampeones2025/blob/main/logos/al_ahly.png",
     "INTER MIAMI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/intermiami.png",
     "BAYERN": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/bayernmunchen.png",
     "AUCKLAND": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/auckland_city.png",
