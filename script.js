@@ -24,21 +24,21 @@ const partidosData = [
 const logos = {
     "MEXICO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/toluca.png",
     "REP. DOMINICANA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/america.png", // CORREGIDO
-    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/al_ahly.png",
-    "INTER MIAMI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/intermiami.png",
-    "BAYERN MUNICH": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/bayernmunchen.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
+    "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/al_ahly.png",
+    "INTER MIAMI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/inter-miami.png",
+    "BAYERN MUNICH": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayernmunchen.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
     "AUCKLAND CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/auckland_city.png", // CORREGIDO
-    "PSG": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/psg.png",
+    "PSG": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/psg.png",
     "ATLETICO DE MADRID": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-madrid.png",
-    "BOTAFOGO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/botafogo.png",
-    "SEATTLE SOUNDERS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/seattle.png", // CORREGIDO
-    "PALMEIRAS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/palmeiras.png",
-    "PORTO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/porto.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
+    "BOTAFOGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/botafogo.png",
+    "SEATTLE SOUNDERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/seattle.png", // CORREGIDO
+    "PALMEIRAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/palmeiras.png",
+    "PORTO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/porto.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
     "CHELSEA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/chelsea.png",
     "LOS ANGELES FC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/aston-villa.png", // CORREGIDO
-    "FLAMENGO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/flamengo.png",
-    "ESPERANCE ST": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/esperance_sp_tunis.png", // CORREGIDO
-    "BOCA JRS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/boca.png",
+    "FLAMENGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/flamengo.png",
+    "ESPERANCE ST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/esperance_sp_tunis.png", // CORREGIDO
+    "BOCA JRS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/boca.png",
     "HAITI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/bha.png",
     "ARABIA SAUDITA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/venezia.png",
     "JUVENTUS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/juventus.png",
