@@ -27,7 +27,7 @@ const logos = {
     "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/al_ahly.png",
     "INTER MIAMI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/intermiami.png",
     "BAYERN MUNICH": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/bayernmunchen.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
-    "AUCKLAND CITY": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/auckland_city.png", // CORREGIDO
+    "AUCKLAND CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/auckland_city.png", // CORREGIDO
     "PSG": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/psg.png",
     "ATLETICO DE MADRID": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/atletico-madrid.png",
     "BOTAFOGO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/botafogo.png",
