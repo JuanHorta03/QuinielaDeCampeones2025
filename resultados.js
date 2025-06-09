@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const errorMessageDiv = document.getElementById('error-message');
     const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
-    const officialResultsTableBody = document.querySelector('#official-results-table tbody'); // Nueva referencia a la tabla de partidos
-
+    
     loadingDiv.style.display = 'block'; // Mostrar mensaje de carga
     errorMessageDiv.style.display = 'none'; // Asegurarse de que el error no se muestre
 
