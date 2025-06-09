@@ -51,13 +51,15 @@
 }
 
 /* Contenedores principales dentro del marco */
-.resultados-container,
+.resultados-container, /* Aunque este ya no exista en HTML, el estilo sigue ahí */
 .ranking-container {
     background-color: var(--main-content-background, #1A202C); /* Fondo oscuro del marco */
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px; /* Separación entre secciones */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    /* AÑADE ESTA LÍNEA: */
+    overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
 }
 
 .resultados-container h4,
