@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const errorMessageDiv = document.getElementById('error-message');
     const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
-    const officialResultsGrid = document.getElementById('official-results-grid');
+    const officialResultsTableBody = document.querySelector('#official-results-table tbody'); // Nueva referencia a la tabla de partidos
 
     loadingDiv.style.display = 'block'; // Mostrar mensaje de carga
     errorMessageDiv.style.display = 'none'; // Asegurarse de que el error no se muestre
@@ -28,47 +28,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         loadingDiv.style.display = 'none'; // Ocultar mensaje de carga
 
-        // --- 1. Mostrar Partidos y Resultados Oficiales ---
-        officialResultsGrid.innerHTML = ''; // Limpiar el contenido anterior
+        // --- 1. Mostrar Partidos y Resultados Oficiales (como tabla) ---
+        officialResultsTableBody.innerHTML = ''; // Limpiar el contenido anterior
         if (data.partidos && data.partidos.length > 0) {
             data.partidos.forEach(partido => {
-                const partidoDiv = document.createElement('div');
-                partidoDiv.classList.add('partido-oficial-item'); // Clase para estilos de grid
-
+                const row = document.createElement('tr');
+                
                 let resultadoDisplay = 'Pendiente';
                 let resultadoClass = 'sin-resultado'; 
 
                 if (partido.ganador_real) {
                     switch (partido.ganador_real.toUpperCase()) {
                         case 'L':
-                            resultadoDisplay = `${partido.local} Gana`;
+                            resultadoDisplay = 'L'; // Solo mostrar L, V, E en la tabla de partidos
                             resultadoClass = 'resultado-local-gana';
                             break;
                         case 'V':
-                            resultadoDisplay = `${partido.visitante} Gana`;
+                            resultadoDisplay = 'V';
                             resultadoClass = 'resultado-visitante-gana';
                             break;
                         case 'E':
-                            resultadoDisplay = 'Empate';
+                            resultadoDisplay = 'E';
                             resultadoClass = 'resultado-empate';
                             break;
                         default:
-                            resultadoDisplay = 'Inválido'; // Para resultados inesperados
+                            resultadoDisplay = 'Inválido';
                             resultadoClass = 'sin-resultado';
                             break;
                     }
                 }
                 
-                partidoDiv.innerHTML = `
-                    <div class="partido-equipos">${partido.local} vs ${partido.visitante}</div>
-                    <div class="partido-resultado ${resultadoClass}">
-                        ${resultadoDisplay}
-                    </div>
+                row.innerHTML = `
+                    <td data-label="Partido">${partido.local} vs ${partido.visitante}</td>
+                    <td data-label="Resultado" class="partido-resultado-celda">
+                        <span class="partido-resultado-span ${resultadoClass}">
+                            ${resultadoDisplay}
+                        </span>
+                    </td>
                 `;
-                officialResultsGrid.appendChild(partidoDiv);
+                officialResultsTableBody.appendChild(row);
             });
         } else {
-            officialResultsGrid.innerHTML = '<p class="info-message">No hay partidos definidos o resultados oficiales aún.</p>';
+            officialResultsTableBody.innerHTML = '<tr><td colspan="2" class="info-message">No hay partidos definidos o resultados oficiales aún.</td></tr>';
         }
 
         // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla de Ranking ---
@@ -79,8 +80,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.partidos && data.partidos.length > 0) {
             data.partidos.forEach((partido) => {
                 const th = document.createElement('th');
-                th.textContent = `P${partido.id}`; // Mostrar P1, P2, etc.
                 th.setAttribute('data-game-header', true); // Marcador para poder eliminarlos si se recarga
+                
+                let resultadoClass = 'sin-resultado'; // Default para el encabezado
+                let resultadoTexto = 'Pendiente';
+
+                if (partido.ganador_real) {
+                    switch (partido.ganador_real.toUpperCase()) {
+                        case 'L':
+                            resultadoClass = 'resultado-local-gana';
+                            resultadoTexto = 'L';
+                            break;
+                        case 'V':
+                            resultadoClass = 'resultado-visitante-gana';
+                            resultadoTexto = 'V';
+                            break;
+                        case 'E':
+                            resultadoClass = 'resultado-empate';
+                            resultadoTexto = 'E';
+                            break;
+                        default:
+                            resultadoTexto = '?'; // Para resultados inesperados
+                            break;
+                    }
+                }
+
+                // **** ESTA ES LA MODIFICACIÓN PARA EL ENCABEZADO DEL RANKING ****
+                th.innerHTML = `
+                    <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span><br>
+                    <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span><br>
+                    <span class="header-px">P${partido.id}</span>
+                `;
+                // ***************************************************************
+
                 leaderboardTableHeadRow.appendChild(th);
             });
         }
