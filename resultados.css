@@ -1,5 +1,28 @@
 /* resultados.css */
 
+/* Variables CSS para colores (asegúrate de que estas estén en style.css o definidas aquí si no lo están) */
+:root {
+    --green-dark: #2C5F2D; /* Verde oscuro */
+    --green-medium: #4CAF50; /* Verde medio */
+    --green-light: #8BC34A; /* Verde claro */
+    --element-background-light-gray: #F0F0F0; /* Gris claro */
+    --gray-light: #E0E0E0;
+    --blue-add: #2196F3; /* Azul */
+    --yellow-random: #FFC107; /* Amarillo */
+    --red-delete: #F44336; /* Rojo */
+    --white: #FFFFFF; /* Blanco */
+    --text-dark: #333; /* Texto oscuro */
+    --text-light: #666; /* Texto claro */
+
+    /* Variables de fondo y texto del marco (deberían venir de style.css) */
+    --body-gradient-top: #1E3A57; 
+    --body-gradient-bottom: #0F1A2A; 
+    --banner-area-background: #1B2D24; 
+    --main-content-background: #1A202C; 
+    --accent-text-color: #E0E6F0; 
+}
+
+
 /* Estilos para los botones de navegación */
 .button-row {
     text-align: center;
@@ -57,9 +80,7 @@
     padding: 20px;
     margin-top: 20px; /* Separación de la parte superior */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* Permitir scroll horizontal en el marco si la tabla aún es demasiado ancha
-       Con los encabezados verticales, esto debería ser menos necesario pero es un fallback */
-    overflow-x: auto; 
+    overflow-x: auto; /* Permitir scroll horizontal en el marco si la tabla aún es demasiado ancha */
 }
 
 /* Estilos para el título del ranking */
@@ -96,9 +117,7 @@
     border-radius: 8px;
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra que tenía el contenedor */
-    /* table-layout: fixed; es útil si quieres anchos de columna muy específicos,
-       pero para encabezados verticales, 'auto' o no definirlo puede dar más flexibilidad */
-    table-layout: auto; 
+    table-layout: fixed; /* Mantiene anchos de columna fijos, crucial para los headers verticales */
 }
 
 #leaderboard-table th,
@@ -108,7 +127,7 @@
     text-align: center; /* Centrar todo el texto en las celdas */
     border-bottom: 1px solid #3a455a; /* Separador de fila */
     color: var(--accent-text-color, #E0E6F0);
-    white-space: nowrap; /* Mantiene el contenido en una línea (importante para rotación) */
+    white-space: nowrap; /* Mantiene el contenido en una línea (útil para la rotación) */
     overflow: hidden; /* Oculta el texto que se desborde */
     text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo y se oculta */
 }
@@ -129,20 +148,39 @@
     background-color: #3b455c; /* Hover para filas */
 }
 
-/* Primera columna (Posición) */
-#leaderboard-table td:first-child {
-    font-weight: bold;
-    background-color: #3a455a; /* Fondo distinto para la posición */
-    color: var(--white, #FFFFFF);
+/* --- ESTILOS PARA ENCABEZADOS FIJOS (POSICIÓN, JUGADOR, PUNTOS) --- */
+#leaderboard-table th[data-header-id="posicion"] {
+    width: 45px; /* Ancho fijo para la columna de Posición */
+    vertical-align: middle; /* Centrar verticalmente el texto */
+    font-size: 0.9em; /* Ajustar tamaño de fuente */
 }
 
-/* Ajustes específicos para las columnas de Jugador y Puntos (celdas de datos) */
+#leaderboard-table th[data-header-id="jugador"] {
+    width: 110px; /* Ancho fijo para la columna de Jugador */
+    text-align: center; /* Asegurar centrado */
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+#leaderboard-table th[data-header-id="puntos"] {
+    width: 60px; /* Ancho fijo para la columna de Puntos */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+
+/* Estilo para las celdas de datos (td) de las columnas fijas */
+#leaderboard-table td:nth-child(1) { /* Posición */
+    font-weight: bold;
+    background-color: #3a455a;
+    color: var(--white, #FFFFFF);
+    padding-right: 5px; /* Ajuste de padding */
+    padding-left: 5px; /* Ajuste de padding */
+}
 #leaderboard-table td:nth-child(2) { /* Jugador */
     padding-left: 8px;
     padding-right: 8px;
     text-align: left; /* Alinear nombre del jugador a la izquierda */
-    font-weight: bold; /* Nombre del jugador en negrita */
-    min-width: 80px; /* Un poco más de ancho para el nombre del jugador */
+    font-weight: bold;
 }
 #leaderboard-table td:nth-child(3) { /* Puntos */
     padding-left: 8px;
@@ -150,19 +188,18 @@
     font-weight: bold;
 }
 
-
-/* --- ESTILOS PARA TODOS LOS ENCABEZADOS DE LA TABLA (VERTICALES) --- */
-#leaderboard-table thead th {
-    height: 100px; /* Aumenta esta altura. Esta altura se convierte en el "ancho" efectivo de la columna para el texto rotado */
-    min-width: 25px; /* Un ancho mínimo para la celda de encabezado en sí */
+/* --- ESTILOS PARA ENCABEZADOS DE PARTIDOS (P1, P2, etc.) - LOS QUE VAN ROTADOS --- */
+#leaderboard-table th[data-game-header] {
+    width: 35px; /* Ancho fijo para cada columna de partido */
+    height: 60px; /* Altura que permitirá el texto rotado */
     padding: 0; /* Eliminar padding del TH para que el contenido rotado tenga control total */
     position: relative; /* Necesario para posicionar el contenido rotado absolutamente */
     vertical-align: bottom; /* Alinea el contenido a la parte inferior del TH */
     text-align: center; /* Centra el contenido horizontalmente antes de rotar */
-    overflow: hidden; /* Oculta cualquier cosa que se salga del TH */
+    overflow: visible; /* IMPORTANTE: Permitir que el texto rotado se desborde si es necesario */
 }
 
-.rotated-header-content {
+.rotated-game-header-content { /* Usamos una clase específica para los headers de juego */
     /* Posicionar y rotar el contenido DENTRO del TH */
     position: absolute;
     bottom: 0; /* Lo posiciona en la parte inferior del TH */
@@ -173,27 +210,28 @@
     transform-origin: center bottom; /* Define el punto de rotación: centro-inferior */
     
     white-space: nowrap; /* Evita que el texto se rompa */
-    font-size: 0.9em; /* Aumentar tamaño de fuente para el texto rotado */
+    font-size: 0.85em; /* Tamaño de fuente para el texto rotado */
     color: var(--white, #FFFFFF);
     
-    display: flex; /* Usamos flexbox para alinear las líneas de texto si hay <br> */
+    display: flex; /* Usamos flexbox para alinear las líneas de texto (Resultado y P#) */
     flex-direction: column; /* Apila los elementos verticalmente (antes de rotar) */
     justify-content: flex-end; /* Alinea los elementos al final (abajo) de la columna rotada */
     align-items: center; /* Centra los elementos horizontalmente (antes de rotar) */
     height: 100%; /* El div ocupa toda la altura del TH para un centrado más fácil */
     padding-bottom: 5px; /* Espacio desde el "borde inferior" (que es el borde izquierdo después de rotar) */
     padding-left: 5px; /* Espacio desde el "borde superior" (que es el borde derecho después de rotar) */
+    text-align: center; /* Asegura el centrado del texto dentro del div rotado */
 }
 
 /* Estilos para los spans dentro del contenido rotado, especialmente el resultado */
-.rotated-header-content span {
+.rotated-game-header-content span {
     font-weight: bold; /* Asegura que el texto sea negrita */
 }
 
-.rotated-header-content .resultado-local-gana,
-.rotated-header-content .resultado-visitante-gana,
-.rotated-header-content .resultado-empate,
-.rotated-header-content .sin-resultado { /* Añadir sin-resultado aquí para que también tenga el estilo de resultado */
+.rotated-game-header-content .resultado-local-gana,
+.rotated-game-header-content .resultado-visitante-gana,
+.rotated-game-header-content .resultado-empate,
+.rotated-game-header-content .sin-resultado { /* Añadir sin-resultado aquí para que también tenga el estilo de resultado */
     display: inline-block; /* Mantener como bloque en línea */
     padding: 1px 3px;
     border-radius: 3px;
@@ -202,19 +240,26 @@
     line-height: 1; /* Ayuda a compactar el espacio vertical entre líneas */
 }
 
-/* Estilos de las celdas de pronóstico de los jugadores */
+/* --- ESTILOS DE LAS CELDAS DE PRONÓSTICO DE LOS JUGADORES (EL PROBLEMA PRINCIPAL) --- */
 .player-prediction-cell {
-    /* No display flex aquí, solo para el span individual */
+    /* No se necesitan estilos complejos aquí, el span interno lo controla */
 }
 
 .pronostico-individual {
-    display: inline-block; /* Para que cada pronóstico sea un bloque en línea */
-    padding: 4px 8px;
+    display: flex; /* Usar flexbox para centrar el contenido (carácter + ícono) */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    padding: 4px 8px; /* Ajusta padding */
     border-radius: 4px;
-    font-size: 0.85em;
+    font-size: 0.85em; /* Ajusta el tamaño de fuente */
     font-weight: bold;
-    color: var(--white, #FFFFFF);
-    margin: 2px; /* Espacio entre cada pronóstico */
+    color: var(--white, #FFFFFF); /* Color de texto blanco por defecto */
+    margin: 2px auto; /* Centrar el span dentro de la celda y dar espacio */
+    min-width: 30px; /* Asegura un ancho mínimo para que el texto y el ícono quepan */
+    height: 25px; /* Altura fija para que todas las bolitas sean uniformes */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño */
+    line-height: 1; /* Ayuda a controlar la altura del texto */
+    text-align: center; /* Asegura que el texto dentro del span esté centrado */
 }
 
 .pronostico-individual.acierto {
@@ -227,10 +272,10 @@
 
 .pronostico-individual.no-pronosticado {
     background-color: var(--gray-light, #E0E0E0); /* Gris para no pronosticado */
-    color: var(--text-dark, #333);
+    color: var(--text-dark, #333); /* Texto oscuro para el gris */
 }
 
-.pronostico-individual.no-data { /* Para N/D */
+.pronostico-individual.no-data { /* Para N/D, si se usa */
     background-color: #555;
     color: #CCC;
 }
@@ -257,10 +302,7 @@
         margin: 10px auto; /* Centrar y dar espacio */
     }
 
-    /*
-    En móvil, en lugar de ocultar thead, la tabla en general se mostrará como un conjunto de tarjetas
-    para cada jugador, y dentro de cada tarjeta, los datos se presentarán de forma vertical.
-    */
+    /* En móvil, mostramos las filas como tarjetas y ocultamos el encabezado de la tabla */
     #leaderboard-table {
         table-layout: auto; /* Desactivar fixed table-layout para móviles para un mejor flujo */
         width: 100%;
