@@ -1,5 +1,5 @@
 // ¡IMPORTANTE! Reemplaza esta URL con la URL de TU Google Apps Script que copiaste al implementar
-const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbwGSDiUzGXSeSnWlsS0XIPGhs-8V6ZoTBEzlN-gSlyiHrL2f3u1R8EyY4aDRTpo8u7g/exec'; // ESTA ES LA URL QUE ME PROPORCIONASTE.
+const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbwGSDUq4X-u2Q0y8t7Zf9qWj8kP3l2b6c7d8e9f0g1h2i3j4k5l6m7n8o9p/exec'; // ASEGÚRATE QUE ESTA SEA TU URL FINAL Y CORRECTA
 
 document.addEventListener('DOMContentLoaded', async () => {
     const loadingDiv = document.getElementById('loading');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Crear encabezados fijos (Posición, Jugador, Puntos) con contenido para rotar
         const headers = [
-            { id: 'posicion', text: 'POS.' },
+            { id: 'posicion', text: 'POSICIÓN' }, // Usamos texto completo para que se vea bien rotado
             { id: 'jugador', text: 'JUGADOR' },
             { id: 'puntos', text: 'PUNTOS' }
         ];
@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.ranking && data.ranking.length > 0) {
             data.ranking.forEach((player, index) => {
                 const row = document.createElement('tr');
+                // Asegúrate de que las celdas iniciales tienen su data-label para responsividad móvil
                 row.innerHTML = `
                     <td data-label="Posición">${index + 1}</td>
                     <td data-label="Jugador">${player.nombre}</td>
@@ -98,15 +99,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Añadir los pronósticos detallados (con acierto/error)
+                // Usamos un Map para acceder rápidamente a los pronósticos por ID de partido
+                const playerPronosticosMap = new Map();
                 if (player.pronosticosDetalle && Array.isArray(player.pronosticosDetalle)) {
-                    data.partidos.forEach((partido, pIndex) => { // Iterar sobre los partidos para asegurar el orden
+                    player.pronosticosDetalle.forEach(p => {
+                        playerPronosticosMap.set(p.id_partido, p);
+                    });
+                }
+
+                if (data.partidos && Array.isArray(data.partidos)) {
+                    data.partidos.forEach((partido) => {
                         const td = document.createElement('td');
                         td.classList.add('player-prediction-cell'); // Para aplicar estilos a la celda
                         
-                        const p = player.pronosticosDetalle.find(det => det.id_partido === partido.id);
+                        const p = playerPronosticosMap.get(partido.id); // Obtener el pronóstico para este partido
                         
                         let classToApply = '';
-                        let displayChar = '_'; // Por defecto, si no hay pronóstico
+                        let displayChar = '_'; // Por defecto: no pronosticado
                         let icon = ''; // Para los íconos de acierto/error
 
                         if (p) { // Si hay pronóstico para este partido
@@ -121,25 +130,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 classToApply = 'fallo';
                                 icon = '&#10006;'; // ❌
                             }
-                        } else { // Si no hay pronóstico en detalle para este partido (debería tener _ si no pronosticó)
+                        } else { 
+                             // Si no existe el pronóstico para este partido en player.pronosticosDetalle
+                             // Esto podría ocurrir si el jugador envió la quiniela antes de que se agregara este partido.
+                             // O si la estructura de datos es inconsistente.
                              classToApply = 'no-pronosticado';
                              displayChar = '_';
+                             icon = '';
                         }
                         
                         // Envuelve el pronóstico en un span con la clase para el color/icono
                         td.innerHTML = `<span class="pronostico-individual ${classToApply}">${displayChar}${icon}</span>`;
-                        td.setAttribute('data-label', `P${partido.id}`); // Para responsividad móvil
+                        td.setAttribute('data-label', `P${partido.id}`); // Para responsividad móvil: P1, P2, etc.
                         row.appendChild(td);
                     });
-                } else {
-                    // Si no hay pronosticosDetalle, añade celdas vacías o con N/D para mantener la estructura de la tabla
-                    const numPartidos = data.partidos ? data.partidos.length : 0;
-                    for(let i = 0; i < numPartidos; i++) {
-                        const td = document.createElement('td');
-                        td.setAttribute('data-label', `P${i + 1}`);
-                        td.innerHTML = '<span class="pronostico-individual no-data">N/D</span>';
-                        row.appendChild(td);
-                    }
                 }
                 leaderboardTableBody.appendChild(row);
             });
