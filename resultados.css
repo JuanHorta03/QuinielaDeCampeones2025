@@ -50,22 +50,21 @@
     padding: 10px;
 }
 
-/* Contenedores principales dentro del marco */
-.resultados-container, /* Aunque este ya no exista en HTML, el estilo sigue ahí */
-.ranking-container {
+/* Contenedor principal del marco */
+.marco {
     background-color: var(--main-content-background, #1A202C); /* Fondo oscuro del marco */
     border-radius: 10px;
     padding: 20px;
-    margin-top: 20px; /* Separación entre secciones */
+    margin-top: 20px; /* Separación de la parte superior */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* AÑADE ESTA LÍNEA: */
     overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
 }
 
-.resultados-container h4,
-.ranking-container h4 {
+/* Estilos para el título del ranking ahora que no está en .ranking-container */
+.marco h4 { /* Apuntamos al h4 dentro del marco */
     color: var(--blue-medium, #007bff); /* Títulos de subsección */
     text-align: center;
+    margin-top: 20px; /* Margen superior para separarlo del banner/botones */
     margin-bottom: 15px;
     font-size: 1.3em;
 }
@@ -91,18 +90,20 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
-    background-color: #2a3344; /* Mismo tono que el item de partido */
+    background-color: #2a3344; /* Fondo oscuro similar al que tenía el contenedor */
     border-radius: 8px;
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra que tenía el contenedor */
 }
 
 #leaderboard-table th,
 #leaderboard-table td {
-    padding: 12px 8px;
+    padding: 8px 3px; /* Reducir padding para más compacidad */
+    font-size: 0.8em; /* Reducir tamaño de fuente para todas las celdas */
     text-align: center; /* Centrar todo el texto en las celdas */
     border-bottom: 1px solid #3a455a; /* Separador de fila */
     color: var(--accent-text-color, #E0E6F0);
-    white-space: nowrap; /* Evitar que el texto se rompa en una sola línea si no hay suficiente espacio */
+    white-space: nowrap; /* Mantener texto en una línea (útil para la rotación) */
 }
 
 #leaderboard-table th {
@@ -121,51 +122,78 @@
     background-color: #3b465c; /* Hover para filas */
 }
 
+/* Primera columna (Posición) */
 #leaderboard-table td:first-child {
-    font-weight: bold; /* Posición */
+    font-weight: bold;
     background-color: #3a455a; /* Fondo distinto para la posición */
     color: var(--white, #FFFFFF);
 }
 
+/* Ajustes específicos para las columnas de Jugador y Puntos */
+#leaderboard-table th:nth-child(2), /* Jugador */
+#leaderboard-table td:nth-child(2) {
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: left; /* Alinear nombre del jugador a la izquierda */
+}
+#leaderboard-table th:nth-child(3), /* Puntos */
+#leaderboard-table td:nth-child(3) {
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
-/* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
+
+/* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (VERTICALES) --- */
 #leaderboard-table th[data-game-header] {
-    font-size: 0.9em; 
-    padding-top: 5px; 
-    padding-bottom: 5px;
-    vertical-align: middle;
+    height: 100px; /* Altura del TH que se convierte en el "ancho" de la columna */
+    min-width: 25px; /* Ancho mínimo real de la celda (cuando está "horizontal") */
+    padding: 0; /* Eliminar padding del TH para que el contenido rotado tenga control total */
+    position: relative; /* Necesario para posicionar el contenido rotado absolutamente */
+    vertical-align: bottom; /* Alinea el contenido a la parte inferior del TH */
+    text-align: center; /* Centra el contenido horizontalmente antes de rotar */
+    overflow: hidden; /* Oculta cualquier cosa que se salga del TH */
 }
 
-.header-match-name {
-    display: block; /* Para que ocupe su propia línea */
-    font-weight: bold;
-    color: var(--white, #FFFFFF); /* Color para el nombre del partido */
-    margin-bottom: 3px; /* Espacio entre el nombre y el resultado */
-    font-size: 0.8em; /* Un poco más pequeño */
-}
-
-.header-match-result {
-    display: inline-block; /* Para que el fondo se ajuste al texto */
-    font-size: 0.8em;
-    font-weight: bold;
-    padding: 2px 5px;
-    border-radius: 3px;
-    min-width: 25px; /* Asegura un ancho mínimo para la 'L', 'V', 'E' */
-    text-align: center;
+.rotated-header-content {
+    /* Posicionar y rotar el contenido DENTRO del TH */
+    position: absolute;
+    bottom: 0; /* Lo posiciona en la parte inferior del TH */
+    left: 50%; /* Lo centra horizontalmente dentro del TH */
+    
+    /* La magia de la rotación */
+    transform: translateX(-50%) rotate(-90deg); /* Rota -90 grados y lo centra */
+    transform-origin: center bottom; /* Define el punto de rotación: centro-inferior */
+    
+    white-space: nowrap; /* Evita que el texto se rompa */
+    font-size: 0.8em; /* Tamaño de fuente para el texto rotado */
     color: var(--white, #FFFFFF);
-    margin-bottom: 3px; /* Espacio entre el resultado y Px */
-    /* Las clases de color (resultado-local-gana, etc.) se aplican a este span */
+    
+    display: flex; /* Usamos flexbox para alinear las dos líneas de texto */
+    flex-direction: column; /* Apila los elementos verticalmente (antes de rotar) */
+    justify-content: flex-end; /* Alinea los elementos al final (abajo) de la columna rotada */
+    align-items: center; /* Centra los elementos horizontalmente (antes de rotar) */
+    height: 100%; /* El div ocupa toda la altura del TH para un centrado más fácil */
+    padding-bottom: 5px; /* Espacio desde el "borde inferior" (que es el borde izquierdo después de rotar) */
+    padding-left: 5px; /* Espacio desde el "borde superior" (que es el borde derecho después de rotar) */
 }
 
-.header-px {
-    display: block; /* Px en su propia línea */
-    font-size: 0.85em;
-    font-weight: normal; /* Menos negrita que el nombre del partido */
-    color: var(--accent-text-color, #E0E6F0);
+/* Estilos para el span de resultado dentro del contenido rotado */
+.rotated-header-content span {
+    font-weight: bold; /* Asegura que el texto sea negrita */
 }
 
+.rotated-header-content .resultado-local-gana,
+.rotated-header-content .resultado-visitante-gana,
+.rotated-header-content .resultado-empate {
+    display: inline-block; /* Mantener como bloque en línea */
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-size: 0.9em; /* Ajuste del tamaño de fuente específico para el resultado */
+    font-weight: bold;
+    line-height: 1; /* Ayuda a compactar el espacio vertical entre líneas */
+}
 
-/* Estilos para los pronósticos individuales en la celda */
+/* Estilos de las celdas de pronóstico de los jugadores */
 .player-prediction-cell {
     /* No display flex aquí, solo para el span individual */
 }
@@ -284,9 +312,8 @@
     #leaderboard-table td:first-child::before {
         display: none; /* Ocultar el data-label para la posición */
     }
-
     /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
     #leaderboard-table th[data-game-header] {
-        display: none; 
+        display: none; /* Se ocultan completamente en móvil para el diseño "tarjeta" */
     }
 }
