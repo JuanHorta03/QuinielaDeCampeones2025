@@ -4,8 +4,8 @@ const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfyc
 document.addEventListener('DOMContentLoaded', async () => {
     const loadingDiv = document.getElementById('loading');
     const errorMessageDiv = document.getElementById('error-message');
+    const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
-    const leaderboardTableHeader = document.querySelector('#leaderboard-table thead tr');
     const officialResultsGrid = document.getElementById('official-results-grid');
 
     loadingDiv.style.display = 'block'; // Mostrar mensaje de carga
@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(GOOGLE_APPS_SCRIPT_RESULTS_URL);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorText = await response.text();
+            throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. Detalles: ${errorText}`);
         }
 
         const data = await response.json();
+        console.log('Datos recibidos del Apps Script:', data); // Para depuración
 
         if (data.error) {
             throw new Error(data.error);
@@ -31,32 +33,57 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.partidos && data.partidos.length > 0) {
             data.partidos.forEach(partido => {
                 const partidoDiv = document.createElement('div');
-                partidoDiv.classList.add('partido-oficial');
-                const resultadoClass = (partido.ganador_real === 'L' || partido.ganador_real === 'E' || partido.ganador_real === 'V') ? '' : 'no-definido';
+                partidoDiv.classList.add('partido-oficial-item'); // Clase para estilos de grid
 
+                let resultadoDisplay = 'Pendiente';
+                let resultadoClass = 'sin-resultado'; 
+
+                if (partido.ganador_real) {
+                    switch (partido.ganador_real.toUpperCase()) {
+                        case 'L':
+                            resultadoDisplay = `${partido.local} Gana`;
+                            resultadoClass = 'resultado-local-gana';
+                            break;
+                        case 'V':
+                            resultadoDisplay = `${partido.visitante} Gana`;
+                            resultadoClass = 'resultado-visitante-gana';
+                            break;
+                        case 'E':
+                            resultadoDisplay = 'Empate';
+                            resultadoClass = 'resultado-empate';
+                            break;
+                        default:
+                            resultadoDisplay = 'Inválido'; // Para resultados inesperados
+                            resultadoClass = 'sin-resultado';
+                            break;
+                    }
+                }
+                
                 partidoDiv.innerHTML = `
-                    <div class="equipos">${partido.local} vs ${partido.visitante}</div>
-                    <div class="resultado-oficial ${resultadoClass}">
-                        ${partido.ganador_real || 'Pendiente'}
+                    <div class="partido-equipos">${partido.local} vs ${partido.visitante}</div>
+                    <div class="partido-resultado ${resultadoClass}">
+                        ${resultadoDisplay}
                     </div>
                 `;
                 officialResultsGrid.appendChild(partidoDiv);
             });
         } else {
-            officialResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-light);">No hay partidos definidos o resultados oficiales aún.</p>';
+            officialResultsGrid.innerHTML = '<p class="info-message">No hay partidos definidos o resultados oficiales aún.</p>';
         }
 
+        // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla de Ranking ---
+        // Eliminar solo los TH de partidos si ya existían para evitar duplicados
+        const existingGameHeaders = leaderboardTableHeadRow.querySelectorAll('[data-game-header]');
+        existingGameHeaders.forEach(th => th.remove());
 
-        // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla ---
-        // Agregar los encabezados P1, P2, ..., P10 a la tabla de ranking
         if (data.partidos && data.partidos.length > 0) {
-            data.partidos.forEach((partido, index) => {
+            data.partidos.forEach((partido) => {
                 const th = document.createElement('th');
                 th.textContent = `P${partido.id}`; // Mostrar P1, P2, etc.
-                leaderboardTableHeader.appendChild(th);
+                th.setAttribute('data-game-header', true); // Marcador para poder eliminarlos si se recarga
+                leaderboardTableHeadRow.appendChild(th);
             });
         }
-
 
         // --- 3. Rellenar el Ranking (Leaderboard) ---
         leaderboardTableBody.innerHTML = ''; // Limpiar el contenido anterior
@@ -64,30 +91,51 @@ document.addEventListener('DOMContentLoaded', async () => {
             data.ranking.forEach((player, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><span class="math-inline">\{index \+ 1\}</td\> <td\></span>{player.nombre}</td>
-                    <td>${player.puntos}</td>
+                    <td data-label="Posición">${index + 1}</td>
+                    <td data-label="Jugador">${player.nombre}</td>
+                    <td data-label="Puntos">${player.puntos}</td>
                 `;
+
                 // Añadir los pronósticos detallados (con acierto/error)
-                player.pronosticosDetalle.forEach(p => {
-                    const td = document.createElement('td');
-                    td.classList.add('player-prediction');
-                    let classToApply = '';
-                    if (p.esAcierto) {
-                        classToApply = 'acierto';
-                        td.innerHTML = `<span class="<span class="math-inline">\{classToApply\}"\></span>{p.prediccion}&#10003;</span>`; // ✅
-                    } else if (p.prediccion === '_') {
-                        classToApply = 'no-pronosticado';
-                        td.innerHTML = `<span class="<span class="math-inline">\{classToApply\}"\></span>{p.prediccion}</span>`; // _
-                    } else {
-                        classToApply = 'error';
-                        td.innerHTML = `<span class="<span class="math-inline">\{classToApply\}"\></span>{p.prediccion}&#10006;</span>`; // ❌
+                if (player.pronosticosDetalle && Array.isArray(player.pronosticosDetalle)) {
+                    player.pronosticosDetalle.forEach(p => {
+                        const td = document.createElement('td');
+                        td.classList.add('player-prediction-cell'); // Para aplicar estilos a la celda
+                        
+                        let classToApply = '';
+                        let displayChar = p.prediccion; // Por defecto es el pronóstico
+                        let icon = ''; // Para los íconos de acierto/error
+
+                        if (p.esAcierto) {
+                            classToApply = 'acierto';
+                            icon = '&#10003;'; // ✅
+                        } else if (p.prediccion === '_') {
+                            classToApply = 'no-pronosticado';
+                            icon = ''; // No hay ícono para no pronosticado
+                        } else {
+                            classToApply = 'fallo';
+                            icon = '&#10006;'; // ❌
+                        }
+                        
+                        // Envuelve el pronóstico en un span con la clase para el color/icono
+                        td.innerHTML = `<span class="pronostico-individual ${classToApply}">${displayChar}${icon}</span>`;
+                        td.setAttribute('data-label', `P${player.pronosticosDetalle.indexOf(p) + 1}`); // Para responsividad móvil
+                        row.appendChild(td);
+                    });
+                } else {
+                    // Si no hay pronosticosDetalle, añade celdas vacías o con N/D para mantener la estructura de la tabla
+                    const numPartidos = data.partidos ? data.partidos.length : 0;
+                    for(let i = 0; i < numPartidos; i++) {
+                        const td = document.createElement('td');
+                        td.setAttribute('data-label', `P${i + 1}`);
+                        td.innerHTML = '<span class="pronostico-individual no-data">N/D</span>';
+                        row.appendChild(td);
                     }
-                    row.appendChild(td);
-                });
+                }
                 leaderboardTableBody.appendChild(row);
             });
         } else {
-            leaderboardTableBody.innerHTML = '<tr><td colspan="13" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>';
+            leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>';
         }
 
     } catch (error) {
