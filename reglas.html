@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Reglas de la Quiniela de Campeones</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/47/Soccer_ball.svg" type="image/svg+xml">
+    <style>
+        /* Estilos específicos para el contenedor de reglas, usando variables de tu style.css si están definidas */
+        .rules-container {
+            max-width: 800px; /* Ancho máximo para el contenido de las reglas */
+            margin: 20px auto; /* Centra el contenido */
+            padding: 20px;
+            background-color: var(--background-light, #f8f8f8); /* Color de fondo, con fallback */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .rules-container h1, .rules-container h2 {
+            color: var(--blue-medium, #007bff); /* Color de título, con fallback */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .rules-container ul {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        .rules-container li {
+            margin-bottom: 10px;
+            color: var(--text-color, #333); /* Color de texto, con fallback */
+        }
+        .back-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--green-medium, #4CAF50); /* Usa un color que combine con tus botones, con fallback */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: var(--green-dark, #45a049); /* Color más oscuro al pasar el ratón, con fallback */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-container">
+        <img src="logos/banner.png" alt="Quiniela de Campeones Banner" class="banner-image">
+    </div>
+
+    <div class="rules-container">
+        <h1>Reglas de la Quiniela de Campeones</h1>
+
+        <p>Bienvenido a la Quiniela de Campeones 2025. A continuación, se detallan las reglas para participar y la forma de puntuación:</p>
+
+        <h2>1. Participación</h2>
+        <ul>
+            <li>La participación es gratuita para todos los interesados.</li>
+            <li>Cada participante puede enviar un único pronóstico por jornada/evento.</li>
+            <li>Los pronósticos deberán ser enviados antes de la hora de inicio del primer partido de la quiniela.</li>
+        </ul>
+
+        <h2>2. Formato de Pronósticos</h2>
+        <ul>
+            <li>La quiniela constará de 10 partidos seleccionados por la organización.</li>
+            <li>Para cada partido, se debe pronosticar el resultado al final del tiempo reglamentario (90 minutos + tiempo añadido), excluyendo prórrogas o penaltis.</li>
+            <li>Los pronósticos válidos son: <strong>L</strong> (Victoria del equipo local), <strong>E</strong> (Empate), <strong>V</strong> (Victoria del equipo visitante).</li>
+        </ul>
+
+        <h2>3. Sistema de Puntuación</h2>
+        <ul>
+            <li>Se otorgará <strong>1 punto</strong> por cada pronóstico acertado.</li>
+            <li>No se otorgarán puntos por pronósticos incorrectos.</li>
+            <li>La clasificación (ranking) se basará en el total de puntos acumulados.</li>
+        </ul>
+
+        <h2>4. Criterios de Desempate</h2>
+        <p>En caso de empate en el número total de aciertos entre dos o más participantes, se aplicarán los siguientes criterios en el orden especificado:</p>
+        <ul>
+            <li>**1er Criterio:** El participante que haya pronosticado correctamente el resultado del "Partido Desempate" (se indicará cuál es este partido antes del evento).</li>
+            <li>**2do Criterio:** Si el empate persiste, se considerará la hora de envío del pronóstico; el participante que haya enviado su quiniela primero será el desempate.</li>
+        </ul>
+
+        <h2>5. Actualizaciones y Comunicación</h2>
+        <ul>
+            <li>El ranking se actualizará automáticamente y se mostrará en la página principal de la quiniela en vivo.</li>
+            <li>Cualquier cambio en las reglas o información importante se comunicará a través de esta misma página.</li>
+        </ul>
+
+        <h2>6. Consideraciones Generales</h2>
+        <ul>
+            <li>La interpretación de estas reglas y cualquier situación no prevista quedará a juicio de los organizadores.</li>
+        </ul>
+        
+        <div class="back-button-container">
+            <a href="index.html" class="back-button">Volver a la Quiniela</a>
+        </div>
+    </div>
+
+</body>
+</html>
