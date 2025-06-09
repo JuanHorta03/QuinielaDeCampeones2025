@@ -1,28 +1,5 @@
 /* resultados.css */
 
-/* Variables CSS para colores (asegúrate de que estas estén en style.css o definidas aquí si no lo están) */
-:root {
-    --green-dark: #2C5F2D; /* Verde oscuro */
-    --green-medium: #4CAF50; /* Verde medio */
-    --green-light: #8BC34A; /* Verde claro */
-    --element-background-light-gray: #F0F0F0; /* Gris claro */
-    --gray-light: #E0E0E0;
-    --blue-add: #2196F3; /* Azul */
-    --yellow-random: #FFC107; /* Amarillo */
-    --red-delete: #F44336; /* Rojo */
-    --white: #FFFFFF; /* Blanco */
-    --text-dark: #333; /* Texto oscuro */
-    --text-light: #666; /* Texto claro */
-
-    /* Variables de fondo y texto del marco (deberían venir de style.css) */
-    --body-gradient-top: #1E3A57; 
-    --body-gradient-bottom: #0F1A2A; 
-    --banner-area-background: #1B2D24; 
-    --main-content-background: #1A202C; 
-    --accent-text-color: #E0E6F0; 
-}
-
-
 /* Estilos para los botones de navegación */
 .button-row {
     text-align: center;
@@ -73,23 +50,71 @@
     padding: 10px;
 }
 
-/* Contenedor principal del marco */
-.marco {
+/* Contenedores principales dentro del marco */
+.resultados-container,
+.ranking-container {
     background-color: var(--main-content-background, #1A202C); /* Fondo oscuro del marco */
     border-radius: 10px;
     padding: 20px;
-    margin-top: 20px; /* Separación de la parte superior */
+    margin-top: 20px; /* Separación entre secciones */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow-x: auto; /* Permitir scroll horizontal en el marco si la tabla aún es demasiado ancha */
 }
 
-/* Estilos para el título del ranking */
-.marco h4 { /* Apuntamos al h4 dentro del marco */
+.resultados-container h4,
+.ranking-container h4 {
     color: var(--blue-medium, #007bff); /* Títulos de subsección */
     text-align: center;
-    margin-top: 20px; /* Margen superior para separarlo del banner/botones */
     margin-bottom: 15px;
     font-size: 1.3em;
+}
+
+/* --- TABLA DE PARTIDOS Y RESULTADOS OFICIALES (modificada) --- */
+#official-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #2a3344; /* Fondo oscuro similar al ranking */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#official-results-table th,
+#official-results-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #3a455a;
+    color: var(--accent-text-color, #E0E6F0);
+}
+
+#official-results-table th {
+    background-color: var(--blue-medium, #007bff);
+    color: var(--white, #FFFFFF);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#official-results-table tbody tr:nth-child(even) {
+    background-color: #2d374a; /* Color de fondo alterno */
+}
+
+#official-results-table tbody tr:hover {
+    background-color: #3b465c;
+}
+
+/* Estilo para la celda de resultado en la tabla de partidos */
+.partido-resultado-celda {
+    text-align: center; /* Centrar el span del resultado */
+}
+
+.partido-resultado-span {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    min-width: 30px; /* Ancho mínimo para L, V, E */
+    text-align: center;
+    /* Las clases de color (resultado-local-gana, etc.) se aplican a este span */
 }
 
 /* Clases para los resultados (también usadas en la leyenda y encabezados) */
@@ -110,26 +135,21 @@
 
 /* --- TABLA DE RANKING --- */
 #leaderboard-table {
-    width: 100%; /* La tabla ocupa el 100% del ancho disponible */
+    width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
-    background-color: #2a3344; /* Fondo oscuro similar al que tenía el contenedor */
+    background-color: #2a3344; /* Mismo tono que el item de partido */
     border-radius: 8px;
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra que tenía el contenedor */
-    table-layout: fixed; /* Mantiene anchos de columna fijos, crucial para los headers verticales */
 }
 
 #leaderboard-table th,
 #leaderboard-table td {
-    padding: 8px 3px; /* Reducir padding para más compacidad */
-    font-size: 0.85em; /* Ajustar tamaño de fuente para todas las celdas de datos */
+    padding: 12px 8px;
     text-align: center; /* Centrar todo el texto en las celdas */
     border-bottom: 1px solid #3a455a; /* Separador de fila */
     color: var(--accent-text-color, #E0E6F0);
-    white-space: nowrap; /* Mantiene el contenido en una línea (útil para la rotación) */
-    overflow: hidden; /* Oculta el texto que se desborde */
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo y se oculta */
+    white-space: nowrap; /* Evitar que el texto se rompa en una sola línea si no hay suficiente espacio */
 }
 
 #leaderboard-table th {
@@ -137,6 +157,9 @@
     color: var(--white, #FFFFFF);
     font-weight: bold;
     text-transform: uppercase;
+    /* font-size: 0.9em;  Ajuste para el texto "P1" */
+    padding-top: 5px; /* Más espacio arriba */
+    padding-bottom: 5px; /* Más espacio abajo */
     vertical-align: middle; /* Centra el contenido verticalmente */
 }
 
@@ -145,121 +168,66 @@
 }
 
 #leaderboard-table tbody tr:hover {
-    background-color: #3b455c; /* Hover para filas */
+    background-color: #3b465c; /* Hover para filas */
 }
 
-/* --- ESTILOS PARA ENCABEZADOS FIJOS (POSICIÓN, JUGADOR, PUNTOS) --- */
-#leaderboard-table th[data-header-id="posicion"] {
-    width: 45px; /* Ancho fijo para la columna de Posición */
-    vertical-align: middle; /* Centrar verticalmente el texto */
-    font-size: 0.9em; /* Ajustar tamaño de fuente */
-}
-
-#leaderboard-table th[data-header-id="jugador"] {
-    width: 110px; /* Ancho fijo para la columna de Jugador */
-    text-align: center; /* Asegurar centrado */
-    vertical-align: middle;
-    font-size: 0.9em;
-}
-#leaderboard-table th[data-header-id="puntos"] {
-    width: 60px; /* Ancho fijo para la columna de Puntos */
-    text-align: center;
-    vertical-align: middle;
-    font-size: 0.9em;
-}
-
-/* Estilo para las celdas de datos (td) de las columnas fijas */
-#leaderboard-table td:nth-child(1) { /* Posición */
-    font-weight: bold;
-    background-color: #3a455a;
+#leaderboard-table td:first-child {
+    font-weight: bold; /* Posición */
+    background-color: #3a455a; /* Fondo distinto para la posición */
     color: var(--white, #FFFFFF);
-    padding-right: 5px; /* Ajuste de padding */
-    padding-left: 5px; /* Ajuste de padding */
-}
-#leaderboard-table td:nth-child(2) { /* Jugador */
-    padding-left: 8px;
-    padding-right: 8px;
-    text-align: left; /* Alinear nombre del jugador a la izquierda */
-    font-weight: bold;
-}
-#leaderboard-table td:nth-child(3) { /* Puntos */
-    padding-left: 8px;
-    padding-right: 8px;
-    font-weight: bold;
 }
 
-/* --- ESTILOS PARA ENCABEZADOS DE PARTIDOS (P1, P2, etc.) - LOS QUE VAN ROTADOS --- */
+
+/* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    width: 35px; /* Ancho fijo para cada columna de partido */
-    height: 60px; /* Altura que permitirá el texto rotado */
-    padding: 0; /* Eliminar padding del TH para que el contenido rotado tenga control total */
-    position: relative; /* Necesario para posicionar el contenido rotado absolutamente */
-    vertical-align: bottom; /* Alinea el contenido a la parte inferior del TH */
-    text-align: center; /* Centra el contenido horizontalmente antes de rotar */
-    overflow: visible; /* IMPORTANTE: Permitir que el texto rotado se desborde si es necesario */
+    font-size: 0.9em; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    vertical-align: middle;
 }
 
-.rotated-game-header-content { /* Usamos una clase específica para los headers de juego */
-    /* Posicionar y rotar el contenido DENTRO del TH */
-    position: absolute;
-    bottom: 0; /* Lo posiciona en la parte inferior del TH */
-    left: 50%; /* Lo centra horizontalmente dentro del TH */
-    
-    /* La magia de la rotación */
-    transform: translateX(-50%) rotate(-90deg); /* Rota -90 grados (sentido anti-horario) y lo centra */
-    transform-origin: center bottom; /* Define el punto de rotación: centro-inferior */
-    
-    white-space: nowrap; /* Evita que el texto se rompa */
-    font-size: 0.85em; /* Tamaño de fuente para el texto rotado */
-    color: var(--white, #FFFFFF);
-    
-    display: flex; /* Usamos flexbox para alinear las líneas de texto (Resultado y P#) */
-    flex-direction: column; /* Apila los elementos verticalmente (antes de rotar) */
-    justify-content: flex-end; /* Alinea los elementos al final (abajo) de la columna rotada */
-    align-items: center; /* Centra los elementos horizontalmente (antes de rotar) */
-    height: 100%; /* El div ocupa toda la altura del TH para un centrado más fácil */
-    padding-bottom: 5px; /* Espacio desde el "borde inferior" (que es el borde izquierdo después de rotar) */
-    padding-left: 5px; /* Espacio desde el "borde superior" (que es el borde derecho después de rotar) */
-    text-align: center; /* Asegura el centrado del texto dentro del div rotado */
-}
-
-/* Estilos para los spans dentro del contenido rotado, especialmente el resultado */
-.rotated-game-header-content span {
-    font-weight: bold; /* Asegura que el texto sea negrita */
-}
-
-.rotated-game-header-content .resultado-local-gana,
-.rotated-game-header-content .resultado-visitante-gana,
-.rotated-game-header-content .resultado-empate,
-.rotated-game-header-content .sin-resultado { /* Añadir sin-resultado aquí para que también tenga el estilo de resultado */
-    display: inline-block; /* Mantener como bloque en línea */
-    padding: 1px 3px;
-    border-radius: 3px;
-    font-size: 1.1em; /* Un poco más grande para el resultado L/V/E */
+.header-match-name {
+    display: block; /* Para que ocupe su propia línea */
     font-weight: bold;
-    line-height: 1; /* Ayuda a compactar el espacio vertical entre líneas */
+    color: var(--white, #FFFFFF); /* Color para el nombre del partido */
+    margin-bottom: 3px; /* Espacio entre el nombre y el resultado */
+    font-size: 0.8em; /* Un poco más pequeño */
 }
 
-/* --- ESTILOS DE LAS CELDAS DE PRONÓSTICO DE LOS JUGADORES (EL PROBLEMA PRINCIPAL) --- */
+.header-match-result {
+    display: inline-block; /* Para que el fondo se ajuste al texto */
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    min-width: 25px; /* Asegura un ancho mínimo para la 'L', 'V', 'E' */
+    text-align: center;
+    color: var(--white, #FFFFFF);
+    margin-bottom: 3px; /* Espacio entre el resultado y Px */
+    /* Las clases de color (resultado-local-gana, etc.) se aplican a este span */
+}
+
+.header-px {
+    display: block; /* Px en su propia línea */
+    font-size: 0.85em;
+    font-weight: normal; /* Menos negrita que el nombre del partido */
+    color: var(--accent-text-color, #E0E6F0);
+}
+
+
+/* Estilos para los pronósticos individuales en la celda */
 .player-prediction-cell {
-    /* No se necesitan estilos complejos aquí, el span interno lo controla */
+    /* No display flex aquí, solo para el span individual */
 }
 
 .pronostico-individual {
-    display: flex; /* Usar flexbox para centrar el contenido (carácter + ícono) */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    padding: 4px 8px; /* Ajusta padding */
+    display: inline-block; /* Para que cada pronóstico sea un bloque en línea */
+    padding: 4px 8px;
     border-radius: 4px;
-    font-size: 0.85em; /* Ajusta el tamaño de fuente */
+    font-size: 0.85em;
     font-weight: bold;
-    color: var(--white, #FFFFFF); /* Color de texto blanco por defecto */
-    margin: 2px auto; /* Centrar el span dentro de la celda y dar espacio */
-    min-width: 30px; /* Asegura un ancho mínimo para que el texto y el ícono quepan */
-    height: 25px; /* Altura fija para que todas las bolitas sean uniformes */
-    box-sizing: border-box; /* Incluir padding y borde en el tamaño */
-    line-height: 1; /* Ayuda a controlar la altura del texto */
-    text-align: center; /* Asegura que el texto dentro del span esté centrado */
+    color: var(--white, #FFFFFF);
+    margin: 2px; /* Espacio entre cada pronóstico */
 }
 
 .pronostico-individual.acierto {
@@ -272,10 +240,10 @@
 
 .pronostico-individual.no-pronosticado {
     background-color: var(--gray-light, #E0E0E0); /* Gris para no pronosticado */
-    color: var(--text-dark, #333); /* Texto oscuro para el gris */
+    color: var(--text-dark, #333);
 }
 
-.pronostico-individual.no-data { /* Para N/D, si se usa */
+.pronostico-individual.no-data { /* Para N/D */
     background-color: #555;
     color: #CCC;
 }
@@ -302,14 +270,48 @@
         margin: 10px auto; /* Centrar y dar espacio */
     }
 
-    /* En móvil, mostramos las filas como tarjetas y ocultamos el encabezado de la tabla */
-    #leaderboard-table {
-        table-layout: auto; /* Desactivar fixed table-layout para móviles para un mejor flujo */
+    /* Media Queries para la tabla de partidos en móvil */
+    #official-results-table, #official-results-table tbody, #official-results-table tr, #official-results-table td {
+        display: block;
+        width: 100%;
+    }
+    #official-results-table thead {
+        display: none; /* Ocultar encabezados en móvil */
+    }
+    #official-results-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #3a455a;
+        border-radius: 8px;
+        background-color: #2a3344;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #official-results-table td {
+        border-bottom: 1px solid #3a455a;
+        text-align: right;
+        padding: 8px 15px;
+        position: relative;
+    }
+    #official-results-table td:last-child {
+        border-bottom: none;
+    }
+    #official-results-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--blue-medium);
+    }
+
+    /* Media Queries para la tabla de ranking en móvil */
+    #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr, #leaderboard-table td {
+        display: block;
         width: 100%;
     }
 
     #leaderboard-table thead {
-        display: none; /* Ocultar el encabezado de la tabla en móviles (se mostrarán los data-label) */
+        display: none; /* Ocultar el encabezado de la tabla en móviles */
     }
 
     #leaderboard-table tr {
@@ -319,8 +321,6 @@
         background-color: #2a3344;
         padding: 10px;
         box-sizing: border-box; /* Incluir padding en el ancho */
-        display: block; /* Cada fila se convierte en un bloque */
-        width: 100%;
     }
 
     #leaderboard-table td {
@@ -328,9 +328,6 @@
         text-align: right; /* Alineación del valor a la derecha */
         padding: 8px 15px;
         position: relative; /* Para el data-label */
-        display: block; /* Cada celda se convierte en un bloque */
-        width: 100%;
-        box-sizing: border-box;
     }
 
     #leaderboard-table td:last-child {
@@ -344,21 +341,20 @@
         font-weight: bold;
         text-transform: uppercase;
         color: var(--blue-medium);
-        font-size: 0.9em; /* Ajuste del tamaño de fuente para los labels en móvil */
     }
     
     /* Ajustes específicos para la celda de pronósticos en móvil */
-    #leaderboard-table td[data-label^="P"] { /* Para todos los partidos (P1, P2...) */
-        text-align: center; /* Centrar el pronóstico */
-        padding-left: 15px;
-        padding-right: 15px;
-        display: block; /* Seguir siendo un bloque */
+    #leaderboard-table td[data-label="Pronósticos"] {
+        text-align: left; /* Alinea los pronósticos a la izquierda */
+        padding-left: 15px; /* Ajusta el padding */
+        display: flex; /* Para organizar los spans */
+        flex-wrap: wrap;
+        gap: 5px;
     }
-    #leaderboard-table td[data-label^="P"]::before {
+    #leaderboard-table td[data-label="Pronósticos"]::before {
         position: static; /* Restablecer posición para que no se superponga */
-        margin-right: 10px; /* Espacio entre el label y el pronóstico */
+        margin-right: 10px; /* Espacio entre el label y los pronósticos */
         display: inline-block; /* Para que el label se comporte como un elemento de línea */
-        width: auto; /* Auto ancho para el label */
     }
 
     #leaderboard-table td:first-child { /* Posición */
@@ -373,11 +369,8 @@
         display: none; /* Ocultar el data-label para la posición */
     }
 
-    /* Columnas de Jugador y Puntos en móvil */
-    #leaderboard-table td[data-label="Jugador"],
-    #leaderboard-table td[data-label="Puntos"] {
-        text-align: center; /* Centrar para estos en móvil */
-        padding-left: 15px;
-        padding-right: 15px;
+    /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
+    #leaderboard-table th[data-game-header] {
+        display: none; 
     }
 }
