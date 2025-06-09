@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const errorMessageDiv = document.getElementById('error-message');
     const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
-    
+    // const officialResultsTableBody = document.querySelector('#official-results-table tbody'); // ¡Esta línea se eliminó!
+
     loadingDiv.style.display = 'block'; // Mostrar mensaje de carga
     errorMessageDiv.style.display = 'none'; // Asegurarse de que el error no se muestre
 
@@ -26,6 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         loadingDiv.style.display = 'none'; // Ocultar mensaje de carga
+
+        // --- 1. Mostrar Partidos y Resultados Oficiales (ELIMINADO) ---
+        // Se ha eliminado la lógica para esta tabla ya que el HTML fue removido.
 
         // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla de Ranking ---
         // Eliminar solo los TH de partidos si ya existían para evitar duplicados
@@ -60,11 +64,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
 
-                // **** ESTA ES LA MODIFICACIÓN PARA EL ENCABEZADO DEL RANKING ****
+                // **** CAMBIO AQUÍ: Contenido del encabezado para rotación ****
                 th.innerHTML = `
-                    <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span><br>
-                    <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span><br>
-                    <span class="header-px">P${partido.id}</span>
+                    <div class="rotated-header-content">
+                        ${partido.local.substring(0, 3)}/${partido.visitante.substring(0, 3)}<br>
+                        P${partido.id} <span class="${resultadoClass}">(${resultadoTexto})</span>
+                    </div>
                 `;
                 // ***************************************************************
 
