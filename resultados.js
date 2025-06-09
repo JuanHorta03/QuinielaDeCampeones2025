@@ -27,50 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         loadingDiv.style.display = 'none'; // Ocultar mensaje de carga
 
-        // --- 1. Mostrar Partidos y Resultados Oficiales (como tabla) ---
-        officialResultsTableBody.innerHTML = ''; // Limpiar el contenido anterior
-        if (data.partidos && data.partidos.length > 0) {
-            data.partidos.forEach(partido => {
-                const row = document.createElement('tr');
-                
-                let resultadoDisplay = 'Pendiente';
-                let resultadoClass = 'sin-resultado'; 
-
-                if (partido.ganador_real) {
-                    switch (partido.ganador_real.toUpperCase()) {
-                        case 'L':
-                            resultadoDisplay = 'L'; // Solo mostrar L, V, E en la tabla de partidos
-                            resultadoClass = 'resultado-local-gana';
-                            break;
-                        case 'V':
-                            resultadoDisplay = 'V';
-                            resultadoClass = 'resultado-visitante-gana';
-                            break;
-                        case 'E':
-                            resultadoDisplay = 'E';
-                            resultadoClass = 'resultado-empate';
-                            break;
-                        default:
-                            resultadoDisplay = 'Inválido';
-                            resultadoClass = 'sin-resultado';
-                            break;
-                    }
-                }
-                
-                row.innerHTML = `
-                    <td data-label="Partido">${partido.local} vs ${partido.visitante}</td>
-                    <td data-label="Resultado" class="partido-resultado-celda">
-                        <span class="partido-resultado-span ${resultadoClass}">
-                            ${resultadoDisplay}
-                        </span>
-                    </td>
-                `;
-                officialResultsTableBody.appendChild(row);
-            });
-        } else {
-            officialResultsTableBody.innerHTML = '<tr><td colspan="2" class="info-message">No hay partidos definidos o resultados oficiales aún.</td></tr>';
-        }
-
         // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla de Ranking ---
         // Eliminar solo los TH de partidos si ya existían para evitar duplicados
         const existingGameHeaders = leaderboardTableHeadRow.querySelectorAll('[data-game-header]');
