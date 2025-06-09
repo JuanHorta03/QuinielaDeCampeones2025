@@ -23,7 +23,7 @@ const partidosData = [
 
 const logos = {
     "MEXICO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mexico.png",
-    "REP. DOMINICANA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/america.png", // CORREGIDO
+    "REP. DOMINICANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/rep-dominicana.png", // CORREGIDO
     "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/al_ahly.png",
     "INTER MIAMI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/inter-miami.png",
     "BAYERN MUNICH": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayernmunchen.png", // CORREGIDO (y arreglado el error de sintaxis anterior)
@@ -39,8 +39,8 @@ const logos = {
     "FLAMENGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/flamengo.png",
     "ESPERANCE ST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/esperance_sp_tunis.png", // CORREGIDO
     "BOCA JRS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/boca.png",
-    "HAITI": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/bha.png",
-    "ARABIA SAUDITA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/venezia.png",
+    "HAITI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/haiti.png",
+    "ARABIA SAUDITA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/arabiasaudita.png",
     "JUVENTUS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/juventus.png",
     "BENFICA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/benfica.png",
     "BETIS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/betis.png",
