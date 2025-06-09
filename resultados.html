@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ranking de Quiniela</title>
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/47/Soccer_ball.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="resultados.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resultados.css">
 </head>
 <body>
 
@@ -23,6 +23,18 @@
     <div id="loading" class="info-message">Cargando resultados...</div>
     <div id="error-message" class="error-message">Hubo un error al cargar los resultados. Por favor, inténtalo de nuevo más tarde o contacta al organizador.</div>
 
+    <h4>Partidos y Resultados Oficiales</h4>
+    <table id="official-results-table">
+        <thead>
+            <tr>
+                <th>Partido</th>
+                <th>Resultado Oficial</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
     <h4>Ranking de Jugadores</h4>
     <table id="leaderboard-table">
         <thead>
@@ -36,12 +48,12 @@
             </tbody>
     </table>
     <p class="nota-ranking">
-        <span class="pronostico-individual acierto">&#10003;</span> = Acierto, 
-        <span class="pronostico-individual fallo">&#10006;</span> = Error, 
+        <span class="pronostico-individual acierto">&#10003;</span> = Acierto,
+        <span class="pronostico-individual fallo">&#10006;</span> = Error,
         <span class="pronostico-individual no-pronosticado">_</span> = No pronosticado
     </p>
 </div>
 
-<script src="resultados.js"></script> 
+<script src="resultados.js"></script>
 </body>
 </html>
