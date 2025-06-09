@@ -57,7 +57,8 @@
     padding: 20px;
     margin-top: 20px; /* Separación de la parte superior */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* Permitir scroll horizontal en el marco si la tabla aún es demasiado ancha */
+    /* Permitir scroll horizontal en el marco si la tabla aún es demasiado ancha
+       Con los encabezados verticales, esto debería ser menos necesario pero es un fallback */
     overflow-x: auto; 
 }
 
@@ -95,13 +96,15 @@
     border-radius: 8px;
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra que tenía el contenedor */
-    table-layout: fixed; /* Esto es clave: las columnas tendrán anchos fijos */
+    /* table-layout: fixed; es útil si quieres anchos de columna muy específicos,
+       pero para encabezados verticales, 'auto' o no definirlo puede dar más flexibilidad */
+    table-layout: auto; 
 }
 
 #leaderboard-table th,
 #leaderboard-table td {
     padding: 8px 3px; /* Reducir padding para más compacidad */
-    font-size: 0.8em; /* Reducir tamaño de fuente para todas las celdas */
+    font-size: 0.85em; /* Ajustar tamaño de fuente para todas las celdas de datos */
     text-align: center; /* Centrar todo el texto en las celdas */
     border-bottom: 1px solid #3a455a; /* Separador de fila */
     color: var(--accent-text-color, #E0E6F0);
@@ -139,6 +142,7 @@
     padding-right: 8px;
     text-align: left; /* Alinear nombre del jugador a la izquierda */
     font-weight: bold; /* Nombre del jugador en negrita */
+    min-width: 80px; /* Un poco más de ancho para el nombre del jugador */
 }
 #leaderboard-table td:nth-child(3) { /* Puntos */
     padding-left: 8px;
@@ -149,7 +153,7 @@
 
 /* --- ESTILOS PARA TODOS LOS ENCABEZADOS DE LA TABLA (VERTICALES) --- */
 #leaderboard-table thead th {
-    height: 70px; /* Esta altura se convierte en el "ancho" efectivo de la columna para el texto rotado */
+    height: 100px; /* Aumenta esta altura. Esta altura se convierte en el "ancho" efectivo de la columna para el texto rotado */
     min-width: 25px; /* Un ancho mínimo para la celda de encabezado en sí */
     padding: 0; /* Eliminar padding del TH para que el contenido rotado tenga control total */
     position: relative; /* Necesario para posicionar el contenido rotado absolutamente */
@@ -169,7 +173,7 @@
     transform-origin: center bottom; /* Define el punto de rotación: centro-inferior */
     
     white-space: nowrap; /* Evita que el texto se rompa */
-    font-size: 0.8em; /* Tamaño de fuente para el texto rotado */
+    font-size: 0.9em; /* Aumentar tamaño de fuente para el texto rotado */
     color: var(--white, #FFFFFF);
     
     display: flex; /* Usamos flexbox para alinear las líneas de texto si hay <br> */
@@ -188,7 +192,8 @@
 
 .rotated-header-content .resultado-local-gana,
 .rotated-header-content .resultado-visitante-gana,
-.rotated-header-content .resultado-empate {
+.rotated-header-content .resultado-empate,
+.rotated-header-content .sin-resultado { /* Añadir sin-resultado aquí para que también tenga el estilo de resultado */
     display: inline-block; /* Mantener como bloque en línea */
     padding: 1px 3px;
     border-radius: 3px;
