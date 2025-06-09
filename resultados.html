@@ -5,46 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ranking de Quiniela</title>
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/47/Soccer_ball.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="resultados.css"> </head>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="resultados.css"> 
+</head>
 <body>
 
 <div class="banner-container">
     <img src="logos/banner.png" alt="Quiniela de Campeones Banner" class="banner-image">
 </div>
 
-<div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-    <button onclick="location.href='index.html'" style="
-        padding: 12px 25px;
-        background-color: var(--blue-add, #2196F3); /* Usar un color que combine */
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1.1em;
-        transition: background-color 0.3s ease;
-    ">Volver a la Quiniela</button>
-    <button onclick="location.reload()" style="
-        padding: 12px 25px;
-        background-color: var(--green-medium, #4CAF50); /* Usar un color que combine */
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1.1em;
-        transition: background-color 0.3s ease;
-        margin-left: 10px;
-    ">Actualizar Resultados</button>
+<div class="button-row">
+    <button onclick="location.href='index.html'" class="action-button primary-button">Volver a la Quiniela</button>
+    <button onclick="location.reload()" class="action-button secondary-button">Actualizar Resultados</button>
 </div>
 
 <div class="marco">
     <h3 class="section-title">Resultados y Ranking</h3>
-    <div id="loading" style="text-align: center; color: var(--accent-text-color);">Cargando resultados...</div>
-    <div id="error-message" style="text-align: center; color: var(--red-delete); display: none;">Hubo un error al cargar los resultados. Por favor, inténtalo de nuevo más tarde o contacta al organizador.</div>
+    <div id="loading" class="info-message">Cargando resultados...</div>
+    <div id="error-message" class="error-message">Hubo un error al cargar los resultados. Por favor, inténtalo de nuevo más tarde o contacta al organizador.</div>
 
     <div class="resultados-container">
         <h4>Partidos y Resultados Oficiales</h4>
         <div class="partidos-grid" id="official-results-grid">
             </div>
+        <p class="nota-ranking" style="text-align: center; margin-top: 20px;">
+            <span class="resultado-oficial resultado-local-gana">L</span> = Local Gana, 
+            <span class="resultado-oficial resultado-visitante-gana">V</span> = Visita Gana, 
+            <span class="resultado-oficial resultado-empate">E</span> = Empate
+        </p>
     </div>
 
     <div class="ranking-container">
@@ -61,10 +49,13 @@
                 </tbody>
         </table>
         <p class="nota-ranking">
-            <span class="acierto-leyenda">&#10003;</span> = Acierto, <span class="error-leyenda">&#10006;</span> = Error, <span class="vacio-leyenda">_</span> = No pronosticado
+            <span class="pronostico-individual acierto">&#10003;</span> = Acierto, 
+            <span class="pronostico-individual fallo">&#10006;</span> = Error, 
+            <span class="pronostico-individual no-pronosticado">_</span> = No pronosticado
         </p>
     </div>
 </div>
 
-<script src="resultados.js"></script> </body>
+<script src="resultados.js"></script> 
+</body>
 </html>
