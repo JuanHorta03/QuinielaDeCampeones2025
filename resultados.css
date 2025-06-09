@@ -83,7 +83,7 @@
 #official-results-table td {
     padding: 10px 15px;
     text-align: left;
-    border-bottom: 1px solid #3a455a;
+    border: 1px solid #3a455a; /* Añadido borde a todas las celdas para apariencia de Excel */
     color: var(--accent-text-color, #E0E6F0);
 }
 
@@ -147,7 +147,7 @@
 #leaderboard-table td {
     padding: 12px 8px;
     text-align: center; /* Centrar todo el texto en las celdas */
-    border-bottom: 1px solid #3a455a; /* Separador de fila */
+    border: 1px solid #3a455a; /* AHORA TODAS LAS CELDAS TIENEN UN BORDE COMPLETO */
     color: var(--accent-text-color, #E0E6F0);
     white-space: nowrap; /* Evitar que el texto se rompa en una sola línea si no hay suficiente espacio */
 }
@@ -157,7 +157,6 @@
     color: var(--white, #FFFFFF);
     font-weight: bold;
     text-transform: uppercase;
-    /* font-size: 0.9em;  Ajuste para el texto "P1" */
     padding-top: 5px; /* Más espacio arriba */
     padding-bottom: 5px; /* Más espacio abajo */
     vertical-align: middle; /* Centra el contenido verticalmente */
@@ -180,8 +179,8 @@
 
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    font-size: 0.9em; 
-    padding-top: 5px; 
+    font-size: 0.9em;
+    padding-top: 5px;
     padding-bottom: 5px;
     vertical-align: middle;
 }
@@ -287,7 +286,7 @@
         box-sizing: border-box;
     }
     #official-results-table td {
-        border-bottom: 1px solid #3a455a;
+        border-bottom: 1px solid #3a455a; /* Mantener este borde para la separación interna */
         text-align: right;
         padding: 8px 15px;
         position: relative;
@@ -324,7 +323,7 @@
     }
 
     #leaderboard-table td {
-        border-bottom: 1px solid #3a455a;
+        border-bottom: 1px solid #3a455a; /* Mantener este borde para la separación interna */
         text-align: right; /* Alineación del valor a la derecha */
         padding: 8px 15px;
         position: relative; /* Para el data-label */
@@ -342,19 +341,12 @@
         text-transform: uppercase;
         color: var(--blue-medium);
     }
-    
+
     /* Ajustes específicos para la celda de pronósticos en móvil */
-    #leaderboard-table td[data-label="Pronósticos"] {
-        text-align: left; /* Alinea los pronósticos a la izquierda */
-        padding-left: 15px; /* Ajusta el padding */
-        display: flex; /* Para organizar los spans */
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    #leaderboard-table td[data-label="Pronósticos"]::before {
-        position: static; /* Restablecer posición para que no se superponga */
-        margin-right: 10px; /* Espacio entre el label y los pronósticos */
-        display: inline-block; /* Para que el label se comporte como un elemento de línea */
+    #leaderboard-table td[data-label^="P"] { /* Aplica a P1, P2, etc. */
+        text-align: center; /* Centrar el pronóstico */
+        /* Eliminamos el display flex de aquí para que cada pronóstico sea una celda individual y se comporte como tal */
+        /* Los estilos de .pronostico-individual ya hacen que el contenido se vea bien */
     }
 
     #leaderboard-table td:first-child { /* Posición */
@@ -371,6 +363,6 @@
 
     /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
     #leaderboard-table th[data-game-header] {
-        display: none; 
+        display: none;
     }
 }
