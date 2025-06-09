@@ -1,0 +1,152 @@
+/* Estilos para la página de resultados */
+
+.resultados-container,
+.ranking-container {
+    background-color: var(--main-content-background); /* Fondo similar al marco principal */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: var(--accent-text-color); /* Color de texto claro */
+}
+
+.resultados-container h4,
+.ranking-container h4 {
+    color: var(--blue-add); /* Color para títulos de sección */
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* Grid para los partidos oficiales */
+.partidos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas responsivas */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.partido-oficial {
+    background-color: #2a344a; /* Un tono un poco más claro que el fondo principal */
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre elementos */
+    height: 100%; /* Asegura que todos tengan la misma altura si están en una fila */
+}
+
+.partido-oficial .equipos {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--white); /* Blanco puro para nombres de equipos */
+}
+
+.partido-oficial .resultado-oficial {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--green-medium); /* Verde para el resultado */
+}
+
+.partido-oficial .resultado-oficial.no-definido {
+    color: var(--red-delete); /* Rojo si no está definido */
+}
+
+/* Tabla de ranking */
+#leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #3a4a62; /* Borde sutil */
+}
+
+#leaderboard-table thead th {
+    background-color: #3a4a62; /* Fondo para encabezados de tabla */
+    color: var(--white);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#leaderboard-table tbody tr:nth-child(even) {
+    background-color: #2a344a; /* Color de fila par */
+}
+
+#leaderboard-table tbody tr:nth-child(odd) {
+    background-color: #1A202C; /* Color de fila impar */
+}
+
+/* Estilos para las celdas de pronóstico de los jugadores */
+#leaderboard-table .player-prediction {
+    font-weight: bold;
+}
+
+/* Colores para aciertos y errores */
+.acierto {
+    color: var(--green-medium); /* Verde para acierto */
+    font-weight: bold;
+}
+
+.error {
+    color: var(--red-delete); /* Rojo para error */
+    font-weight: bold;
+}
+
+.no-pronosticado {
+    color: var(--text-light); /* Gris para no pronosticado */
+    font-weight: normal;
+}
+
+.nota-ranking {
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--text-light);
+}
+
+.acierto-leyenda {
+    color: var(--green-medium);
+    font-weight: bold;
+}
+
+.error-leyenda {
+    color: var(--red-delete);
+    font-weight: bold;
+}
+
+.vacio-leyenda {
+    color: var(--text-light);
+    font-weight: normal;
+}
+
+/* Responsive Design para pantallas pequeñas */
+@media (max-width: 768px) {
+    .marco {
+        padding: 10px;
+    }
+
+    .resultados-container,
+    .ranking-container {
+        padding: 10px;
+    }
+
+    #leaderboard-table th,
+    #leaderboard-table td {
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    .partidos-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
