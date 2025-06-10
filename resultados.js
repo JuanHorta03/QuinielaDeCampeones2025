@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (partido.ganador_real) {
                     switch (partido.ganador_real.toUpperCase()) {
                         case 'L':
-                            resultadoDisplay = 'L'; // Solo mostrar L, V, E en la tabla de partidos
                             resultadoClass = 'resultado-local-gana';
+                            resultadoDisplay = 'L'; // Solo mostrar L, V, E en la tabla de partidos
                             break;
                         case 'V':
-                            resultadoDisplay = 'V';
                             resultadoClass = 'resultado-visitante-gana';
+                            resultadoDisplay = 'V';
                             break;
                         case 'E':
-                            resultadoDisplay = 'E';
                             resultadoClass = 'resultado-empate';
+                            resultadoDisplay = 'E';
                             break;
                         default:
                             resultadoDisplay = 'Inválido';
@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
 
-                // **** ESTA ES LA MODIFICACIÓN PARA EL ENCABEZADO DEL RANKING ****
-                // Asegúrate de que este bloque esté CORRECTAMENTE incluido
+                // **** MODIFICACIÓN CLAVE: AÑADIR EL DIV 'rotated-header-content' ****
                 th.innerHTML = `
                     <div class="rotated-header-content">
                         <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span>
@@ -114,7 +113,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="header-px">P${partido.id}</span>
                     </div>
                 `;
-                // ***************************************************************
+                // *******************************************************************
 
                 leaderboardTableHeadRow.appendChild(th);
             });
@@ -170,8 +169,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 leaderboardTableBody.appendChild(row);
             });
         } else {
-            // Corrección del error de sintaxis: Usar comillas dobles o escapar el apóstrofo
-            leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>';
+            leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>'; //
         }
 
     } catch (error) {
