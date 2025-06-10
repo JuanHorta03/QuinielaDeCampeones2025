@@ -184,45 +184,48 @@
 
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    width: 30px; /* Ancho muy reducido para la celda */
-    height: 120px; /* Altura aumentada para el texto vertical */
-    padding: 0; /* Eliminar padding para un control más preciso */
-    vertical-align: bottom; /* Alinear el contenido rotado en la parte inferior */
-    position: relative; /* Necesario para posicionar el div rotado */
+    /* MODIFICACIONES CLAVE AQUÍ para rotación */
+    width: 30px; /* Ancho muy reducido para la celda del TH */
+    height: 120px; /* Altura aumentada para el texto vertical, ajusta si el texto es más largo */
+    padding: 0; /* Eliminar padding para un control más preciso del contenido rotado */
+    vertical-align: bottom; /* Alinear el contenido rotado en la parte inferior de la celda */
+    position: relative; /* Necesario para posicionar el div rotado absolutamente */
     overflow: hidden; /* Ocultar cualquier desbordamiento si el texto es muy largo */
 }
 
 #leaderboard-table th[data-game-header] .rotated-header-content {
+    /* Contenedor que realmente rota */
     position: absolute;
     bottom: 0; /* Alinea la base del texto rotado con la parte inferior de la celda */
-    left: 50%; /* Centra horizontalmente el punto de rotación */
+    left: 50%; /* Centra horizontalmente el punto de rotación (del elemento rotado) */
     transform-origin: left bottom; /* Define el punto de origen de la rotación */
-    transform: rotate(-90deg) translateX(-50%); /* Rota y ajusta la posición */
-    width: 120px; /* Ancho del contenido cuando está plano (antes de rotar) */
+    transform: rotate(-90deg) translateX(-50%); /* Rota -90 grados y ajusta la posición */
+    width: 120px; /* Ancho del contenido cuando está plano (antes de rotar). Esto es clave para la legibilidad. Ajusta si el texto es más largo o más corto. */
     text-align: left; /* Alineación del texto dentro del div rotado */
     white-space: nowrap; /* Mantiene el nombre del partido en una sola línea *después* de rotar */
-    display: flex;
+    display: flex; /* Usar flexbox para apilar los spans verticalmente */
     flex-direction: column;
-    justify-content: flex-end; /* Alinea los elementos al final del flex container vertical */
-    align-items: flex-start; /* Alinea los elementos a la izquierda del flex container vertical */
-    height: 100%; /* Ocupar la altura disponible antes de rotar */
-    padding-left: 5px; /* Pequeño padding para que no se pegue al borde */
+    justify-content: flex-end; /* Alinea los elementos al final del flex container (parte inferior) */
+    align-items: flex-start; /* Alinea los elementos a la izquierda del flex container (lo que sería la parte inferior antes de rotar) */
+    height: 100%; /* Ocupar la altura disponible del TH antes de rotar */
+    padding-left: 5px; /* Pequeño padding para que el texto no se pegue al borde */
     box-sizing: border-box; /* Incluir padding en el ancho */
 }
 
+/* Ajustes para los spans dentro del contenido rotado */
 .header-match-name {
     font-weight: bold;
     color: var(--white, #FFFFFF);
     margin-bottom: 3px;
-    font-size: 0.8em;
+    font-size: 0.8em; /* Tamaño de fuente para el nombre del partido */
     line-height: 1.2;
-    min-width: 0;
-    text-align: left;
+    min-width: 0; /* Evitar que el min-width interfiera con la rotación */
+    text-align: left; /* Asegurar alineación izquierda */
 }
 
 .header-match-result {
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 0.8em; /* Tamaño de fuente para el resultado */
     font-weight: bold;
     padding: 2px 5px;
     border-radius: 3px;
@@ -233,10 +236,10 @@
 }
 
 .header-px {
-    font-size: 0.85em;
+    font-size: 0.85em; /* Tamaño de fuente para Px */
     font-weight: normal;
     color: var(--accent-text-color, #E0E6F0);
-    text-align: left;
+    text-align: left; /* Asegurar alineación izquierda */
 }
 
 /* Estilos para los pronósticos individuales en la celda */
@@ -335,11 +338,11 @@
         width: 100%;
     }
     
-    #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr, #leaderboard-table td {
+    #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr {
         display: block;
         width: 100%;
     }
-
+    
     #leaderboard-table thead {
         display: none; /* Ocultar el encabezado de la tabla en móviles */
     }
@@ -353,11 +356,15 @@
         box-sizing: border-box; /* Incluir padding en el ancho */
     }
 
+    /* Ajuste para las celdas TD en móvil */
     #leaderboard-table td {
         border-bottom: 1px solid #3a455a;
         text-align: right; /* Alineación del valor a la derecha */
         padding: 8px 15px;
         position: relative; /* Para el data-label */
+        display: flex; /* Usar flexbox para alinear el label y el contenido */
+        justify-content: space-between; /* Espacio entre label y valor */
+        align-items: center; /* Centrar verticalmente */
     }
 
     #leaderboard-table td:last-child {
@@ -366,25 +373,26 @@
 
     #leaderboard-table td::before {
         content: attr(data-label);
-        position: absolute;
-        left: 15px;
+        position: static; /* Cambiado de absolute a static */
+        left: auto; /* Reiniciar left */
         font-weight: bold;
         text-transform: uppercase;
         color: var(--blue-medium);
+        margin-right: 10px; /* Espacio entre el label y el contenido */
     }
     
     /* Ajustes específicos para la celda de pronósticos en móvil */
-    #leaderboard-table td[data-label^="P"] {
-        text-align: center;
+    /* Para que los pronósticos queden en una sola línea o se envuelvan */
+    #leaderboard-table td.player-prediction-cell {
+        display: flex; /* Para organizar los spans de pronóstico */
+        flex-wrap: wrap; /* Permitir que los spans se envuelvan a la siguiente línea */
+        gap: 5px; /* Espacio entre los spans */
+        justify-content: flex-end; /* Alinear los pronósticos a la derecha */
     }
-    #leaderboard-table td[data-label^="P"]::before {
-        display: none;
+    
+    #leaderboard-table td.player-prediction-cell::before {
+        display: none; /* Ocultar el data-label para los pronósticos individuales */
     }
-    #leaderboard-table td[data-label^="P"] .pronostico-individual {
-        display: block;
-        margin: 0 auto;
-    }
-
 
     #leaderboard-table td:first-child { /* Posición */
         text-align: center;
@@ -400,6 +408,6 @@
 
     /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
     #leaderboard-table th[data-game-header] {
-        display: none;
+        display: none; 
     }
 }
