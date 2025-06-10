@@ -105,7 +105,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
 
-                // **** MODIFICACIÓN: ENVOLVER CONTENIDO EN UN DIV CON CLASE 'rotated-header-content' ****
+                // **** ESTA ES LA MODIFICACIÓN PARA EL ENCABEZADO DEL RANKING ****
+                // Asegúrate de que este bloque esté CORRECTAMENTE incluido
                 th.innerHTML = `
                     <div class="rotated-header-content">
                         <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span>
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="header-px">P${partido.id}</span>
                     </div>
                 `;
-                // ************************************************************************************
+                // ***************************************************************
 
                 leaderboardTableHeadRow.appendChild(th);
             });
@@ -173,6 +174,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     } catch (error) {
+        console.error('Error al cargar datos del Apps Script:', error);
+        loadingDiv.style.display = 'none'; // Ocultar carga
+        errorMessageDiv.style.display = 'block'; // Mostrar mensaje de error
+    }
+});
         console.error('Error al cargar datos del Apps Script:', error);
         loadingDiv.style.display = 'none'; // Ocultar carga
         errorMessageDiv.style.display = 'block'; // Mostrar mensaje de error
