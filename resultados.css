@@ -68,7 +68,7 @@
     font-size: 1.3em;
 }
 
-/* --- TABLA DE PARTIDOS Y RESULTADOS OFICIALES (modificada) --- */
+/* --- TABLA DE PARTIDOS Y RESULTADOS OFICIALES --- */
 #official-results-table {
     width: 100%;
     border-collapse: collapse;
@@ -134,8 +134,8 @@
 }
 
 /* --- TABLA DE RANKING --- */
-/* Añadido un contenedor para el scroll horizontal en pantallas pequeñas */
-.ranking-table-container { /* NUEVA CLASE PARA EL CONTENEDOR */
+/* Contenedor para el scroll horizontal en pantallas pequeñas */
+.ranking-table-container {
     overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
     margin-top: 15px; /* Para mantener la separación */
 }
@@ -182,47 +182,62 @@
     color: var(--white, #FFFFFF);
 }
 
-
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    font-size: 0.9em; 
-    padding-top: 5px; 
-    padding-bottom: 5px;
-    vertical-align: middle;
-    width: 80px; /* Puedes ajustar un ancho fijo si lo deseas, o dejarlo que se ajuste */
-    min-width: 70px; /* Un ancho mínimo para los encabezados de partido */
+    width: 30px; /* Ancho muy reducido para la celda */
+    height: 120px; /* Altura aumentada para el texto vertical */
+    padding: 0; /* Eliminar padding para un control más preciso */
+    vertical-align: bottom; /* Alinear el contenido rotado en la parte inferior */
+    position: relative; /* Necesario para posicionar el div rotado */
+    overflow: hidden; /* Ocultar cualquier desbordamiento si el texto es muy largo */
+}
+
+#leaderboard-table th[data-game-header] .rotated-header-content {
+    position: absolute;
+    bottom: 0; /* Alinea la base del texto rotado con la parte inferior de la celda */
+    left: 50%; /* Centra horizontalmente el punto de rotación */
+    transform-origin: left bottom; /* Define el punto de origen de la rotación */
+    transform: rotate(-90deg) translateX(-50%); /* Rota y ajusta la posición */
+    width: 120px; /* Ancho del contenido cuando está plano (antes de rotar) */
+    text-align: left; /* Alineación del texto dentro del div rotado */
+    white-space: nowrap; /* Mantiene el nombre del partido en una sola línea *después* de rotar */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea los elementos al final del flex container vertical */
+    align-items: flex-start; /* Alinea los elementos a la izquierda del flex container vertical */
+    height: 100%; /* Ocupar la altura disponible antes de rotar */
+    padding-left: 5px; /* Pequeño padding para que no se pegue al borde */
+    box-sizing: border-box; /* Incluir padding en el ancho */
 }
 
 .header-match-name {
-    display: block; /* Para que ocupe su propia línea */
     font-weight: bold;
-    color: var(--white, #FFFFFF); /* Color para el nombre del partido */
-    margin-bottom: 3px; /* Espacio entre el nombre y el resultado */
-    font-size: 0.8em; /* Un poco más pequeño */
-    white-space: normal; /* Permitir que el nombre del partido se ajuste */
-    line-height: 1.2; /* Ajustar el interlineado si se rompe */
+    color: var(--white, #FFFFFF);
+    margin-bottom: 3px;
+    font-size: 0.8em;
+    line-height: 1.2;
+    min-width: 0;
+    text-align: left;
 }
 
 .header-match-result {
-    display: inline-block; /* Para que el fondo se ajuste al texto */
+    display: inline-block;
     font-size: 0.8em;
     font-weight: bold;
     padding: 2px 5px;
     border-radius: 3px;
-    min-width: 25px; /* Asegura un ancho mínimo para la 'L', 'V', 'E' */
+    min-width: 25px;
     text-align: center;
     color: var(--white, #FFFFFF);
-    margin-bottom: 3px; /* Espacio entre el resultado y Px */
-    /* Las clases de color (resultado-local-gana, etc.) se aplican a este span */
+    margin-bottom: 3px;
 }
 
 .header-px {
-    display: block; /* Px en su propia línea */
     font-size: 0.85em;
-    font-weight: normal; /* Menos negrita que el nombre del partido */
+    font-weight: normal;
     color: var(--accent-text-color, #E0E6F0);
+    text-align: left;
 }
-
 
 /* Estilos para los pronósticos individuales en la celda */
 .player-prediction-cell {
@@ -256,7 +271,6 @@
     background-color: #555;
     color: #CCC;
 }
-
 
 /* Leyenda del ranking */
 .nota-ranking {
@@ -315,15 +329,15 @@
 
     /* Media Queries para la tabla de ranking en móvil */
     /* El contenedor ahora maneja el desbordamiento horizontal */
-    .ranking-table-container { /* Mantenemos este contenedor */
-        overflow-x: auto; /* IMPORTANTE: Aseguramos que se pueda hacer scroll */
-        -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
-        width: 100%; /* Asegura que el contenedor ocupe el ancho */
+    .ranking-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
     }
     
     #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr, #leaderboard-table td {
         display: block;
-        width: 100%; /* Las celdas y filas siguen siendo bloques para el apilamiento */
+        width: 100%;
     }
 
     #leaderboard-table thead {
@@ -360,20 +374,15 @@
     }
     
     /* Ajustes específicos para la celda de pronósticos en móvil */
-    /* Asegurarnos de que cada pronóstico individual sigue siendo un span */
-    #leaderboard-table td[data-label^="P"] { /* Aplica a P1, P2, etc. */
-        text-align: center; /* Centrar el pronóstico */
-        /* Eliminamos el display flex de aquí para que cada pronóstico sea una celda individual y se comporte como tal */
-        /* Los estilos de .pronostico-individual ya hacen que el contenido se vea bien */
+    #leaderboard-table td[data-label^="P"] {
+        text-align: center;
     }
-    /* Para el móvil, el data-label de P1, P2, etc. se puede quitar si el pronóstico es su propio label visual */
-    #leaderboard-table td[data-label^="P"]::before { /* Ocultar el data-label para los pronósticos individuales */
-        display: none; 
+    #leaderboard-table td[data-label^="P"]::before {
+        display: none;
     }
-    /* Asegurarnos de que el contenido individual del pronóstico esté centrado */
     #leaderboard-table td[data-label^="P"] .pronostico-individual {
-        display: block; /* Ocupar el ancho completo para centrar */
-        margin: 0 auto; /* Centrar horizontalmente el span */
+        display: block;
+        margin: 0 auto;
     }
 
 
@@ -391,6 +400,6 @@
 
     /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
     #leaderboard-table th[data-game-header] {
-        display: none; 
+        display: none;
     }
 }
