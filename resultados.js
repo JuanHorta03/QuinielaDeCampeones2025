@@ -105,13 +105,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
 
-                // **** ESTA ES LA MODIFICACIÓN PARA EL ENCABEZADO DEL RANKING ****
+                // **** MODIFICACIÓN: ENVOLVER CONTENIDO EN UN DIV CON CLASE 'rotated-header-content' ****
                 th.innerHTML = `
-                    <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span><br>
-                    <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span><br>
-                    <span class="header-px">P${partido.id}</span>
+                    <div class="rotated-header-content">
+                        <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span>
+                        <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span>
+                        <span class="header-px">P${partido.id}</span>
+                    </div>
                 `;
-                // ***************************************************************
+                // ************************************************************************************
 
                 leaderboardTableHeadRow.appendChild(th);
             });
