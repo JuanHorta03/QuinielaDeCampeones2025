@@ -170,15 +170,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 leaderboardTableBody.appendChild(row);
             });
         } else {
+            // Corrección del error de sintaxis: Usar comillas dobles o escapar el apóstrofo
             leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>';
         }
 
     } catch (error) {
-        console.error('Error al cargar datos del Apps Script:', error);
-        loadingDiv.style.display = 'none'; // Ocultar carga
-        errorMessageDiv.style.display = 'block'; // Mostrar mensaje de error
-    }
-});
         console.error('Error al cargar datos del Apps Script:', error);
         loadingDiv.style.display = 'none'; // Ocultar carga
         errorMessageDiv.style.display = 'block'; // Mostrar mensaje de error
