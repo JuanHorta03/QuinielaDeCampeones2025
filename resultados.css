@@ -134,10 +134,16 @@
 }
 
 /* --- TABLA DE RANKING --- */
+/* Añadido un contenedor para el scroll horizontal en pantallas pequeñas */
+.ranking-table-container { /* NUEVA CLASE PARA EL CONTENEDOR */
+    overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
+    margin-top: 15px; /* Para mantener la separación */
+}
+
 #leaderboard-table {
-    width: 100%;
+    width: 100%; /* Asegura que la tabla intente ocupar el 100% del contenedor */
+    min-width: fit-content; /* Permite que la tabla sea tan ancha como su contenido mínimo necesario */
     border-collapse: collapse;
-    margin-top: 15px;
     background-color: #2a3344; /* Mismo tono que el item de partido */
     border-radius: 8px;
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
@@ -149,7 +155,7 @@
     text-align: center; /* Centrar todo el texto en las celdas */
     border: 1px solid #3a455a; /* AHORA TODAS LAS CELDAS TIENEN UN BORDE COMPLETO */
     color: var(--accent-text-color, #E0E6F0);
-    white-space: nowrap; /* Evitar que el texto se rompa en una sola línea si no hay suficiente espacio */
+    /* white-space: nowrap; // ELIMINADO: Permitir que el texto se ajuste */
 }
 
 #leaderboard-table th {
@@ -179,10 +185,12 @@
 
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    font-size: 0.9em;
-    padding-top: 5px;
+    font-size: 0.9em; 
+    padding-top: 5px; 
     padding-bottom: 5px;
     vertical-align: middle;
+    width: 80px; /* Puedes ajustar un ancho fijo si lo deseas, o dejarlo que se ajuste */
+    min-width: 70px; /* Un ancho mínimo para los encabezados de partido */
 }
 
 .header-match-name {
@@ -191,6 +199,8 @@
     color: var(--white, #FFFFFF); /* Color para el nombre del partido */
     margin-bottom: 3px; /* Espacio entre el nombre y el resultado */
     font-size: 0.8em; /* Un poco más pequeño */
+    white-space: normal; /* Permitir que el nombre del partido se ajuste */
+    line-height: 1.2; /* Ajustar el interlineado si se rompe */
 }
 
 .header-match-result {
@@ -286,7 +296,7 @@
         box-sizing: border-box;
     }
     #official-results-table td {
-        border-bottom: 1px solid #3a455a; /* Mantener este borde para la separación interna */
+        border-bottom: 1px solid #3a455a;
         text-align: right;
         padding: 8px 15px;
         position: relative;
@@ -304,9 +314,16 @@
     }
 
     /* Media Queries para la tabla de ranking en móvil */
+    /* El contenedor ahora maneja el desbordamiento horizontal */
+    .ranking-table-container { /* Mantenemos este contenedor */
+        overflow-x: auto; /* IMPORTANTE: Aseguramos que se pueda hacer scroll */
+        -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+        width: 100%; /* Asegura que el contenedor ocupe el ancho */
+    }
+    
     #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr, #leaderboard-table td {
         display: block;
-        width: 100%;
+        width: 100%; /* Las celdas y filas siguen siendo bloques para el apilamiento */
     }
 
     #leaderboard-table thead {
@@ -323,7 +340,7 @@
     }
 
     #leaderboard-table td {
-        border-bottom: 1px solid #3a455a; /* Mantener este borde para la separación interna */
+        border-bottom: 1px solid #3a455a;
         text-align: right; /* Alineación del valor a la derecha */
         padding: 8px 15px;
         position: relative; /* Para el data-label */
@@ -341,13 +358,24 @@
         text-transform: uppercase;
         color: var(--blue-medium);
     }
-
+    
     /* Ajustes específicos para la celda de pronósticos en móvil */
+    /* Asegurarnos de que cada pronóstico individual sigue siendo un span */
     #leaderboard-table td[data-label^="P"] { /* Aplica a P1, P2, etc. */
         text-align: center; /* Centrar el pronóstico */
         /* Eliminamos el display flex de aquí para que cada pronóstico sea una celda individual y se comporte como tal */
         /* Los estilos de .pronostico-individual ya hacen que el contenido se vea bien */
     }
+    /* Para el móvil, el data-label de P1, P2, etc. se puede quitar si el pronóstico es su propio label visual */
+    #leaderboard-table td[data-label^="P"]::before { /* Ocultar el data-label para los pronósticos individuales */
+        display: none; 
+    }
+    /* Asegurarnos de que el contenido individual del pronóstico esté centrado */
+    #leaderboard-table td[data-label^="P"] .pronostico-individual {
+        display: block; /* Ocupar el ancho completo para centrar */
+        margin: 0 auto; /* Centrar horizontalmente el span */
+    }
+
 
     #leaderboard-table td:first-child { /* Posición */
         text-align: center;
@@ -363,6 +391,6 @@
 
     /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
     #leaderboard-table th[data-game-header] {
-        display: none;
+        display: none; 
     }
 }
