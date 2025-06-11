@@ -68,7 +68,7 @@
 }
 
 /* Contenedores principales dentro del marco */
-.resultados-container,
+.resultados-container, /* Esta clase ya no se usa directamente en HTML, pero se mantiene si la usas en otro lugar */
 .ranking-container {
     background-color: var(--main-content-background, #1A202C); /* Fondo oscuro del marco */
     border-radius: 10px;
@@ -77,64 +77,88 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Ajustes para el contenedor general del marco (si tienes un div .marco) */
+.marco {
+    background-color: var(--main-content-background, #1A202C);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Centrar y dar espacio */
+    max-width: 1200px; /* Ancho máximo para el contenido principal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
 .resultados-container h4,
-.ranking-container h4 {
+.ranking-container h4,
+.marco h4 { /* Aplica a los h4 dentro de .marco también */
     color: var(--blue-medium, #007bff); /* Títulos de subsección */
     text-align: center;
     margin-bottom: 15px;
     font-size: 1.3em;
 }
 
-/* --- TABLA DE PARTIDOS Y RESULTADOS OFICIALES --- */
-#official-results-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    background-color: #2a3344; /* Fondo oscuro similar al ranking */
+/* --- NUEVOS ESTILOS PARA PARTIDOS Y RESULTADOS OFICIALES (como tarjetas) --- */
+#official-results-container {
+    display: grid; /* Usar CSS Grid para un layout de columnas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 15px; /* Espacio entre las tarjetas de partidos */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2a3344; /* Fondo del contenedor de partidos */
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Sutil sombra interna */
 }
 
-#official-results-table th,
-#official-results-table td {
-    padding: 10px 15px;
-    text-align: left;
-    border: 1px solid #3a455a; /* Añadido borde a todas las celdas para apariencia de Excel */
-    color: var(--accent-text-color, #E0E6F0);
-}
-
-#official-results-table th {
-    background-color: var(--blue-medium, #007bff);
-    color: var(--white, #FFFFFF);
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-#official-results-table tbody tr:nth-child(even) {
-    background-color: #2d374a; /* Color de fondo alterno */
-}
-
-#official-results-table tbody tr:hover {
-    background-color: #3b465c;
-}
-
-/* Estilo para la celda de resultado en la tabla de partidos */
-.partido-resultado-celda {
-    text-align: center; /* Centrar el span del resultado */
-}
-
-.partido-resultado-span {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    min-width: 30px; /* Ancho mínimo para L, V, E */
+.partido-item {
+    background-color: #3b465c; /* Fondo de cada tarjeta de partido */
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    /* Las clases de color (resultado-local-gana, etc.) se aplican a este span */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Clases para los resultados (también usadas en la leyenda y encabezados) */
+.partido-item:hover {
+    transform: translateY(-3px); /* Pequeña elevación al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.partido-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--white, #FFFFFF);
+    margin-bottom: 10px;
+}
+
+.partido-vs {
+    color: var(--accent-text-color);
+    margin: 0 8px;
+}
+
+.partido-resultado-oficial {
+    font-size: 1em;
+    color: var(--accent-text-color);
+}
+
+.partido-resultado-oficial .resultado-label {
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.partido-resultado-oficial .resultado-valor {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: var(--white, #FFFFFF);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Clases para los resultados (colores) */
 .resultado-local-gana {
     background-color: var(--green-medium, #4CAF50); /* Verde para local gana */
 }
@@ -145,144 +169,97 @@
     background-color: var(--yellow-random, #FFC107); /* Amarillo para empate */
     color: var(--text-dark, #333); /* Texto oscuro en amarillo */
 }
-.sin-resultado, .resultado-invalido {
+.sin-resultado {
     background-color: var(--gray-light, #E0E0E0); /* Gris claro para sin resultado */
     color: var(--text-dark, #333);
 }
 
 /* --- TABLA DE RANKING --- */
-/* Contenedor para el scroll horizontal en pantallas pequeñas */
 .ranking-table-container {
-    overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
-    margin-top: 15px; /* Para mantener la separación */
+    overflow-x: auto; /* PERMITE SCROLL HORIZONTAL en pantallas pequeñas */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #2a3344; /* Fondo de la tabla */
 }
 
 #leaderboard-table {
-    width: 100%; /* Asegura que la tabla intente ocupar el 100% del contenedor */
-    min-width: fit-content; /* Permite que la tabla sea tan ancha como su contenido mínimo necesario */
+    width: 100%; /* Ocupa el 100% del contenedor scrollable */
     border-collapse: collapse;
-    background-color: #2a3344; /* Mismo tono que el item de partido */
-    border-radius: 8px;
+    /* min-width: 700px; */ /* Puedes establecer un min-width si la tabla es demasiado angosta */
+    /* background-color: #2a3344; */ /* Ya lo tiene el contenedor */
+    border-radius: 8px; /* Solo para visual, el contenedor tiene el principal */
     overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
 }
 
 #leaderboard-table th,
 #leaderboard-table td {
-    padding: 12px 8px;
-    text-align: center; /* Centrar todo el texto en las celdas */
-    border: 1px solid #3a455a; /* AHORA TODAS LAS CELDAS TIENEN UN BORDE COMPLETO */
+    padding: 12px 10px; /* Más padding para celdas */
+    text-align: center;
+    border: 1px solid #3a455a; /* Bordes de celda */
     color: var(--accent-text-color, #E0E6F0);
+    white-space: nowrap; /* IMPIDE que el texto se rompa en varias líneas en las celdas */
 }
 
 #leaderboard-table th {
-    background-color: var(--blue-medium, #007bff); /* Encabezado de tabla */
+    background-color: var(--blue-medium, #007bff);
     color: var(--white, #FFFFFF);
     font-weight: bold;
     text-transform: uppercase;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    vertical-align: middle;
 }
 
 #leaderboard-table tbody tr:nth-child(even) {
-    background-color: #2d374a; /* Color de fondo alterno para filas */
+    background-color: #2d374a;
 }
 
 #leaderboard-table tbody tr:hover {
-    background-color: #3b465c; /* Hover para filas */
+    background-color: #3b465c;
 }
 
-#leaderboard-table td:first-child {
-    font-weight: bold; /* Posición */
-    background-color: #3a455a; /* Fondo distinto para la posición */
+#leaderboard-table td:first-child { /* Posición */
+    font-weight: bold;
+    background-color: #3a455a;
     color: var(--white, #FFFFFF);
 }
 
-/* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
+/* Eliminar estilos de rotación - ya no son necesarios */
 #leaderboard-table th[data-game-header] {
-    width: 40px; /* Aumentado ligeramente el ancho de la celda TH para más espacio */
-    height: 160px; /* Aumentado la altura de la celda TH para acomodar texto más largo */
-    padding: 0;
-    vertical-align: bottom; /* Alinea el contenido rotado a la parte inferior de la celda */
-    position: relative;
-    overflow: hidden; /* Oculta cualquier texto que se desborde */
+    width: auto; /* Ancho automático */
+    height: auto; /* Altura automática */
+    padding: 12px 10px; /* Restaurar padding normal */
+    vertical-align: middle;
+    position: static; /* Volver a posición normal */
+    overflow: visible; /* Permitir que el contenido se vea */
 }
 
 #leaderboard-table th[data-game-header] .rotated-header-content {
-    position: absolute;
-    bottom: 0; /* Empieza desde la parte inferior de la celda TH */
-    left: 50%; /* Centra el punto de pivote horizontalmente */
-    transform-origin: left bottom; /* El punto de rotación es la esquina inferior izquierda del contenido */
-    transform: rotate(-90deg) translateX(-50%); /* Rota y ajusta para centrar verticalmente */
-
-    /* ***** AJUSTES CLAVE PARA LA LEGIBILIDAD DEL TEXTO VERTICAL ***** */
-    width: 250px; /* Esto es el ANCHO del div *antes* de rotar, lo que se convierte en la ALTURA *después* de rotar. AUMENTADO para asegurar que quepan nombres muy largos. */
-    text-align: left;
-    white-space: nowrap; /* Impide que el texto se rompa en varias líneas ANTES de la rotación */
-    display: flex; /* Usa flexbox para apilar los elementos verticalmente */
-    flex-direction: column; /* Apila los elementos en una columna */
-    justify-content: flex-end; /* Alinea el contenido al final del flex container (parte inferior, lo que se convierte en la parte derecha después de rotar) */
-    align-items: flex-start; /* Alinea el contenido al inicio (izquierda, lo que se convierte en la parte inferior después de rotar) */
-    height: 100%; /* Ocupa toda la altura disponible antes de rotar */
-    padding-left: 10px; /* Más espacio desde el borde izquierdo del div rotado */
-    padding-bottom: 8px; /* Un poco más de padding en la parte inferior para que el texto no se pegue */
-    box-sizing: border-box; /* Incluir padding en el ancho */
-}
-
-/* Ajustes para los spans dentro del contenido rotado */
-.header-match-name {
-    font-weight: bold;
-    color: var(--white, #FFFFFF);
-    margin-bottom: 5px; /* Más espacio entre el nombre del partido y el resultado */
-    font-size: 0.9em; /* Ligeramente más grande para mejor legibilidad */
-    line-height: 1.2;
-    min-width: 0; /* Evita problemas de desbordamiento */
-    text-align: left;
-}
-
-.header-match-result {
-    display: inline-block;
-    font-size: 0.85em; /* Ligeramente más grande */
-    font-weight: bold;
-    padding: 3px 8px; /* Más padding para que se vea más robusto */
-    border-radius: 5px; /* Un poco más redondeado */
-    min-width: 30px; /* Ancho mínimo para L, V, E */
-    text-align: center;
-    color: var(--white, #FFFFFF);
-    margin-bottom: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra más pronunciada */
-}
-
-.header-px {
-    font-size: 0.88em; /* Ligeramente más grande */
-    font-weight: normal;
-    color: var(--accent-text-color, #A0AEC0); /* Un gris más suave para Px */
-    text-align: left;
-    margin-top: 5px; /* Más espacio sobre Px */
+    /* ESTOS ESTILOS YA NO SE APLICAN porque el .rotated-header-content ya no se usa en JS */
+    /* Si lo dejaste en el HTML, elimínalo o esta regla CSS lo ignorará */
+    display: contents; /* Hace que el contenedor no genere caja, los hijos fluyen directamente */
 }
 
 /* Estilos para los pronósticos individuales en la celda */
 .player-prediction-cell {
-    /* No display flex aquí, solo para el span individual */
+    /* No hay necesidad de flexbox aquí, white-space: nowrap en la celda se encarga */
 }
 
 .pronostico-individual {
     display: inline-block;
     padding: 4px 8px;
-    border-radius: 6px; /* Más redondeado para un look moderno */
-    font-size: 0.88em; /* Ligeramente más grande */
+    border-radius: 6px;
+    font-size: 0.88em;
     font-weight: bold;
     color: var(--white, #FFFFFF);
     margin: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sutil sombra */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición para efecto hover */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pronostico-individual:hover {
-    transform: translateY(-2px); /* Efecto de elevación al pasar el ratón */
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 
 .pronostico-individual.acierto {
     background-color: var(--green-medium, #4CAF50);
@@ -293,12 +270,12 @@
 }
 
 .pronostico-individual.no-pronosticado {
-    background-color: #5C677C; /* Un gris azulado más oscuro */
+    background-color: #5C677C;
     color: var(--white, #FFFFFF);
 }
 
 .pronostico-individual.no-data {
-    background-color: #4A5568; /* Un gris aún más oscuro */
+    background-color: #4A5568;
     color: #CCC;
 }
 
@@ -307,7 +284,7 @@
     text-align: center;
     margin-top: 20px;
     color: var(--accent-text-color, #E0E6F0);
-    font-size: 0.95em; /* Ligeramente más grande */
+    font-size: 0.95em;
 }
 
 .nota-ranking span {
@@ -315,7 +292,7 @@
     margin: 0 5px;
 }
 
-/* Media Queries para responsividad */
+/* Media Queries para responsividad (manteniendo la compatibilidad anterior) */
 @media (max-width: 768px) {
     .action-button {
         display: block;
@@ -323,116 +300,36 @@
         margin: 10px auto;
     }
 
-    /* Media Queries para la tabla de partidos en móvil */
-    #official-results-table, #official-results-table tbody, #official-results-table tr, #official-results-table td {
-        display: block;
-        width: 100%;
-    }
-    #official-results-table thead {
-        display: none;
-    }
-    #official-results-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #3a455a;
-        border-radius: 8px;
-        background-color: #2a3344;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-    #official-results-table td {
-        border-bottom: 1px solid #3a455a;
-        text-align: right;
-        padding: 8px 15px;
-        position: relative;
-    }
-    #official-results-table td:last-child {
-        border-bottom: none;
-    }
-    #official-results-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: var(--blue-medium);
+    /* Partidos oficiales en móvil: una columna */
+    #official-results-container {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        padding: 0; /* Eliminar padding extra */
+        background-color: transparent; /* Fondo transparente */
+        box-shadow: none; /* Sin sombra interna */
     }
 
-    /* Media Queries para la tabla de ranking en móvil */
+    .partido-item {
+        margin-bottom: 15px; /* Espacio entre tarjetas en móvil */
+    }
+
+    /* Ranking en móvil: El scroll horizontal se mantiene */
     .ranking-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
+        /* No necesitamos cambiar mucho aquí, ya que el overflow-x se encarga */
     }
 
-    #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr {
-        display: block;
-        width: 100%;
-    }
-
-    #leaderboard-table thead {
-        display: none;
-    }
-
-    #leaderboard-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #3a455a;
-        border-radius: 8px;
-        background-color: #2a3344;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    /* Ajuste para las celdas TD en móvil */
+    /* Estilos para celdas individuales en móvil si la tabla deja de ser scrollable */
+    /* (Pero con overflow-x: auto, las celdas se mantendrán como en PC y la tabla hará scroll) */
     #leaderboard-table td {
-        border-bottom: 1px solid #3a455a;
-        text-align: right;
-        padding: 8px 15px;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        /* Los estilos de white-space: nowrap; y text-align: center; se mantienen */
+        /* Si quieres que se rompa la línea en móviles, remueve white-space: nowrap; de #leaderboard-table th, #leaderboard-table td */
+        /* y agrega flex para los pronosticos en .player-prediction-cell */
     }
 
-    #leaderboard-table td:last-child {
-        border-bottom: none;
-    }
-
-    #leaderboard-table td::before {
-        content: attr(data-label);
-        position: static;
-        left: auto;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: var(--blue-medium);
-        margin-right: 10px;
-    }
-
-    /* Ajustes específicos para la celda de pronósticos en móvil */
-    #leaderboard-table td.player-prediction-cell {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        justify-content: flex-end;
-    }
-
-    #leaderboard-table td.player-prediction-cell::before {
-        display: none;
-    }
-
-    #leaderboard-table td:first-child {
-        text-align: center;
-        border-radius: 8px 8px 0 0;
-        background-color: var(--blue-medium);
-        color: var(--white);
-        padding: 10px;
-        border-bottom: none;
-    }
-    #leaderboard-table td:first-child::before {
-        display: none;
-    }
-
-    /* Ocultar los encabezados de partido (con nombre y resultado) en móviles */
+    /* Ocultar los encabezados de partido (P1, P2...) en la tabla de ranking en móvil si quieres */
+    /* Pero como la tabla es scrollable, es mejor mantenerlos para que el usuario sepa qué pronóstico es */
+    /*
     #leaderboard-table th[data-game-header] {
         display: none;
     }
+    */
 }
