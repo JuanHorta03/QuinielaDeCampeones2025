@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const row = document.createElement('tr');
                 
                 let resultadoDisplay = 'Pendiente';
-                let resultadoClass = 'sin-resultado'; 
+                let resultadoClass = 'sin-resultado';
 
                 if (partido.ganador_real) {
                     switch (partido.ganador_real.toUpperCase()) {
@@ -105,14 +105,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
 
-                // **** MODIFICACIÓN CLAVE: AÑADIR EL DIV 'rotated-header-content' ****
+                // **** MODIFICACIÓN CLAVE: NO TRUNCAR LOS NOMBRES DE LOS EQUIPOS ****
                 th.innerHTML = `
                     <div class="rotated-header-content">
-                        <span class="header-match-name">${partido.local.substring(0, 6)} vs ${partido.visitante.substring(0, 6)}</span>
+                        <span class="header-match-name">${partido.local} vs ${partido.visitante}</span>
                         <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span>
                         <span class="header-px">P${partido.id}</span>
                     </div>
-                `;
+                `; //
                 // *******************************************************************
 
                 leaderboardTableHeadRow.appendChild(th);
