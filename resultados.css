@@ -1,5 +1,22 @@
 /* resultados.css */
 
+/* Variables de color (asegúrate de que estén definidas en tu style.css principal o aquí) */
+:root {
+    --primary-background: #121212; /* Fondo principal oscuro */
+    --main-content-background: #1A202C; /* Fondo de las secciones de contenido */
+    --text-color: #E0E6F0; /* Texto claro principal */
+    --accent-text-color: #A0AEC0; /* Texto secundario, descripciones */
+    --blue-medium: #007bff; /* Azul para títulos y acentos */
+    --blue-add: #2196F3; /* Azul para botones y elementos interactivos */
+    --green-medium: #4CAF50; /* Verde para aciertos/éxito */
+    --red-delete: #F44336; /* Rojo para errores/fallos */
+    --yellow-random: #FFC107; /* Amarillo para empates/advertencias */
+    --gray-light: #E0E0E0; /* Gris claro para fondos secundarios/sin datos */
+    --white: #FFFFFF; /* Blanco puro */
+    --text-dark: #333; /* Texto oscuro sobre fondos claros */
+}
+
+
 /* Estilos para los botones de navegación */
 .button-row {
     text-align: center;
@@ -183,64 +200,65 @@
 
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    width: 35px; /* Aumentado ligeramente el ancho de la celda TH */
-    height: 140px; /* Aumentado la altura de la celda TH para acomodar texto más largo */
+    width: 40px; /* Aumentado ligeramente el ancho de la celda TH para más espacio */
+    height: 160px; /* Aumentado la altura de la celda TH para acomodar texto más largo */
     padding: 0;
-    vertical-align: bottom;
+    vertical-align: bottom; /* Alinea el contenido rotado a la parte inferior de la celda */
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Oculta cualquier texto que se desborde */
 }
 
 #leaderboard-table th[data-game-header] .rotated-header-content {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform-origin: left bottom;
-    transform: rotate(-90deg) translateX(-50%);
-    /* AJUSTE CLAVE: Aumentar el ancho para que quepa el nombre completo. Prueba con 180px, 200px o más si tus nombres son muy largos. */
-    width: 200px; /* Ajustado para nombres de partido más largos */
+    bottom: 0; /* Empieza desde la parte inferior de la celda TH */
+    left: 50%; /* Centra el punto de pivote horizontalmente */
+    transform-origin: left bottom; /* El punto de rotación es la esquina inferior izquierda del contenido */
+    transform: rotate(-90deg) translateX(-50%); /* Rota y ajusta para centrar verticalmente */
+
+    /* ***** AJUSTES CLAVE PARA LA LEGIBILIDAD DEL TEXTO VERTICAL ***** */
+    width: 250px; /* Esto es el ANCHO del div *antes* de rotar, lo que se convierte en la ALTURA *después* de rotar. AUMENTADO para asegurar que quepan nombres muy largos. */
     text-align: left;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    height: 100%;
-    padding-left: 8px; /* Pequeño padding para que el texto no se pegue al borde */
-    box-sizing: border-box;
+    white-space: nowrap; /* Impide que el texto se rompa en varias líneas ANTES de la rotación */
+    display: flex; /* Usa flexbox para apilar los elementos verticalmente */
+    flex-direction: column; /* Apila los elementos en una columna */
+    justify-content: flex-end; /* Alinea el contenido al final del flex container (parte inferior, lo que se convierte en la parte derecha después de rotar) */
+    align-items: flex-start; /* Alinea el contenido al inicio (izquierda, lo que se convierte en la parte inferior después de rotar) */
+    height: 100%; /* Ocupa toda la altura disponible antes de rotar */
+    padding-left: 10px; /* Más espacio desde el borde izquierdo del div rotado */
+    padding-bottom: 8px; /* Un poco más de padding en la parte inferior para que el texto no se pegue */
+    box-sizing: border-box; /* Incluir padding en el ancho */
 }
 
 /* Ajustes para los spans dentro del contenido rotado */
 .header-match-name {
     font-weight: bold;
     color: var(--white, #FFFFFF);
-    margin-bottom: 4px; /* Espacio entre el nombre del partido y el resultado */
-    font-size: 0.85em; /* Ligeramente más grande para mejor legibilidad */
+    margin-bottom: 5px; /* Más espacio entre el nombre del partido y el resultado */
+    font-size: 0.9em; /* Ligeramente más grande para mejor legibilidad */
     line-height: 1.2;
-    min-width: 0;
+    min-width: 0; /* Evita problemas de desbordamiento */
     text-align: left;
-    /* Añadir un margen derecho para que el nombre del partido no choque con el resultado */
-    margin-right: 5px; 
 }
 
 .header-match-result {
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 0.85em; /* Ligeramente más grande */
     font-weight: bold;
-    padding: 2px 5px;
-    border-radius: 3px;
-    min-width: 25px;
+    padding: 3px 8px; /* Más padding para que se vea más robusto */
+    border-radius: 5px; /* Un poco más redondeado */
+    min-width: 30px; /* Ancho mínimo para L, V, E */
     text-align: center;
     color: var(--white, #FFFFFF);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra más pronunciada */
 }
 
 .header-px {
-    font-size: 0.85em;
+    font-size: 0.88em; /* Ligeramente más grande */
     font-weight: normal;
-    color: var(--accent-text-color, #E0E6F0);
+    color: var(--accent-text-color, #A0AEC0); /* Un gris más suave para Px */
     text-align: left;
-    margin-top: 2px; /* Pequeño espacio sobre Px */
+    margin-top: 5px; /* Más espacio sobre Px */
 }
 
 /* Estilos para los pronósticos individuales en la celda */
@@ -251,28 +269,36 @@
 .pronostico-individual {
     display: inline-block;
     padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.85em;
+    border-radius: 6px; /* Más redondeado para un look moderno */
+    font-size: 0.88em; /* Ligeramente más grande */
     font-weight: bold;
     color: var(--white, #FFFFFF);
-    margin: 2px; /* Espacio entre cada pronóstico */
+    margin: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sutil sombra */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición para efecto hover */
 }
 
+.pronostico-individual:hover {
+    transform: translateY(-2px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
 .pronostico-individual.acierto {
-    background-color: var(--green-medium, #4CAF50); /* Verde para acierto */
+    background-color: var(--green-medium, #4CAF50);
 }
 
 .pronostico-individual.fallo {
-    background-color: var(--red-delete, #F44336); /* Rojo para fallo */
+    background-color: var(--red-delete, #F44336);
 }
 
 .pronostico-individual.no-pronosticado {
-    background-color: var(--gray-light, #E0E0E0); /* Gris para no pronosticado */
-    color: var(--text-dark, #333);
+    background-color: #5C677C; /* Un gris azulado más oscuro */
+    color: var(--white, #FFFFFF);
 }
 
-.pronostico-individual.no-data { /* Para N/D */
-    background-color: #555;
+.pronostico-individual.no-data {
+    background-color: #4A5568; /* Un gris aún más oscuro */
     color: #CCC;
 }
 
@@ -281,7 +307,7 @@
     text-align: center;
     margin-top: 20px;
     color: var(--accent-text-color, #E0E6F0);
-    font-size: 0.9em;
+    font-size: 0.95em; /* Ligeramente más grande */
 }
 
 .nota-ranking span {
@@ -303,7 +329,7 @@
         width: 100%;
     }
     #official-results-table thead {
-        display: none; /* Ocultar encabezados en móvil */
+        display: none;
     }
     #official-results-table tr {
         margin-bottom: 15px;
@@ -332,20 +358,19 @@
     }
 
     /* Media Queries para la tabla de ranking en móvil */
-    /* El contenedor ahora maneja el desbordamiento horizontal */
     .ranking-table-container {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         width: 100%;
     }
-    
+
     #leaderboard-table, #leaderboard-table tbody, #leaderboard-table tr {
         display: block;
         width: 100%;
     }
-    
+
     #leaderboard-table thead {
-        display: none; /* Ocultar el encabezado de la tabla en móviles */
+        display: none;
     }
 
     #leaderboard-table tr {
@@ -354,22 +379,22 @@
         border-radius: 8px;
         background-color: #2a3344;
         padding: 10px;
-        box-sizing: border-box; /* Incluir padding en el ancho */
+        box-sizing: border-box;
     }
 
     /* Ajuste para las celdas TD en móvil */
     #leaderboard-table td {
         border-bottom: 1px solid #3a455a;
-        text-align: right; /* Alineación del valor a la derecha */
+        text-align: right;
         padding: 8px 15px;
-        position: relative; /* Para el data-label */
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
     #leaderboard-table td:last-child {
-        border-bottom: none; /* La última celda de la fila no tiene borde inferior */
+        border-bottom: none;
     }
 
     #leaderboard-table td::before {
@@ -381,21 +406,20 @@
         color: var(--blue-medium);
         margin-right: 10px;
     }
-    
+
     /* Ajustes específicos para la celda de pronósticos en móvil */
-    /* Para que los pronósticos queden en una sola línea o se envuelvan */
     #leaderboard-table td.player-prediction-cell {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
         justify-content: flex-end;
     }
-    
+
     #leaderboard-table td.player-prediction-cell::before {
         display: none;
     }
 
-    #leaderboard-table td:first-child { /* Posición */
+    #leaderboard-table td:first-child {
         text-align: center;
         border-radius: 8px 8px 0 0;
         background-color: var(--blue-medium);
