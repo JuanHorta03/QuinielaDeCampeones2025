@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span>
                         <span class="header-px">P${partido.id}</span>
                     </div>
-                `; //
+                `;
                 // *******************************************************************
 
                 leaderboardTableHeadRow.appendChild(th);
