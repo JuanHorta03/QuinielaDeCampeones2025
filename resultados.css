@@ -174,6 +174,43 @@
     color: var(--text-dark, #333);
 }
 
+/* --- ESTILOS PARA LA BARRA DE BÚSQUEDA --- */
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    padding: 10px 15px;
+    width: 80%; /* Ancho del campo de búsqueda */
+    max-width: 400px; /* Ancho máximo para que no sea demasiado largo en pantallas grandes */
+    border: 1px solid #3a455a;
+    border-radius: 8px;
+    background-color: #2a3344; /* Fondo del input */
+    color: var(--text-color); /* Color del texto */
+    font-size: 1em;
+    outline: none; /* Quitar el contorno al enfocar */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra interna sutil */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: var(--accent-text-color); /* Color del placeholder */
+}
+
+#searchInput:focus {
+    border-color: var(--blue-add); /* Borde azul al enfocar */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(33, 150, 243, 0.2); /* Sombra externa al enfocar */
+}
+
+/* Si usas un botón de búsqueda junto al input */
+/* .search-container .action-button {
+    margin-left: 10px;
+    vertical-align: middle;
+} */
+
+
 /* --- TABLA DE RANKING --- */
 .ranking-table-container {
     overflow-x: auto; /* PERMITE SCROLL HORIZONTAL en pantallas pequeñas */
@@ -187,17 +224,15 @@
 #leaderboard-table {
     width: 100%; /* Ocupa el 100% del contenedor scrollable */
     border-collapse: collapse;
-    /* min-width: 700px; */ /* Puedes establecer un min-width si la tabla es demasiado angosta */
-    /* background-color: #2a3344; */ /* Ya lo tiene el contenedor */
-    border-radius: 8px; /* Solo para visual, el contenedor tiene el principal */
-    overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #leaderboard-table th,
 #leaderboard-table td {
-    padding: 12px 10px; /* Más padding para celdas */
+    padding: 12px 10px;
     text-align: center;
-    border: 1px solid #3a455a; /* Bordes de celda */
+    border: 1px solid #3a455a;
     color: var(--accent-text-color, #E0E6F0);
     white-space: nowrap; /* IMPIDE que el texto se rompa en varias líneas en las celdas */
 }
@@ -225,18 +260,16 @@
 
 /* Eliminar estilos de rotación - ya no son necesarios */
 #leaderboard-table th[data-game-header] {
-    width: auto; /* Ancho automático */
-    height: auto; /* Altura automática */
-    padding: 12px 10px; /* Restaurar padding normal */
+    width: auto;
+    height: auto;
+    padding: 12px 10px;
     vertical-align: middle;
-    position: static; /* Volver a posición normal */
-    overflow: visible; /* Permitir que el contenido se vea */
+    position: static;
+    overflow: visible;
 }
 
 #leaderboard-table th[data-game-header] .rotated-header-content {
-    /* ESTOS ESTILOS YA NO SE APLICAN porque el .rotated-header-content ya no se usa en JS */
-    /* Si lo dejaste en el HTML, elimínalo o esta regla CSS lo ignorará */
-    display: contents; /* Hace que el contenedor no genere caja, los hijos fluyen directamente */
+    display: contents;
 }
 
 /* Estilos para los pronósticos individuales en la celda */
@@ -292,7 +325,7 @@
     margin: 0 5px;
 }
 
-/* Media Queries para responsividad (manteniendo la compatibilidad anterior) */
+/* Media Queries para responsividad */
 @media (max-width: 768px) {
     .action-button {
         display: block;
@@ -302,14 +335,19 @@
 
     /* Partidos oficiales en móvil: una columna */
     #official-results-container {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-        padding: 0; /* Eliminar padding extra */
-        background-color: transparent; /* Fondo transparente */
-        box-shadow: none; /* Sin sombra interna */
+        grid-template-columns: 1fr;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
     }
 
     .partido-item {
-        margin-bottom: 15px; /* Espacio entre tarjetas en móvil */
+        margin-bottom: 15px;
+    }
+
+    /* Búsqueda en móvil */
+    #searchInput {
+        width: calc(100% - 30px); /* Ajuste de ancho para móvil */
     }
 
     /* Ranking en móvil: El scroll horizontal se mantiene */
@@ -317,19 +355,7 @@
         /* No necesitamos cambiar mucho aquí, ya que el overflow-x se encarga */
     }
 
-    /* Estilos para celdas individuales en móvil si la tabla deja de ser scrollable */
-    /* (Pero con overflow-x: auto, las celdas se mantendrán como en PC y la tabla hará scroll) */
-    #leaderboard-table td {
-        /* Los estilos de white-space: nowrap; y text-align: center; se mantienen */
-        /* Si quieres que se rompa la línea en móviles, remueve white-space: nowrap; de #leaderboard-table th, #leaderboard-table td */
-        /* y agrega flex para los pronosticos en .player-prediction-cell */
-    }
-
-    /* Ocultar los encabezados de partido (P1, P2...) en la tabla de ranking en móvil si quieres */
-    /* Pero como la tabla es scrollable, es mejor mantenerlos para que el usuario sepa qué pronóstico es */
-    /*
     #leaderboard-table th[data-game-header] {
-        display: none;
+        /* Para móvil, los encabezados de Px siguen siendo importantes con el scroll */
     }
-    */
 }
