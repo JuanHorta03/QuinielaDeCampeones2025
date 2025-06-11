@@ -155,7 +155,6 @@
     text-align: center; /* Centrar todo el texto en las celdas */
     border: 1px solid #3a455a; /* AHORA TODAS LAS CELDAS TIENEN UN BORDE COMPLETO */
     color: var(--accent-text-color, #E0E6F0);
-    /* white-space: nowrap; // ELIMINADO: Permitir que el texto se ajuste */
 }
 
 #leaderboard-table th {
@@ -184,8 +183,8 @@
 
 /* --- ESTILOS PARA LOS ENCABEZADOS DE RANKING DE PARTIDOS (P1, P2, etc.) --- */
 #leaderboard-table th[data-game-header] {
-    width: 30px; /* Ancho muy reducido para la celda del TH */
-    height: 120px; /* Altura aumentada para el texto vertical, ajusta si el texto es más largo */
+    width: 35px; /* Aumentado ligeramente el ancho de la celda TH */
+    height: 140px; /* Aumentado la altura de la celda TH para acomodar texto más largo */
     padding: 0;
     vertical-align: bottom;
     position: relative;
@@ -198,8 +197,8 @@
     left: 50%;
     transform-origin: left bottom;
     transform: rotate(-90deg) translateX(-50%);
-    /* AJUSTE CLAVE: Aumentar el ancho para que quepa el nombre completo */
-    width: 180px; /* Aumentado de 120px para nombres más largos. Ajusta si es necesario. */
+    /* AJUSTE CLAVE: Aumentar el ancho para que quepa el nombre completo. Prueba con 180px, 200px o más si tus nombres son muy largos. */
+    width: 200px; /* Ajustado para nombres de partido más largos */
     text-align: left;
     white-space: nowrap;
     display: flex;
@@ -207,7 +206,7 @@
     justify-content: flex-end;
     align-items: flex-start;
     height: 100%;
-    padding-left: 5px;
+    padding-left: 8px; /* Pequeño padding para que el texto no se pegue al borde */
     box-sizing: border-box;
 }
 
@@ -215,11 +214,13 @@
 .header-match-name {
     font-weight: bold;
     color: var(--white, #FFFFFF);
-    margin-bottom: 3px;
-    font-size: 0.8em; /* Puedes ajustar si el texto es muy largo y necesitas que sea más pequeño */
+    margin-bottom: 4px; /* Espacio entre el nombre del partido y el resultado */
+    font-size: 0.85em; /* Ligeramente más grande para mejor legibilidad */
     line-height: 1.2;
     min-width: 0;
     text-align: left;
+    /* Añadir un margen derecho para que el nombre del partido no choque con el resultado */
+    margin-right: 5px; 
 }
 
 .header-match-result {
@@ -239,6 +240,7 @@
     font-weight: normal;
     color: var(--accent-text-color, #E0E6F0);
     text-align: left;
+    margin-top: 2px; /* Pequeño espacio sobre Px */
 }
 
 /* Estilos para los pronósticos individuales en la celda */
@@ -301,7 +303,7 @@
         width: 100%;
     }
     #official-results-table thead {
-        display: none;
+        display: none; /* Ocultar encabezados en móvil */
     }
     #official-results-table tr {
         margin-bottom: 15px;
@@ -343,7 +345,7 @@
     }
     
     #leaderboard-table thead {
-        display: none;
+        display: none; /* Ocultar el encabezado de la tabla en móviles */
     }
 
     #leaderboard-table tr {
@@ -352,22 +354,22 @@
         border-radius: 8px;
         background-color: #2a3344;
         padding: 10px;
-        box-sizing: border-box;
+        box-sizing: border-box; /* Incluir padding en el ancho */
     }
 
     /* Ajuste para las celdas TD en móvil */
     #leaderboard-table td {
         border-bottom: 1px solid #3a455a;
-        text-align: right;
+        text-align: right; /* Alineación del valor a la derecha */
         padding: 8px 15px;
-        position: relative;
+        position: relative; /* Para el data-label */
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
     #leaderboard-table td:last-child {
-        border-bottom: none;
+        border-bottom: none; /* La última celda de la fila no tiene borde inferior */
     }
 
     #leaderboard-table td::before {
