@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
     const officialResultsContainer = document.getElementById('official-results-container');
-    const searchInput = document.getElementById('searchInput'); // Referencia al input de búsqueda
-    // const searchButton = document.getElementById('searchButton'); // Si decides usar un botón
+    const searchInput = document.getElementById('searchInput');
 
     loadingDiv.style.display = 'block';
     errorMessageDiv.style.display = 'none';
@@ -89,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             data.partidos.forEach((partido) => {
                 const th = document.createElement('th');
                 th.setAttribute('data-game-header', true);
-                th.textContent = `P${partido.id}`; // Solo P1, P2, etc.
+                th.textContent = `P${partido.id}`;
                 leaderboardTableHeadRow.appendChild(th);
             });
         }
@@ -107,15 +106,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             displayRanking(filteredRanking); // Mostrar solo los resultados filtrados
         });
 
-        // Si usas botón de búsqueda:
-        // searchButton.addEventListener('click', () => {
-        //     const searchTerm = searchInput.value.toLowerCase();
-        //     const filteredRanking = allRankingData.filter(player => 
-        //         player.nombre.toLowerCase().includes(searchTerm)
-        //     );
-        //     displayRanking(filteredRanking);
-        // });
-
     } catch (error) {
         console.error('Error al cargar datos del Apps Script:', error);
         loadingDiv.style.display = 'none';
@@ -129,10 +119,14 @@ function displayRanking(rankingData) {
     leaderboardTableBody.innerHTML = ''; // Limpiar antes de re-renderizar
 
     if (rankingData.length > 0) {
-        rankingData.forEach((player, index) => {
+        rankingData.forEach((player) => { // Eliminamos 'index' de aquí, ya que no lo usaremos para la posición
             const row = document.createElement('tr');
+            
+            // **** CAMBIO CLAVE AQUÍ: OBTENER LA POSICIÓN REAL DEL RANKING ORIGINAL ****
+            const realPosition = allRankingData.indexOf(player) + 1; 
+
             row.innerHTML = `
-                <td data-label="Posición">${index + 1}</td>
+                <td data-label="Posición">${realPosition}</td>
                 <td data-label="Jugador">${player.nombre}</td>
                 <td data-label="Puntos">${player.puntos}</td>
             `;
@@ -162,12 +156,7 @@ function displayRanking(rankingData) {
                     row.appendChild(td);
                 });
             } else {
-                // Si no hay pronosticosDetalle, añade celdas vacías o con N/D para mantener la estructura
-                // Es importante obtener el número total de partidos para rellenar correctamente.
-                // Podríamos pasar `data.partidos.length` a esta función o hacer que sea global.
-                // Por simplicidad, asumamos que `data.partidos` es accesible o que ya tenemos los THs.
-                // Para este caso, vamos a asumir que la estructura de la tabla ya está definida por los THs.
-                const numPartidos = leaderboardTableHeadRow.querySelectorAll('[data-game-header]').length;
+                const numPartidos = document.querySelector('#leaderboard-table thead tr').querySelectorAll('[data-game-header]').length;
                 for(let i = 0; i < numPartidos; i++) {
                     const td = document.createElement('td');
                     td.setAttribute('data-label', `P${i + 1}`);
