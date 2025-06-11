@@ -1,12 +1,12 @@
 // ¡IMPORTANTE! Reemplaza esta URL con la URL de TU Google Apps Script que copiaste al implementar
-const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbwGSDiUzGXSeSnWlsS0XIPGhs-8V6ZoTBEzlN-gSlyiHrL2f3u1R8EyY4aDRTpo8u7g/exec'; // ESTA ES LA URL QUE ME PROPORCIONASTE.
+const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbwGSDiUzGXSeSnWlsS0XIPGhs-8V6ZoTBEzlN-gSlyiHrL2f3u1R8EyY4aDRTpo8u7g/exec'; // Tu URL actual, si necesitas cambiarla, hazlo aquí.
 
 document.addEventListener('DOMContentLoaded', async () => {
     const loadingDiv = document.getElementById('loading');
     const errorMessageDiv = document.getElementById('error-message');
     const leaderboardTableHeadRow = document.querySelector('#leaderboard-table thead tr');
     const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
-    const officialResultsTableBody = document.querySelector('#official-results-table tbody'); // Nueva referencia a la tabla de partidos
+    const officialResultsContainer = document.getElementById('official-results-container'); // Nueva referencia al contenedor de resultados oficiales
 
     loadingDiv.style.display = 'block'; // Mostrar mensaje de carga
     errorMessageDiv.style.display = 'none'; // Asegurarse de que el error no se muestre
@@ -28,12 +28,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         loadingDiv.style.display = 'none'; // Ocultar mensaje de carga
 
-        // --- 1. Mostrar Partidos y Resultados Oficiales (como tabla) ---
-        officialResultsTableBody.innerHTML = ''; // Limpiar el contenido anterior
+        // --- 1. Mostrar Partidos y Resultados Oficiales (como tarjetas/items) ---
+        officialResultsContainer.innerHTML = ''; // Limpiar el contenido anterior
         if (data.partidos && data.partidos.length > 0) {
             data.partidos.forEach(partido => {
-                const row = document.createElement('tr');
-                
                 let resultadoDisplay = 'Pendiente';
                 let resultadoClass = 'sin-resultado';
 
@@ -41,15 +39,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     switch (partido.ganador_real.toUpperCase()) {
                         case 'L':
                             resultadoClass = 'resultado-local-gana';
-                            resultadoDisplay = 'L'; // Solo mostrar L, V, E en la tabla de partidos
+                            resultadoDisplay = partido.local; // Mostrar el nombre del equipo local si gana
                             break;
                         case 'V':
                             resultadoClass = 'resultado-visitante-gana';
-                            resultadoDisplay = 'V';
+                            resultadoDisplay = partido.visitante; // Mostrar el nombre del equipo visitante si gana
                             break;
                         case 'E':
                             resultadoClass = 'resultado-empate';
-                            resultadoDisplay = 'E';
+                            resultadoDisplay = 'Empate';
                             break;
                         default:
                             resultadoDisplay = 'Inválido';
@@ -58,18 +56,25 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
                 
-                row.innerHTML = `
-                    <td data-label="Partido">${partido.local} vs ${partido.visitante}</td>
-                    <td data-label="Resultado" class="partido-resultado-celda">
-                        <span class="partido-resultado-span ${resultadoClass}">
+                const partidoItem = document.createElement('div');
+                partidoItem.classList.add('partido-item'); // Clase para el estilo de tarjeta
+                partidoItem.innerHTML = `
+                    <div class="partido-info">
+                        <span class="partido-local">${partido.local}</span>
+                        <span class="partido-vs">vs</span>
+                        <span class="partido-visitante">${partido.visitante}</span>
+                    </div>
+                    <div class="partido-resultado-oficial">
+                        <span class="resultado-label">Ganador:</span>
+                        <span class="resultado-valor ${resultadoClass}">
                             ${resultadoDisplay}
                         </span>
-                    </td>
+                    </div>
                 `;
-                officialResultsTableBody.appendChild(row);
+                officialResultsContainer.appendChild(partidoItem);
             });
         } else {
-            officialResultsTableBody.innerHTML = '<tr><td colspan="2" class="info-message">No hay partidos definidos o resultados oficiales aún.</td></tr>';
+            officialResultsContainer.innerHTML = '<p class="info-message">No hay partidos definidos o resultados oficiales aún.</p>';
         }
 
         // --- 2. Construir Encabezados de Partidos Dinámicamente en la Tabla de Ranking ---
@@ -81,40 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             data.partidos.forEach((partido) => {
                 const th = document.createElement('th');
                 th.setAttribute('data-game-header', true); // Marcador para poder eliminarlos si se recarga
-                
-                let resultadoClass = 'sin-resultado'; // Default para el encabezado
-                let resultadoTexto = 'Pendiente';
-
-                if (partido.ganador_real) {
-                    switch (partido.ganador_real.toUpperCase()) {
-                        case 'L':
-                            resultadoClass = 'resultado-local-gana';
-                            resultadoTexto = 'L';
-                            break;
-                        case 'V':
-                            resultadoClass = 'resultado-visitante-gana';
-                            resultadoTexto = 'V';
-                            break;
-                        case 'E':
-                            resultadoClass = 'resultado-empate';
-                            resultadoTexto = 'E';
-                            break;
-                        default:
-                            resultadoTexto = '?'; // Para resultados inesperados
-                            break;
-                    }
-                }
-
-                // **** MODIFICACIÓN CLAVE: NO TRUNCAR LOS NOMBRES DE LOS EQUIPOS ****
-                th.innerHTML = `
-                    <div class="rotated-header-content">
-                        <span class="header-match-name">${partido.local} vs ${partido.visitante}</span>
-                        <span class="header-match-result ${resultadoClass}">${resultadoTexto}</span>
-                        <span class="header-px">P${partido.id}</span>
-                    </div>
-                `;
-                // *******************************************************************
-
+                th.textContent = `P${partido.id}`; // Solo P1, P2, etc. en el encabezado de la tabla
                 leaderboardTableHeadRow.appendChild(th);
             });
         }
@@ -169,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 leaderboardTableBody.appendChild(row);
             });
         } else {
-            leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>'; //
+            leaderboardTableBody.innerHTML = '<tr><td colspan="13" class="info-message" style="text-align: center; padding: 20px;">No hay jugadores en el ranking aún.</td></tr>';
         }
 
     } catch (error) {
