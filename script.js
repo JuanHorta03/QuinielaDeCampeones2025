@@ -58,21 +58,21 @@ const logos = {
     "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/tigres.png",
     "GUATEMALA": 
     "PANAMA":
-    "FLUMINENSE":
-    "ULSAN HYUNDAI":
-    "INTER MILAN":
-    "URAWA RED DIAMONDS"
-    "RIVER PLATE":
-    "MONTERREY":
+    "FLUMINENSE":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/fluminense.png",
+    "ULSAN HYUNDAI":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ulsan_hyundai.png",
+    "INTER MILAN":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/inter-milan.png",
+    "URAWA RED DIAMONDS""https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/urawa.png",
+    "RIVER PLATE":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/river.png",
+    "MONTERREY":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/monterrey.png",
     "HONDURAS":
     "EL SALVADOR"
-    "REAL MADRID":
-    "PACHUCA":
-    "RED BULL SALZBURGO":
-    "AL HILAL RIYADH":
+    "REAL MADRID":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realmadrid.png",
+    "PACHUCA":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pachuca.png",
+    "RED BULL SALZBURGO":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/red_bull_salzburgo.png",
+    "AL HILAL RIYADH":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/al_hilal.png",
     "ESTADOS UNIDOS":
     "COSTA RICA":
-    "WYDAD AC":
+    "WYDAD AC":"https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/wydad_ac.png"
 };
 
 // --- ELEMENTOS DEL DOM ---
