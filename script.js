@@ -55,7 +55,24 @@ const logos = {
     "RB-LEIPZIG": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/rb-leipzig.png",
     "ROMA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/roma.png",
     "STUTTGART": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/stuttgart.png",
-    "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/tigres.png"
+    "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/tigres.png",
+    "GUATEMALA": 
+    "PANAMA":
+    "FLUMINENSE":
+    "ULSAN HYUNDAI":
+    "INTER MILAN":
+    "URAWA RED DIAMONDS"
+    "RIVER PLATE":
+    "MONTERREY":
+    "HONDURAS":
+    "EL SALVADOR"
+    "REAL MADRID":
+    "PACHUCA":
+    "RED BULL SALZBURGO":
+    "AL HILAL RIYADH":
+    "ESTADOS UNIDOS":
+    "COSTA RICA":
+    "WYDAD AC":
 };
 
 // --- ELEMENTOS DEL DOM ---
