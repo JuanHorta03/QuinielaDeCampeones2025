@@ -103,9 +103,18 @@ let addedQuinielas = [];
 document.addEventListener('DOMContentLoaded', () => {
     if (!container) {
         console.error("Error: El elemento con ID 'partidos-container' no fue encontrado en el DOM. Asegúrate de que tu HTML lo contenga.");
-        return; // Detener la ejecución si el contenedor no existe
+        return;
     }
 
+    // --- AQUÍ ES DONDE AGREGAS ESTE BLOQUE DE CÓDIGO ---
+    const leyendaDiv = document.createElement("div");
+    leyendaDiv.className = "leyenda";
+    leyendaDiv.innerHTML = `⚠️ El último partido listado es el de reserva. <br>Solo se utilizará si alguno de los anteriores no se juega.`; // Usé innerHTML para permitir <br>
+    container.appendChild(leyendaDiv);
+    // --- FIN DEL BLOQUE A AGREGAR ---
+
+
+    // --- Este forEach ahora simplemente añade los partidos, uno tras otro ---
     partidosData.forEach(([local, visitante], index) => {
         const div = document.createElement("div");
         div.className = "partido";
@@ -126,16 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         container.appendChild(div);
-
-        // La lógica para la leyenda del partido de reserva
-        // Si el último partido es el de reserva, o el penúltimo si tienes 10 partidos y el último es el "partido de reserva" en el arreglo
-        // Usaremos el último elemento del array como partido de reserva
-        if (index === partidosData.length - 1) {
-            const leyendaDiv = document.createElement("div");
-            leyendaDiv.className = "leyenda";
-            leyendaDiv.textContent = "⚠️ El último partido listado es el de reserva. Solo se utilizará si alguno de los anteriores no se juega.";
-            container.appendChild(leyendaDiv);
-        }
     });
 
     updateResumen();
