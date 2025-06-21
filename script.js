@@ -78,11 +78,11 @@ const logos = {
     "COLORADO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png",
     "AUSTIN FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/austin.png", // Añadido para AUSTIN FC
     "CINCINNATI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cincinnati.png", // Añadido si no existe
-    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland_timbers.png", // Añadido si no existe
+    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland.png", // Añadido si no existe
     "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", // Añadido si no existe
-    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/la_galaxy.png", // Añadido si no existe
+    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png", // Añadido si no existe
     "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", // Añadido si no existe
-    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver_whitecaps.png" // Añadido si no existe
+    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver.png" // Añadido si no existe
 };
 
 // --- ELEMENTOS DEL DOM ---
