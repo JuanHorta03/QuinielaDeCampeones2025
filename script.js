@@ -3,8 +3,8 @@ const QUINIELA_COST = 25;
 const WHATSAPP_NUMBER = '+524793184476'; // Tu número de WhatsApp (con el +)
 const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas logo)
 
-// ¡IMPORTANTE! Esta es la URL de tu Google Apps Script que me proporcionaste.
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; // URL corregida (solo un ejemplo, asegúrate de que sea la tuya)
+// ¡IMPORTANTE! Esta es la URL de tu Google Apps Script.
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; 
 
 const partidosData = [
     ["MONTREAL", "NEW YORK CITY"],
@@ -14,12 +14,13 @@ const partidosData = [
     ["TORONTO FC", "PORTLAND TIMBERS"],
     ["HOUSTON DYNAMO", "ST. LOUIS CITY"],
     ["SJ EARTHQUAKES", "LA GALAXY"],
-    ["SEATTLE SOUNDERS", "AUSTIN FC"], // Se corrigió "AUSTIN FC" por "AUSTIN" si el logo es solo "AUSTIN"
+    ["SEATTLE SOUNDERS", "AUSTIN FC"],
     ["COLUMBUS CREW", "PHILADELPHIA"],
-    ["LAFC", "VANCOUVER WHITECAPS"] // Partido de reserva
+    ["LAFC", "VANCOUVER WHITECAPS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
+    // --- Logos actuales (asegúrate de que las URLs sean correctas) ---
     "MEXICO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mexico.png",
     "REP. DOMINICANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/rep-dominicana.png",
     "AL AHLY SC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/al_ahly.png",
@@ -33,7 +34,7 @@ const logos = {
     "PALMEIRAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/palmeiras.png",
     "PORTO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/porto.png",
     "CHELSEA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/chelsea.png",
-    "LAFC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangeles.png", // Coincide con partidosData
+    "LAFC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangeles.png", 
     "FLAMENGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/flamengo.png",
     "ESPERANCE ST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/esperance_sp_tunis.png",
     "BOCA JRS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/boca.png",
@@ -49,7 +50,7 @@ const logos = {
     "LAZIO": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/lazio.png",
     "LEONES-NEGROS": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/leones-negros.png",
     "MILAN": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/milan.png",
-    "ORLANDO-CITY": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/orlando-city.png",
+    // "ORLANDO-CITY": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/orlando-city.png", // Duplicado con "ORLANDO CITY"
     "RB-LEIPZIG": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/rb-leipzig.png",
     "ROMA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/roma.png",
     "STUTTGART": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/stuttgart.png",
@@ -58,7 +59,7 @@ const logos = {
     "PANAMA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/panama.png",
     "FLUMINENSE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/fluminense.png",
     "ULSAN HYUNDAI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ulsan_hyundai.png",
-    "INTER MILAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/inter-milan.png",
+    "INTER MILAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/inter-milan.png", // Ya lo tenías con un guion. Preferible sin.
     "URAWA RED DIAMONDS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/urawa.png",
     "RIVER PLATE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/river.png",
     "MONTERREY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/monterrey.png",
@@ -73,30 +74,29 @@ const logos = {
     "WYDAD AC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/wydad_ac.png",
     "MONTREAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/montreal.png",
     "NEW YORK CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newyorkcity.png",
-    "ATLANTA UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlanta.png", // Coincide con partidosData
+    "ATLANTA UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlanta.png",
     "NEW ENGLAND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newengland.png",
     "COLORADO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png",
-    "AUSTIN FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/austin.png", // Añadido para AUSTIN FC
-    "CINCINNATI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cincinnati.png", // Añadido si no existe
-    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland.png", // Añadido si no existe
-    "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", // Añadido si no existe
-    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png", // Añadido si no existe
-    "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", // Añadido si no existe
-    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver.png" // Añadido si no existe
+    "AUSTIN FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/austin.png", // Mantener como AUSTIN FC para coincidir con partidosData
+    "CINCINNATI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cincinnati.png", 
+    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland_timbers.png", // Corregido el logo URL
+    "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", 
+    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/la_galaxy.png", // Corregido el logo URL
+    "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", 
+    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver_whitecaps.png", // Corregido el logo URL
     "ORLANDO CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/orlando-city.png",
-    "TORONTO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto.png",
+    "TORONTO FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto_fc.png", // Corregido el logo URL
     "HOUSTON DYNAMO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/houstondynamo.png",
-    "COLUMBUS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus.png",
-    "SAN JOSE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png"
+    "COLUMBUS CREW": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus_crew.png", // Corregido el logo URL
+    "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sj_earthquakes.png" // Corregido el logo URL
 };
 
 // --- ELEMENTOS DEL DOM ---
-// Se aseguró que estos elementos existan en tu HTML con estos IDs
 const container = document.getElementById("partidos-container");
 const resumen = document.getElementById("resumen");
 const nombreInput = document.getElementById("nombre");
 const totalQuinielasSpan = document.getElementById("totalQuinielasSpan");
-const currentCostSpan = document.getElementById("currentCost"); // Asegúrate de que este ID existe en tu HTML si lo usas
+const currentCostSpan = document.getElementById("currentCost"); 
 const totalCostSpan = document.getElementById("totalCost");
 const numQuinielasSpan = document.getElementById("numQuinielas");
 const addedQuinielasList = document.querySelector("#addedQuinielasList ul");
@@ -106,13 +106,25 @@ let addedQuinielas = [];
 
 // --- INICIALIZACIÓN DE LA QUINIELA ---
 document.addEventListener('DOMContentLoaded', () => {
-    partidosData.forEach(([local, visitante], index) => {
+    // Es crucial verificar si el contenedor existe ANTES de intentar añadirle elementos.
+    if (!container) {
+        console.error("Error: El elemento con ID 'partidos-container' no fue encontrado en el DOM. Asegúrate de que tu HTML lo contenga.");
+        return; // Detiene la ejecución si el contenedor no existe
+    }
+
+    // Separa los primeros 9 partidos y el partido de reserva (el décimo, índice 9)
+    const primeros9Partidos = partidosData.slice(0, 9);
+    // Asegurarse de que el partido de reserva exista antes de intentar acceder a él
+    const partidoDeReserva = partidosData.length > 9 ? partidosData[9] : null; 
+
+    // 1. Renderiza los primeros 9 partidos
+    primeros9Partidos.forEach(([local, visitante], index) => {
         const div = document.createElement("div");
         div.className = "partido";
         div.setAttribute("data-index", index);
         div.innerHTML = `
             <div class="equipo">
-                <img class="logo-equipo" src="${logos[local] || ''}" alt="${local}" onerror="this.src='https://via.placeholder.com/40?text=Logo'" />
+                <img class="logo-equipo" src="${logos[local] || 'https://via.placeholder.com/40?text=Logo'}" alt="${local}" />
                 <div class="nombre-equipo">${local}</div>
             </div>
             <div class="opciones">
@@ -122,24 +134,53 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="equipo">
                 <div class="nombre-equipo">${visitante}</div>
-                <img class="logo-equipo" src="${logos[visitante] || ''}" alt="${visitante}" onerror="this.src='https://via.placeholder.com/40?text=Logo'" />
+                <img class="logo-equipo" src="${logos[visitante] || 'https://via.placeholder.com/40?text=Logo'}" alt="${visitante}" />
             </div>
         `;
         container.appendChild(div);
-
-        if (index === partidosData.length - 2) { // Asumiendo que el penúltimo partido es el de reserva
-            const leyendaDiv = document.createElement("div");
-            leyendaDiv.className = "leyenda";
-            leyendaDiv.textContent = "⚠️ Este partido se utilizará únicamente en caso de que alguno de los encuentros anteriores no se juegue.";
-            container.appendChild(leyendaDiv);
-        }
     });
+
+    // 2. Muestra el mensaje del partido de reserva
+    // Solo si hay un partido de reserva para anunciar
+    if (partidoDeReserva) {
+        const leyendaDiv = document.createElement("div");
+        leyendaDiv.className = "leyenda";
+        leyendaDiv.innerHTML = `⚠️ **Partido de Reserva:** Este partido solo se utilizará si alguno de los 9 partidos anteriores no se juega.`;
+        container.appendChild(leyendaDiv);
+    }
+    
+
+    // 3. Renderiza el partido de reserva (el décimo)
+    if (partidoDeReserva) { 
+        const [localReserva, visitanteReserva] = partidoDeReserva;
+        const divReserva = document.createElement("div");
+        divReserva.className = "partido";
+        divReserva.setAttribute("data-index", 9); // Le asignamos el índice 9 para que coincida con su posición original
+        divReserva.innerHTML = `
+            <div class="equipo">
+                <img class="logo-equipo" src="${logos[localReserva] || 'https://via.placeholder.com/40?text=Logo'}" alt="${localReserva}" />
+                <div class="nombre-equipo">${localReserva}</div>
+            </div>
+            <div class="opciones">
+                <button type="button" class="btn-opcion" data-valor="L">L</button>
+                <button type="button" class="btn-opcion" data-valor="E">E</button>
+                <button type="button" class="btn-opcion" data-valor="V">V</button>
+            </div>
+            <div class="equipo">
+                <div class="nombre-equipo">${visitanteReserva}</div>
+                <img class="logo-equipo" src="${logos[visitanteReserva] || 'https://via.placeholder.com/40?text=Logo'}" alt="${visitanteReserva}" />
+            </div>
+        `;
+        container.appendChild(divReserva);
+    } else {
+        console.warn("No se encontró el partido de reserva en partidosData. Asegúrate de que haya al menos 10 partidos.");
+    }
 
     updateResumen();
     updateOverallSummary();
 });
 
-// --- FUNCIONES ---
+// --- FUNCIONES (sin cambios significativos) ---
 
 function getCurrentQuinielaSelection() {
     const partidos = document.querySelectorAll(".partido");
@@ -152,7 +193,6 @@ function getCurrentQuinielaSelection() {
 }
 
 function updateResumen() {
-    // Asegurarse de que 'resumen' exista antes de intentar modificarlo
     if (resumen) {
         const currentSelection = getCurrentQuinielaSelection();
         resumen.textContent = "Tu selección actual: " + currentSelection.join(" ").trim();
@@ -172,7 +212,7 @@ function clearSelections() {
 }
 
 function renderAddedQuinielas() {
-    if (!addedQuinielasList) return; // Asegurarse de que el elemento existe
+    if (!addedQuinielasList) return; 
 
     addedQuinielasList.innerHTML = '';
     if (addedQuinielas.length === 0) {
@@ -205,7 +245,6 @@ function deleteQuiniela(index) {
     }
 }
 
-// --- FUNCIÓN PARA GENERAR EL MENSAJE DE WHATSAPP ---
 function generateWhatsAppMessage() {
     let message = `¡Hola! Aquí están mis quinielas:\n\n`;
 
@@ -220,7 +259,7 @@ function generateWhatsAppMessage() {
     return message;
 }
 
-// --- EVENT LISTENERS ---
+// --- EVENT LISTENERS (sin cambios significativos) ---
 
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("btn-opcion")) {
@@ -276,27 +315,24 @@ if (btnAgregarQuiniela) {
 const quinielaForm = document.getElementById("quinielaForm");
 if (quinielaForm) {
     quinielaForm.addEventListener("submit", async function(e) {
-        e.preventDefault(); // Previene el envío tradicional del formulario
+        e.preventDefault(); 
 
         if (addedQuinielas.length === 0) {
             alert("Por favor, agrega al menos una quiniela antes de enviar.");
             return;
         }
 
-        // --- 1. PREPARAR Y ABRIR WHATSAPP INMEDIATAMENTE ---
         const rawWhatsAppMessage = generateWhatsAppMessage();
         const encodedWhatsAppMessage = encodeURIComponent(rawWhatsAppMessage);
         const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedWhatsAppMessage}`;
 
         try {
             window.open(whatsappURL, "_blank");
-            await new Promise(resolve => setTimeout(resolve, 500)); // Pequeña pausa para que el navegador procese la apertura
+            await new Promise(resolve => setTimeout(resolve, 500)); 
         } catch (openError) {
             console.warn("Error al intentar abrir WhatsApp (posible bloqueador de pop-ups):", openError);
-            // No se mostrará un alert al usuario si falla la apertura de WhatsApp aquí.
         }
 
-        // --- 2. ENVIAR DATOS A GOOGLE SHEETS (ASÍNCRONAMENTE) ---
         try {
             for (const quiniela of addedQuinielas) {
                 const prediccionesParaEnviar = quiniela.selections;
@@ -305,7 +341,7 @@ if (quinielaForm) {
 
                 await fetch(GOOGLE_APPS_SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Importante para evitar problemas de CORS con Google Apps Script
+                    mode: 'no-cors', 
                     cache: 'no-cache',
                     headers: {
                         'Content-Type': 'application/json'
@@ -322,11 +358,10 @@ if (quinielaForm) {
         } catch (error) {
             console.error('Error al enviar datos a Google Sheets:', error);
             alert('Hubo un error al guardar tus quinielas en Google Sheets. Por favor, informa al organizador.');
-        } finally { // Asegurar la limpieza del formulario siempre
-            // --- LIMPIAR EL FORMULARIO ---
+        } finally { 
             addedQuinielas = [];
             clearSelections();
-            if (nombreInput) nombreInput.value = ''; // Asegurarse de que nombreInput existe
+            if (nombreInput) nombreInput.value = ''; 
             updateOverallSummary();
         }
     });
