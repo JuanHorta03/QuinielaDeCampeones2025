@@ -73,6 +73,11 @@ const logos = {
     "ESTADOS UNIDOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/usa.png",
     "COSTA RICA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/costa_rica.png",
     "WYDAD AC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/wydad_ac.png"
+    "MONTREAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/montreal.png",
+    "NEW YORK CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newyorkcity.png",
+    "ATLANTA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlanta.png",
+    "NEW ENGLAND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newengland.png",
+    "COLORADO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png"
 };
 
 // --- ELEMENTOS DEL DOM ---
