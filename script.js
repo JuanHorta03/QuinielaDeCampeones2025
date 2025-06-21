@@ -83,7 +83,7 @@ const logos = {
     "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", 
     "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png", // Corregido el logo URL
     "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", 
-    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver_whitecaps.png", // Corregido el logo URL
+    "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver.png", // Corregido el logo URL
     "ORLANDO CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/orlando-city.png",
     "TORONTO FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto.png", // Corregido el logo URL
     "HOUSTON DYNAMO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/houstondynamo.png",
