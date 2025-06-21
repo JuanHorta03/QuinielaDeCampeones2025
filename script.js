@@ -79,16 +79,16 @@ const logos = {
     "COLORADO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png",
     "AUSTIN FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/austin.png", // Mantener como AUSTIN FC para coincidir con partidosData
     "CINCINNATI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cincinnati.png", 
-    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland_timbers.png", // Corregido el logo URL
+    "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland.png", // Corregido el logo URL
     "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", 
-    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/la_galaxy.png", // Corregido el logo URL
+    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png", // Corregido el logo URL
     "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", 
     "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver_whitecaps.png", // Corregido el logo URL
     "ORLANDO CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/orlando-city.png",
-    "TORONTO FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto_fc.png", // Corregido el logo URL
+    "TORONTO FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto.png", // Corregido el logo URL
     "HOUSTON DYNAMO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/houstondynamo.png",
-    "COLUMBUS CREW": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus_crew.png", // Corregido el logo URL
-    "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sj_earthquakes.png" // Corregido el logo URL
+    "COLUMBUS CREW": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus.png", // Corregido el logo URL
+    "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png" // Corregido el logo URL
 };
 
 // --- ELEMENTOS DEL DOM ---
