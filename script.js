@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index === partidosData.length - 2) { // Asumiendo que el penúltimo partido es el de reserva
             const leyendaDiv = document.createElement("div");
             leyendaDiv.className = "leyenda";
-            leyendaDiv.textContent = "⚠️ Este partido solo se utilizará si alguno de los anteriores no se juega.";
+            leyendaDiv.textContent = "⚠️ Este partido se utilizará únicamente en caso de que alguno de los encuentros anteriores no se juegue.";
             container.appendChild(leyendaDiv);
         }
     });
