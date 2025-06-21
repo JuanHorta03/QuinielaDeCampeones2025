@@ -101,27 +101,13 @@ let addedQuinielas = [];
 
 // --- INICIALIZACIÓN DE LA QUINIELA ---
 document.addEventListener('DOMContentLoaded', () => {
-    if (!container) {
-        console.error("Error: El elemento con ID 'partidos-container' no fue encontrado en el DOM. Asegúrate de que tu HTML lo contenga.");
-        return;
-    }
-
-    // --- AQUÍ ES DONDE AGREGAS ESTE BLOQUE DE CÓDIGO ---
-    const leyendaDiv = document.createElement("div");
-    leyendaDiv.className = "leyenda";
-    leyendaDiv.innerHTML = `⚠️ El último partido listado es el de reserva. <br>Solo se utilizará si alguno de los anteriores no se juega.`; // Usé innerHTML para permitir <br>
-    container.appendChild(leyendaDiv);
-    // --- FIN DEL BLOQUE A AGREGAR ---
-
-
-    // --- Este forEach ahora simplemente añade los partidos, uno tras otro ---
     partidosData.forEach(([local, visitante], index) => {
         const div = document.createElement("div");
         div.className = "partido";
         div.setAttribute("data-index", index);
         div.innerHTML = `
             <div class="equipo">
-                <img class="logo-equipo" src="${logos[local] || 'https://via.placeholder.com/40?text=Logo'}" alt="${local}" />
+                <img class="logo-equipo" src="${logos[local] || ''}" alt="${local}" onerror="this.src='https://via.placeholder.com/40?text=Logo'" />
                 <div class="nombre-equipo">${local}</div>
             </div>
             <div class="opciones">
@@ -131,10 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="equipo">
                 <div class="nombre-equipo">${visitante}</div>
-                <img class="logo-equipo" src="${logos[visitante] || 'https://via.placeholder.com/40?text=Logo'}" alt="${visitante}" />
+                <img class="logo-equipo" src="${logos[visitante] || ''}" alt="${visitante}" onerror="this.src='https://via.placeholder.com/40?text=Logo'" />
             </div>
         `;
         container.appendChild(div);
+
+        if (index === partidosData.length - 2) { // Asumiendo que el penúltimo partido es el de reserva
+            const leyendaDiv = document.createElement("div");
+            leyendaDiv.className = "leyenda";
+            leyendaDiv.textContent = "⚠️ Este partido solo se utilizará si alguno de los anteriores no se juega.";
+            container.appendChild(leyendaDiv);
+        }
     });
 
     updateResumen();
