@@ -12,10 +12,10 @@ const partidosData = [
     ["NEW ENGLAND", "COLORADO"],
     ["ORLANDO CITY", "CINCINNATI"],
     ["TORONTO FC", "PORTLAND TIMBERS"],
+    ["MEXICO", "ARABIA SAUDITA"],
     ["ESTADOS UNIDOS", "COSTA RICA"],
     ["PALMEIRAS", "BOTAFOGO"],
     ["PSG", "INTER MIAMI"],
-    ["MEXICO", "ARABIA SAUDITA"],
     ["LAFC", "VANCOUVER WHITECAPS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
