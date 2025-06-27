@@ -10,13 +10,13 @@ const partidosData = [
     ["MONTREAL", "NEW YORK CITY"],
     ["INTER MIAMI", "ATLANTA UNITED"],
     ["NEW ENGLAND", "COLORADO"],
-    ["ORLANDO CITY", "CINCINNATI"],
-    ["TORONTO FC", "PORTLAND TIMBERS"],
-    ["MEXICO", "ARABIA SAUDITA"],
-    ["ESTADOS UNIDOS", "COSTA RICA"],
-    ["PALMEIRAS", "BOTAFOGO"],
+    ["DC UNITED", "ATLANTA UNITED"],
+    ["CINCINNATTI", "CHICAGO FIRE"],
+    ["AUSTIN FC", "LAFC"],
+    ["SJ EARTHQUAKES", "NY RED BULL"],
+    ["SEATTLE SOUNDERS", "COLUMBUS CREW"],
     ["PSG", "INTER MIAMI"],
-    ["LAFC", "VANCOUVER WHITECAPS"] // Este es el partido de reserva (el décimo, índice 9)
+    ["FRANCIA (F)", "INGLATERRA (F)"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
