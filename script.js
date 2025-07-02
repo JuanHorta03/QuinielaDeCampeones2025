@@ -16,7 +16,7 @@ const partidosData = [
     ["LA GALAXY", "DC UNITED"],
     ["PACHUCA", "MONTERREY"],
     ["LEON", "SAN LUIS"],
-    ["ARGENTINOS", "BOCA JRS."] // Este es el partido de reserva (el décimo, índice 9)
+    ["ARGENTINOS", "BOCA JRS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
@@ -89,6 +89,23 @@ const logos = {
     "HOUSTON DYNAMO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/houstondynamo.png",
     "COLUMBUS CREW": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus.png", // Corregido el logo URL
     "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png" // Corregido el logo URL
+    "AMERICA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/america.png",
+    "ATLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlas.png",
+    "ATLETICOSL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanluis.png",
+    "CRUZ_AZUL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cruz-azul.png",
+    "GUADALAJARA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/guadalajara.png",
+    "JUAREZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/juarez.png",
+    "LEON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/leon.png",
+    "MAZATLAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mazatlan.png",
+    "NECAXA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/necaxa.png",
+    "PACHUCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pachuca.png",
+    "PUEBLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/puebla.png",
+    "PUMAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pumas.png",
+    "QUERETARO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/queretaro.png",
+    "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png",
+    "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tigres.png",
+    "TIJUANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tijuana.png",
+    "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toluca.png"
 };
 
 // --- ELEMENTOS DEL DOM ---
