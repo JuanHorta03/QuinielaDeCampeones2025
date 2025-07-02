@@ -91,7 +91,7 @@ const logos = {
     "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png", // Corregido el logo URL
     "AMERICA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/america.png",
     "ATLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlas.png",
-    "ATLETICOSL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanluis.png",
+    "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanluis.png",
     "CRUZ_AZUL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cruz-azul.png",
     "GUADALAJARA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/guadalajara.png",
     "JUAREZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/juarez.png",
