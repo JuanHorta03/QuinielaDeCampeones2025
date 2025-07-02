@@ -16,7 +16,7 @@ const partidosData = [
     ["LA GALAXY", "DC UNITED"],
     ["PACHUCA", "MONTERREY"],
     ["LEON", "SAN LUIS"],
-    ["ARGENTINOS", "BOCA JRS.] // Este es el partido de reserva (el décimo, índice 9)
+    ["ARGENTINOS", "BOCA JRS."] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
