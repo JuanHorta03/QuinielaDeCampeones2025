@@ -16,7 +16,7 @@ const partidosData = [
     ["LA GALAXY", "DC UNITED"],
     ["PACHUCA", "MONTERREY"],
     ["LEON", "SAN LUIS"],
-    ["ARGENTINOS", "BOCA JRS"] // Este es el partido de reserva (el décimo, índice 9)
+    ["ARGENTINOS JR", "BOCA JRS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
@@ -105,7 +105,11 @@ const logos = {
     "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png",
     "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tigres.png",
     "TIJUANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tijuana.png",
-    "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toluca.png"
+    "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toluca.png",
+    "DC UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/dcunited.png",
+    "DALLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/dallas.png",
+    "NASHVILLE SC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/nashville.png",
+    "ARGENTINOS JR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/argentinos.png"
 };
 
 // --- ELEMENTOS DEL DOM ---
