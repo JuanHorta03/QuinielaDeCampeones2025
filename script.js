@@ -92,7 +92,7 @@ const logos = {
     "AMERICA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/america.png",
     "ATLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlas.png",
     "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanluis.png",
-    "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atleticosl.png
+    "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atleticosl.png,
     "CRUZ_AZUL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cruz-azul.png",
     "GUADALAJARA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/guadalajara.png",
     "JUAREZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/juarez.png",
