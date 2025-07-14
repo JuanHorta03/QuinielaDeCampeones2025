@@ -16,7 +16,7 @@ const partidosData = [
     ["NEW YORK RB", "INTER MIAMI"],
     ["LAFC", "LA GALAXY"],
     ["INDEPENDIENTE", "TALLERES"],
-    ["RED BULL SALZBURG", "DERBY COUNTY"] // Este es el partido de reserva (el décimo, índice 9)
+    ["RED BULL SALZBURGO", "DERBY COUNTY"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
@@ -93,8 +93,8 @@ const logos = {
     "ATLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atlas.png",
     "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanluis.png",
     "SAN LUIS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atleticosl.png",
-    "CRUZ_AZUL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cruz-azul.png",
-    "GUADALAJARA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/guadalajara.png",
+    "CRUZ AZUL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cruz-azul.png",
+    "CHIVAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/guadalajara.png",
     "JUAREZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/juarez.png",
     "LEON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/leon.png",
     "MAZATLAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mazatlan.png",
