@@ -110,7 +110,12 @@ const logos = {
     "DC UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/dcunited.png",
     "DALLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/dallas.png",
     "NASHVILLE SC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/nashville.png",
-    "ARGENTINOS JR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/argentinos.png"
+    "ARGENTINOS JR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/argentinos.png",
+    "NEW YORK RB": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newyork.png",
+    "TALLERES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/talleres.png",
+    "DERBY COUNTY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/derby_county.png",
+    "INDEPENDIENTE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/independiente.png"
+
 };
 
 // --- ELEMENTOS DEL DOM ---
