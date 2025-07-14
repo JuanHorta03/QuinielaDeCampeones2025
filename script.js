@@ -13,10 +13,10 @@ const partidosData = [
     ["TIGRES", "JUAREZ"],
     ["ATLAS", "CRUZ AZUL"],
     ["PUMAS", "PACHUCA"],
-    ["LA GALAXY", "DC UNITED"],
-    ["PACHUCA", "MONTERREY"],
-    ["LEON", "SAN LUIS"],
-    ["ARGENTINOS JR", "BOCA JRS"] // Este es el partido de reserva (el décimo, índice 9)
+    ["NEW YORK RB", "INTER MIAMI"],
+    ["LAFC", "LA GALAXY"],
+    ["INDEPENDIENTE", "TALLERES"],
+    ["RED BULL SALZBURG", "DERBY COUNTY"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
