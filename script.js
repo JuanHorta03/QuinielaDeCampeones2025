@@ -15,8 +15,8 @@ const partidosData = [
     ["CRUZ AZUL", "LEON"],
     ["NECAXA", "AMERICA"],
     ["INTER MIAMI", "CINCINNATI"],
-    ["DC UNITED", "AUSTIN"],
-    ["REAL SALT LAKE", "SJ EARTHQUAKES"] // Este es el partido de reserva (el décimo, índice 9)
+    ["DC UNITED", "AUSTIN FC"],
+    ["ATLANTA UNITED", "SEATTLE SOUNDERS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
