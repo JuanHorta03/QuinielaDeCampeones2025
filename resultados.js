@@ -1,5 +1,5 @@
 // ¡IMPORTANTE! Reemplaza esta URL con la URL de TU Google Apps Script que copiaste al implementar
-const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbwGSDiUzGXSeSnWlsS0XIPGhs-8V6ZoTBEzlN-gSlyiHrL2f3u1R8EyY4aDRTpo8u7g/exec; // Tu URL actual.
+const GOOGLE_APPS_SCRIPT_RESULTS_URL = 'https://script.google.com/macros/s/AKfycbzpqBP265_NCfVi8NuS6GywHFkRehUpQIw34MlX50erNd0NvA_--0BACkNSdtiIbUHb/exec'; // Tu URL actual.
 
 let allRankingData = []; // Variable para almacenar todos los datos del ranking
 
