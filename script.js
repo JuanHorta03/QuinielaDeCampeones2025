@@ -114,7 +114,8 @@ const logos = {
     "NEW YORK RB": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newyork.png",
     "TALLERES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/talleres.png",
     "DERBY COUNTY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/derby_county.png",
-    "INDEPENDIENTE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/independiente.png"
+    "INDEPENDIENTE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/independiente.png",
+    "CHARLOTTE FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/refs/heads/main/logos/charlotte.png"
 
 };
 
