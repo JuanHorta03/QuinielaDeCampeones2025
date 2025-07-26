@@ -7,16 +7,16 @@ const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; 
 
 const partidosData = [
-    ["TIJUANA", "JUAREZ"],
-    ["PACHUCA", "MAZATLAN"],
-    ["CHIVAS", "SAN LUIS"],
-    ["MONTERREY", "ATLAS"],
-    ["TOLUCA", "TIGRES"],
-    ["CRUZ AZUL", "LEON"],
-    ["NECAXA", "AMERICA"],
-    ["INTER MIAMI", "CINCINNATI"],
-    ["DC UNITED", "AUSTIN FC"],
-    ["ATLANTA UNITED", "SEATTLE SOUNDERS"] // Este es el partido de reserva (el décimo, índice 9)
+    ["LAFC", "PACHUCA"],
+    ["TIGRES", "SAN DIEGO"],
+    ["ORLANDO CITY", "ATLAS"],
+    ["INTER MIAMI", "NECAXA"],
+    ["AMERICA", "MINNESOTA UNITED"],
+    ["PUMAS", "ATLANTA UNITED"],
+    ["CHIVAS", "CHARLOTTE FC"],
+    ["MONTERREY", "NY RED BULL"],
+    ["LOS ANGELES GALAXY", "CRUZ AZUL"],
+    ["COLORADO RAPIDS", "TIJUANA"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
