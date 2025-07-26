@@ -115,7 +115,10 @@ const logos = {
     "TALLERES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/talleres.png",
     "DERBY COUNTY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/derby_county.png",
     "INDEPENDIENTE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/independiente.png",
-    "CHARLOTTE FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/refs/heads/main/logos/charlotte.png"
+    "CHARLOTTE FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/refs/heads/main/logos/charlotte.png",
+    "SAN DIEGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sandiego.png",
+    "COLORADO RAPIDS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png",
+    "MINNESOTA UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/minnesota.png",
 
 };
 
