@@ -119,11 +119,11 @@ const logos = {
     "SAN DIEGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sandiego.png",
     "COLORADO RAPIDS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colorado.png",
     "MINNESOTA UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/minnesota.png",
-    "ASTON VILLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/f79a20ab02c82a4a6fbc789c3c05dfa7db78aa5d/logos/astonvilla.png",
-    "NEWCASTLE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/f79a20ab02c82a4a6fbc789c3c05dfa7db78aa5d/logos/newcastle.png",
-    "MANCHESTER UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/f79a20ab02c82a4a6fbc789c3c05dfa7db78aa5d/logos/man-united.png",
-    "ARSENAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/f79a20ab02c82a4a6fbc789c3c05dfa7db78aa5d/logos/arsenal.png",
-    "OSASUNA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/f79a20ab02c82a4a6fbc789c3c05dfa7db78aa5d/logos/osasuna.png"
+    "ASTON VILLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/astonvilla.png",
+    "NEWCASTLE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newcastle.png",
+    "MANCHESTER UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/man-united.png",
+    "ARSENAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/arsenal.png",
+    "OSASUNA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/osasuna.png"
 
 };
 
