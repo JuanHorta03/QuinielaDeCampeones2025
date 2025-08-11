@@ -11,12 +11,12 @@ const partidosData = [
     ["CHIVAS", "JUAREZ"],
     ["CRUZ AZUL", "SANTOS"],
     ["TIGRES", "AMERICA"],
-    ["PUMAS", "NECAXA"],
-    ["SANTOS", "CHIVAS"],
-    ["LEON", "MONTERREY"],
-    ["JUAREZ", "TOLUCA"],
-    ["SAN LUIS", "CRUZ AZUL"],
-    ["NEW YORK CITY", "COLUMBUS CREW"] // Este es el partido de reserva (el décimo, índice 9)
+    ["PACHUCA", "TIJUANA"],
+    ["TOLUCA , "PUMAS"],
+    ["MONTERREY", "MAZATLAN"],
+    ["ASTON VILLA", "NEWCASTLE"],
+    ["MANCHESTER UNITED", "ARSENAL"],
+    ["REAL MADRID", "OSASUNA"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
