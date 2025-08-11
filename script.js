@@ -7,10 +7,10 @@ const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; 
 
 const partidosData = [
-    ["TIGRES", "PUEBLA"],
-    ["AMERICA", "QUERETARO"],
-    ["ATLAS", "PACHUCA"],
-    ["MAZATLAN", "TIJUANA"],
+    ["NECAXA", "LEON"],
+    ["CHIVAS", "JUAREZ"],
+    ["CRUZ AZUL", "SANTOS"],
+    ["TIGRES", "AMERICA"],
     ["PUMAS", "NECAXA"],
     ["SANTOS", "CHIVAS"],
     ["LEON", "MONTERREY"],
