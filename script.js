@@ -12,7 +12,7 @@ const partidosData = [
     ["CRUZ AZUL", "SANTOS"],
     ["TIGRES", "AMERICA"],
     ["PACHUCA", "TIJUANA"],
-    ["TOLUCA , "PUMAS"],
+    ["TOLUCA" , "PUMAS"],
     ["MONTERREY", "MAZATLAN"],
     ["ASTON VILLA", "NEWCASTLE"],
     ["MANCHESTER UNITED", "ARSENAL"],
