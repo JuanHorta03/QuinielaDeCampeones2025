@@ -14,9 +14,9 @@ const partidosData = [
     ["CRUZ AZUL", "TOLUCA"],
     ["PUMAS" , "PUEBLA"],
     ["ATLAS", "AMERICA"],
-    ["ASTON VILLA", "NEWCASTLE"],
-    ["MANCHESTER UNITED", "ARSENAL"],
-    ["REAL MADRID", "OSASUNA"] // Este es el partido de reserva (el décimo, índice 9)
+    ["MANCHESTER CITY", "TOTTENHAM"],
+    ["FULHAM", "MANCHESTER UNITED"],
+    ["SASSUOLO", "NAPOLI"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 const logos = {
