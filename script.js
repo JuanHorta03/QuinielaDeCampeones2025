@@ -123,7 +123,13 @@ const logos = {
     "NEWCASTLE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/newcastle.png",
     "MANCHESTER UNITED": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/man-united.png",
     "ARSENAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/arsenal.png",
-    "OSASUNA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/osasuna.png"
+    "OSASUNA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/osasuna.png",
+    "MANCHESTER CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/manchestercity.png",
+    "NAPOLI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/napoli.png",
+    "TOTTENHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/tottenham.png",
+    "SASSUOLO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/sassuolo.png",
+    "FULHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/fulham.png"
+
 
 };
 
