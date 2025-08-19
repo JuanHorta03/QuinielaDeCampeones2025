@@ -1,0 +1,598 @@
+/* Variables CSS para colores */
+:root {
+    --green-dark: #2C5F2D; /* Verde oscuro */
+    --green-medium: #4CAF50; /* Verde medio */
+    --green-light: #8BC34A; /* Verde claro */
+    --element-background-light-gray: #F0F0F0; /* Gris claro */
+    --gray-light: #E0E0E0;
+    --blue-add: #2196F3; /* Azul */
+    --yellow-random: #FFC107; /* Amarillo */
+    --red-delete: #F44336; /* Rojo */
+    --white: #FFFFFF; /* Blanco */
+    --text-dark: #333; /* Texto oscuro */
+    --text-light: #666; /* Texto claro */
+
+    /* Nuevas variables para el fondo con degradado y banner */
+    --body-gradient-top: #1E3A57; /* Azul oscuro medio (inicio del degradado) */
+    --body-gradient-bottom: #0F1A2A; /* Azul muy oscuro (fin del degradado) */
+    --banner-area-background: #1B2D24; /* Azul oscuro medio claro (para el banner) */
+    --main-content-background: #1A202C; /* Gris azulado oscuro para el marco */
+    --accent-text-color: #E0E6F0; /* Blanco azulado claro para el texto */
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Degradado sutil de azul oscuro medio a azul muy oscuro */
+   background: linear-gradient(#092e24, #041914);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--accent-text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+/* Estilos del contenedor del banner */
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Color azul oscuro medio claro para el banner */
+    background-color: #063c2c;
+    min-height: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos de la imagen del banner */
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-width: 1000px;
+    max-height: 250px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Estilos del contenedor principal (el "marco" de la quiniela) */
+.marco {
+    background-color: var(--main-content-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    margin: 20px auto;
+    max-width: 600px;
+    width: 95%;
+    box-sizing: border-box;
+    color: var(--accent-text-color);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--green-medium);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--green-dark);
+    padding-bottom: 10px;
+}
+
+/* Estilos para cada partido */
+.partido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    background-color: var(--main-content-background);
+    border-radius: 8px;
+    color: var(--accent-text-color);
+}
+
+.partido:last-of-type {
+    border-bottom: none;
+}
+
+.equipo {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.equipo:last-child {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.logo-equipo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: var(--white);
+    padding: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.equipo:last-child .nombre-equipo {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.equipo:last-child .logo-equipo {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.opciones {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+}
+
+.btn-opcion {
+    background-color: #3A4A5A;
+    border: 1px solid #4A5A6A;
+    color: var(--white);
+    padding: 8px 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    min-width: 40px;
+    text-align: center;
+}
+
+.btn-opcion:hover {
+    background-color: #5A6A7A;
+    transform: translateY(-2px);
+}
+
+.btn-opcion.seleccionado {
+    background-color: var(--green-medium);
+    color: var(--white);
+    border-color: var(--green-dark);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Futbol_soccer_ball.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center right 5px;
+    padding-right: 30px;
+}
+
+.leyenda {
+    font-size: 0.9em;
+    color: var(--gray-light);
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #1A202C;
+    border: 1px solid #3A4A5A;
+    border-radius: 5px;
+}
+
+/* Resumen de selección actual */
+.resumen {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--green-light);
+    padding: 10px;
+    border: 1px dashed var(--green-dark);
+    border-radius: 8px;
+    background-color: #1A202C;
+}
+
+/* Secciones de costo y cierre */
+.cost-and-closing {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--main-content-background);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    color: var(--accent-text-color);
+}
+
+.summary-line {
+    font-size: 1.1em;
+    color: var(--accent-text-color);
+}
+
+/* Botones de acción */
+.acciones-inferiores {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column; /* Esto es para que las filas de botones se apilen, no los botones individuales dentro de la fila */
+    gap: 15px;
+}
+
+.row-botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si no hay espacio */
+}
+
+.acciones-inferiores button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--white);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    min-width: 120px;
+}
+
+.agregar-quiniela {
+    background-color: var(--blue-add);
+}
+.agregar-quiniela:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.azar {
+    background-color: var(--yellow-random);
+    color: var(--text-dark);
+}
+.azar:hover {
+    background-color: #FFB300;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.borrar {
+    background-color: var(--red-delete);
+}
+.borrar:hover {
+    background-color: #D32F2F;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.enviar {
+    background-color: var(--green-medium);
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 15px 25px;
+}
+.enviar:hover {
+    background-color: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+/* Lista de quinielas agregadas */
+#addedQuinielasList {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--main-content-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: var(--accent-text-color);
+}
+
+#addedQuinielasList h3 {
+    text-align: center;
+    color: var(--green-medium);
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+#addedQuinielasList ul {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+#addedQuinielasList li {
+    background-color: #2A303A;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    color: var(--accent-text-color);
+}
+
+.delete-quiniela-btn {
+    background-color: var(--red-delete);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.delete-quiniela-btn:hover {
+    background-color: #C62828;
+}
+
+/* Campo para el nombre del participante */
+.form-nombre {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.form-nombre input {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px 15px;
+    border: 1px solid #4A5A6A;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #2A303A;
+    color: var(--accent-text-color);
+}
+
+.form-nombre input::placeholder {
+    color: #99AAB8;
+}
+
+.form-nombre input:focus {
+    border-color: var(--green-medium);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+/* Resumen final (footer) */
+.summary-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--green-dark);
+    color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Footer de desarrollo */
+.developed-by {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--body-gradient-bottom);
+    color: #8899AA;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.developed-by a {
+    color: var(--green-medium);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.developed-by a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .marco {
+        padding: 10px; /* Padding reducido */
+        margin: 10px auto; /* Margen reducido */
+    }
+
+    .section-title {
+        font-size: 1.4em; /* Fuente más pequeña */
+        margin-bottom: 15px;
+    }
+
+    .partido {
+        /* Se mantiene display: flex; y flex-direction: row; (por defecto) */
+        padding: 8px 0; /* Padding ajustado */
+        margin-bottom: 5px;
+        box-sizing: border-box; /* Asegura que el padding no desborde */
+    }
+
+    .equipo {
+        width: 33%; /* Ancho ligeramente reducido para acomodar el espacio */
+        padding: 0 5px; /* Padding reducido */
+        /* Se mantiene flex-direction: row; (por defecto) para logo y nombre */
+        align-items: center; /* Asegura la alineación horizontal */
+    }
+
+    .logo-equipo {
+        width: 30px; /* Logo más pequeño */
+        height: 30px;
+        margin-right: 5px; /* Margen reducido */
+        padding: 2px; /* Padding reducido */
+    }
+
+    /* Ajustes específicos para el segundo equipo */
+    .equipo:last-child .logo-equipo {
+        margin-left: 5px; /* Ajusta margen para el logo del segundo equipo */
+        margin-right: 0;
+    }
+
+    .nombre-equipo {
+        font-size: 0.75em; /* Fuente significativamente más pequeña */
+        white-space: nowrap; /* Evita que el nombre se rompa en varias líneas */
+        overflow: hidden; /* Oculta el texto si es demasiado largo */
+        text-overflow: ellipsis; /* Añade puntos suspensivos si se oculta */
+    }
+
+    .opciones {
+        width: 30%; /* Mantiene el ancho */
+        gap: 3px; /* Espacio reducido entre los botones */
+    }
+
+    .btn-opcion {
+        padding: 6px 4px; /* Padding más pequeño */
+        margin: 0 2px; /* Margen más pequeño */
+        min-width: 30px; /* Ancho mínimo para los botones */
+        font-size: 0.7em; /* Fuente más pequeña para L E V */
+        background-size: 14px; /* Icono de balón más pequeño */
+        background-position: center right 2px; /* Posición ajustada del balón */
+        padding-right: 20px; /* Padding extra para el balón */
+    }
+
+    .cost-and-closing {
+        flex-direction: row; /* Mantiene horizontal */
+        flex-wrap: wrap; /* Permite que se envuelva si no hay espacio */
+        font-size: 0.9em;
+        padding: 10px;
+        gap: 5px;
+    }
+    .summary-line {
+        flex: 1; /* Permite que las líneas ocupen el mismo espacio */
+        text-align: center;
+    }
+
+    .acciones-inferiores .row-botones {
+        flex-direction: row; /* Mantiene horizontal */
+        flex-wrap: wrap; /* Permite que los botones se envuelvan */
+        justify-content: center;
+        gap: 8px; /* Espacio reducido */
+    }
+
+    .acciones-inferiores button {
+        padding: 10px 15px; /* Padding más pequeño */
+        font-size: 1em; /* Fuente ligeramente más pequeña */
+        min-width: unset; /* Deja que flex controle el ancho */
+        flex-grow: 1; /* Permite que crezcan */
+        max-width: 150px; /* Limita el ancho máximo para evitar botones muy grandes */
+    }
+
+    .enviar {
+        width: auto; /* El ancho lo maneja flex */
+        max-width: 250px; /* Ancho máximo para el botón individual */
+        padding: 12px 20px;
+        margin: 0 auto;
+    }
+
+    .form-nombre input {
+        width: 90%;
+        font-size: 0.95em;
+        padding: 10px 12px;
+    }
+
+    .summary-footer {
+        flex-direction: row; /* Mantiene horizontal */
+        flex-wrap: wrap; /* Permite que se envuelva */
+        font-size: 1em;
+        padding: 15px;
+        gap: 10px;
+    }
+    .summary-footer > div {
+        flex: 1; /* Distribución de ancho equitativa */
+        text-align: center;
+    }
+
+    #addedQuinielasList li {
+        flex-direction: row; /* Mantiene horizontal */
+        align-items: center;
+        padding: 8px 10px;
+        font-size: 0.85em;
+        gap: 5px; /* Espacio entre texto y botón de borrar */
+    }
+
+    .delete-quiniela-btn {
+        margin-left: auto; /* Empuja a la derecha */
+        margin-top: 0;
+        align-self: center;
+        width: 20px; /* Botón de borrar más pequeño */
+        height: 20px;
+        font-size: 0.7em;
+    }
+}
+
+/* Media Query para pantallas muy pequeñas (ej. iPhone SE) */
+@media (max-width: 400px) {
+    .marco {
+        padding: 8px;
+    }
+
+    .partido {
+        padding: 6px 0;
+    }
+
+    .equipo {
+        width: 32%; /* Ancho aún más reducido */
+        padding: 0 3px;
+    }
+
+    .logo-equipo {
+        width: 25px; /* Logo aún más pequeño */
+        height: 25px;
+    }
+
+    .nombre-equipo {
+        font-size: 0.7em; /* Fuente aún más pequeña */
+    }
+
+    .opciones {
+        width: 30%;
+        gap: 2px;
+    }
+
+    .btn-opcion {
+        padding: 5px 2px;
+        min-width: 25px;
+        font-size: 0.65em;
+        background-size: 12px;
+        padding-right: 18px;
+    }
+
+    .acciones-inferiores button {
+        width: 98%; /* Ancho máximo para que los botones se apilen bien si se envuelven */
+    }
+    .enviar {
+        width: 98%;
+    }
+
+    .form-nombre input {
+        width: 98%;
+        font-size: 0.9em;
+    }
+
+    .summary-footer {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
