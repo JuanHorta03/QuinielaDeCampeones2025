@@ -4,7 +4,7 @@ const WHATSAPP_NUMBER = '+524793184476'; // Tu número de WhatsApp (con el +)
 const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas logo)
 
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script.
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpqBP265_NCfVi8NuS6GywHFkRehUpQIw34MlX50erNd0NvA_--0BACkNSdtiIbUHb/exec'; 
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; 
 
 const partidosData = [
     ["TIJUANA", "CHIVAS"],
