@@ -7,7 +7,7 @@ const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXSM-7Jtt0N-TpWZ3cp5BgcHrhM08x1NWtSHPiDFyAOOOe6q4-VXVLvYLdPustMNwm/exec'; 
 
 const partidosData = [
-    ["PUEBLA", "MOTERREY"],
+    ["PUEBLA", "MONTERREY"],
     ["LEON", "QUERETARO"],
     ["SANTOS", "TIGRES"],
     ["CHIVAS", "CRUZ AZUL"],
@@ -128,7 +128,13 @@ const logos = {
     "NAPOLI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/napoli.png",
     "TOTTENHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/tottenham.png",
     "SASSUOLO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/sassuolo.png",
-    "FULHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/fulham.png"
+    "FULHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/02babf555d61929d67a289c738f8a8168c8203e1/logos/fulham.png",
+    "LIVERPOOL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/liverpool.png",
+    "TLAXCALA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/tlaxcala.png",
+    "MARSELLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/olimpiquemarsella.png",
+    "LEONES NEGROS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/leones-negros.png",
+    "LYON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/olympiquelyon.png"
+
 };
 
 // --- ELEMENTOS DEL DOM ---
