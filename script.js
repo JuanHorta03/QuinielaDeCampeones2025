@@ -75,7 +75,17 @@ const logos = {
     "TORONTO FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toronto.png",
     "HOUSTON DYNAMO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/houstondynamo.png",
     "COLUMBUS CREW": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/columbus.png",
-    "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png"
+    "SJ EARTHQUAKES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/sanjose.png",
+    "HUNGRIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/hungria.png",
+    "IRLANDA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/irlanda.png",
+    "LETONIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/letonia.png",
+    "SERBIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/serbia.png",
+    "JAPON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/japon.png",
+    "ESLOVAQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/eslovaquia.png",
+    "PORTUGAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portugal.png",
+    "TURQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/turquia.png",
+    "ESPANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/espana.png",
+
 };
 
 const partidosData = [
