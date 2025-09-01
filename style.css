@@ -25,8 +25,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    /* Degradado sutil de azul oscuro medio a azul muy oscuro */
-   background: linear-gradient(#092e24, #041914);
+    background: linear-gradient(#092e24, #041914);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -45,7 +44,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Color azul oscuro medio claro para el banner */
     background-color: #063c2c;
     min-height: 150px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
@@ -218,7 +216,7 @@ body {
 .acciones-inferiores {
     margin-top: 25px;
     display: flex;
-    flex-direction: column; /* Esto es para que las filas de botones se apilen, no los botones individuales dentro de la fila */
+    flex-direction: column;
     gap: 15px;
 }
 
@@ -226,7 +224,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap; /* Permite que los botones se envuelvan si no hay espacio */
+    flex-wrap: wrap;
 }
 
 .acciones-inferiores button {
@@ -344,12 +342,14 @@ body {
 }
 
 /* Campo para el nombre del participante */
-.form-nombre {
+.form-nombre,
+.form-telefono {
     margin-top: 25px;
     text-align: center;
 }
 
-.form-nombre input {
+.form-nombre input,
+.form-telefono input {
     width: 80%;
     max-width: 300px;
     padding: 12px 15px;
@@ -362,11 +362,13 @@ body {
     color: var(--accent-text-color);
 }
 
-.form-nombre input::placeholder {
+.form-nombre input::placeholder,
+.form-telefono input::placeholder {
     color: #99AAB8;
 }
 
-.form-nombre input:focus {
+.form-nombre input:focus,
+.form-telefono input:focus {
     border-color: var(--green-medium);
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
     outline: none;
@@ -414,135 +416,127 @@ body {
 /* Media Queries para responsividad */
 @media (max-width: 768px) {
     .marco {
-        padding: 10px; /* Padding reducido */
-        margin: 10px auto; /* Margen reducido */
+        padding: 10px;
+        margin: 10px auto;
     }
 
     .section-title {
-        font-size: 1.4em; /* Fuente más pequeña */
+        font-size: 1.4em;
         margin-bottom: 15px;
     }
 
     .partido {
-        /* Se mantiene display: flex; y flex-direction: row; (por defecto) */
-        padding: 8px 0; /* Padding ajustado */
+        padding: 8px 0;
         margin-bottom: 5px;
-        box-sizing: border-box; /* Asegura que el padding no desborde */
+        box-sizing: border-box;
     }
 
     .equipo {
-        width: 33%; /* Ancho ligeramente reducido para acomodar el espacio */
-        padding: 0 5px; /* Padding reducido */
-        /* Se mantiene flex-direction: row; (por defecto) para logo y nombre */
-        align-items: center; /* Asegura la alineación horizontal */
+        width: 33%;
+        padding: 0 5px;
+        align-items: center;
     }
 
     .logo-equipo {
-        width: 30px; /* Logo más pequeño */
+        width: 30px;
         height: 30px;
-        margin-right: 5px; /* Margen reducido */
-        padding: 2px; /* Padding reducido */
+        margin-right: 5px;
+        padding: 2px;
     }
 
-    /* Ajustes específicos para el segundo equipo */
     .equipo:last-child .logo-equipo {
-        margin-left: 5px; /* Ajusta margen para el logo del segundo equipo */
+        margin-left: 5px;
         margin-right: 0;
     }
 
     .nombre-equipo {
-        font-size: 0.75em; /* Fuente significativamente más pequeña */
-        white-space: nowrap; /* Evita que el nombre se rompa en varias líneas */
-        overflow: hidden; /* Oculta el texto si es demasiado largo */
-        text-overflow: ellipsis; /* Añade puntos suspensivos si se oculta */
+        font-size: 0.75em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .opciones {
-        width: 30%; /* Mantiene el ancho */
-        gap: 3px; /* Espacio reducido entre los botones */
+        width: 30%;
+        gap: 3px;
     }
 
     .btn-opcion {
-        padding: 6px 4px; /* Padding más pequeño */
-        margin: 0 2px; /* Margen más pequeño */
-        min-width: 30px; /* Ancho mínimo para los botones */
-        font-size: 0.7em; /* Fuente más pequeña para L E V */
-        background-size: 14px; /* Icono de balón más pequeño */
-        background-position: center right 2px; /* Posición ajustada del balón */
-        padding-right: 20px; /* Padding extra para el balón */
+        padding: 6px 4px;
+        margin: 0 2px;
+        min-width: 30px;
+        font-size: 0.7em;
+        background-size: 14px;
+        background-position: center right 2px;
+        padding-right: 20px;
     }
 
     .cost-and-closing {
-        flex-direction: row; /* Mantiene horizontal */
-        flex-wrap: wrap; /* Permite que se envuelva si no hay espacio */
+        flex-wrap: wrap;
         font-size: 0.9em;
         padding: 10px;
         gap: 5px;
     }
     .summary-line {
-        flex: 1; /* Permite que las líneas ocupen el mismo espacio */
+        flex: 1;
         text-align: center;
     }
 
     .acciones-inferiores .row-botones {
-        flex-direction: row; /* Mantiene horizontal */
-        flex-wrap: wrap; /* Permite que los botones se envuelvan */
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 8px; /* Espacio reducido */
+        gap: 8px;
     }
 
     .acciones-inferiores button {
-        padding: 10px 15px; /* Padding más pequeño */
-        font-size: 1em; /* Fuente ligeramente más pequeña */
-        min-width: unset; /* Deja que flex controle el ancho */
-        flex-grow: 1; /* Permite que crezcan */
-        max-width: 150px; /* Limita el ancho máximo para evitar botones muy grandes */
+        padding: 10px 15px;
+        font-size: 1em;
+        flex-grow: 1;
+        max-width: 150px;
     }
 
     .enviar {
-        width: auto; /* El ancho lo maneja flex */
-        max-width: 250px; /* Ancho máximo para el botón individual */
+        width: auto;
+        max-width: 250px;
         padding: 12px 20px;
         margin: 0 auto;
     }
 
-    .form-nombre input {
+    .form-nombre input,
+    .form-telefono input {
         width: 90%;
         font-size: 0.95em;
         padding: 10px 12px;
     }
 
     .summary-footer {
-        flex-direction: row; /* Mantiene horizontal */
-        flex-wrap: wrap; /* Permite que se envuelva */
+        flex-wrap: wrap;
         font-size: 1em;
         padding: 15px;
         gap: 10px;
     }
     .summary-footer > div {
-        flex: 1; /* Distribución de ancho equitativa */
+        flex: 1;
         text-align: center;
     }
 
     #addedQuinielasList li {
-        flex-direction: row; /* Mantiene horizontal */
+        flex-direction: row;
         align-items: center;
         padding: 8px 10px;
         font-size: 0.85em;
-        gap: 5px; /* Espacio entre texto y botón de borrar */
+        gap: 5px;
     }
 
     .delete-quiniela-btn {
-        margin-left: auto; /* Empuja a la derecha */
-        margin-top: 0;
-        align-self: center;
-        width: 20px; /* Botón de borrar más pequeño */
+        margin-left: auto;
+        width: 20px;
         height: 20px;
         font-size: 0.7em;
     }
 }
 
-/* Media Query para pantallas muy pequeñas (ej. iPhone SE) */
+/* Media Query para pantallas muy pequeñas */
 @media (max-width: 400px) {
     .marco {
         padding: 8px;
@@ -553,17 +547,17 @@ body {
     }
 
     .equipo {
-        width: 32%; /* Ancho aún más reducido */
+        width: 32%;
         padding: 0 3px;
     }
 
     .logo-equipo {
-        width: 25px; /* Logo aún más pequeño */
+        width: 25px;
         height: 25px;
     }
 
     .nombre-equipo {
-        font-size: 0.7em; /* Fuente aún más pequeña */
+        font-size: 0.7em;
     }
 
     .opciones {
@@ -580,13 +574,14 @@ body {
     }
 
     .acciones-inferiores button {
-        width: 98%; /* Ancho máximo para que los botones se apilen bien si se envuelven */
+        width: 98%;
     }
     .enviar {
         width: 98%;
     }
 
-    .form-nombre input {
+    .form-nombre input,
+    .form-telefono input {
         width: 98%;
         font-size: 0.9em;
     }
