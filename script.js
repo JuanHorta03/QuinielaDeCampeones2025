@@ -84,7 +84,7 @@ const logos = {
     "ESLOVAQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/eslovaquia.png",
     "PORTUGAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portugal.png",
     "TURQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/turquia.png",
-    "ESPANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/espana.png",
+    "ESPAñA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/espana.png",
 
 };
 
@@ -95,7 +95,7 @@ const partidosData = [
     ["GEORGIA", "BULGARIA"],
     ["LUXEMBURGO", "ESLOVAQUIA"],
     ["ARMENIA", "PORTUGAL"],
-    ["ST LOUIS CITY", "FC DALLAS"],
+    ["ST. LOUIS CITY", "FC DALLAS"],
     ["CHICAGO FIRE", "NEW ENGLAND"],
     ["HOUSTON DYNAMO", "LA GALAXY"],
     ["TURQUIA", "ESPAÑA"] // Este es el partido de reserva (el décimo, índice 9)
