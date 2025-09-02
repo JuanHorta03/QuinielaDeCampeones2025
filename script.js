@@ -84,7 +84,7 @@ const logos = {
     "ESLOVAQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/eslovaquia.png",
     "PORTUGAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portugal.png",
     "TURQUIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/turquia.png",
-    "ESPAñA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/espana.png",
+    "ESPAÑA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/espana.png",
 
 };
 
