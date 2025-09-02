@@ -88,6 +88,9 @@ const logos = {
     "ARMENIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/armenia.png",
     "BULGARIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bulgaria.png",
     "GEORGIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/gerogia.png",
+    "FC DALLAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/dallas.png",
+    "CHICAGO FIRE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/chicago.png",
+
 
 };
 
