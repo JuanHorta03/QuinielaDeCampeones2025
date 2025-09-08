@@ -104,7 +104,7 @@ const partidosData = [
     ["TOLUCA", "PUEBLA"],
     ["AMERICA", "CHIVAS"],
     ["QUERETARO", "MONTERREY"],
-    ["JUVENTUS", "INTER"],
+    ["JUVENTUS", "INTER MILAN"],
     ["MANCHESTER CITY", "MANCHESTER UNITED"],
     ["REAL SOCIEDAD", "REAL MADRID"] // Este es el partido de reserva (el décimo, índice 9)
 ];
