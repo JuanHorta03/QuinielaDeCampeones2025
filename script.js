@@ -21,7 +21,7 @@ const logos = {
     "SEATTLE SOUNDERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/seattle.png",
     "PALMEIRAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/palmeiras.png",
     "PORTO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/porto.png",
-    "CHELSEA": "https://raw.githubusercontent.com/JuanHorta03/logos-quiniela/main/logos/chelsea.png",
+    "CHELSEA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/chelsea.png",
     "LAFC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangeles.png", 
     "FLAMENGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/flamengo.png",
     "ESPERANCE ST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/esperance_sp_tunis.png",
