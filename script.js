@@ -135,7 +135,9 @@ const logos = {
     "TLAXCALA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/tlaxcala.png",
     "MARSELLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/olimpiquemarsella.png",
     "LEONES NEGROS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/leones-negros.png",
-    "LYON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/olympiquelyon.png"
+    "LYON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/6ece43155afda2f9955e7801d6ad3b9af0ee2fba/logos/olympiquelyon.png",
+    "MILAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/01518bb1212da513c798c9a1e17fa22e94f8edc6/logos/milan.png",
+    "ATLETICO DE MADRID": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/01518bb1212da513c798c9a1e17fa22e94f8edc6/logos/atlmadrid.png"
 };
 
 const partidosData = [
