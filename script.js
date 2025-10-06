@@ -141,16 +141,16 @@ const logos = {
 };
 
 const partidosData = [
-    ["MAZATLAN", "SAN LUIS"],
-    ["ATLAS", "JUAREZ"],
-    ["TIGRES", "CRUZ AZUL"],
-    ["LEON", "TOLUCA"],
-    ["AMERICA", "SANTOS"],
-    ["PUMAS", "CHIVAS"],
-    ["TIJUANA", "MONTERREY"],
-    ["CHELSEA", "LIVERPOOL"],
-    ["JUVENTUS", "AC MILAN"],
-    ["QUERETARO", "PUEBLA"] // Este es el partido de reserva (el décimo, índice 9)
+    ["BULGARIA", "TURQUIA"],
+    ["HUNGRIA", "ARMENIA"],
+    ["PORTUGAL", "IRLANDA"],
+    ["SERBIA", "ALBANIA"],
+    ["DINAMARCA", "GRECIA"],
+    ["MEXICO", "COLOMBIA"],
+    ["INTER MIAMI", "ATLANTA UNITED"],
+    ["ORLANDO", "VANCOUVER"],
+    ["SEATTLE SOUNDERS", "REAL SALT LAKE"],
+    ["LA GALAXY", "FC DALLAS"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 // --- ELEMENTOS DEL DOM ---
