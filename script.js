@@ -139,7 +139,12 @@ const logos = {
     "AC MILAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/01518bb1212da513c798c9a1e17fa22e94f8edc6/logos/milan.png",
     "ATLETICO DE MADRID": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/01518bb1212da513c798c9a1e17fa22e94f8edc6/logos/atlmadrid.png",
     "BARCELONA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/barcelona.png",
-    "ROMA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/roma.png"
+    "ROMA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/roma.png",
+    "AZERBAIYAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/bca6cfee989c5ac2c2d24257819ee223b9bac2df/logos/azerbaiyan.png",
+    "ITALIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/italia.png",
+    "URUGUAY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/uruguay.png",
+    "FRANCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/francia.png"
+
 
 };
 
