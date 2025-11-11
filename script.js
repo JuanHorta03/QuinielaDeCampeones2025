@@ -143,8 +143,16 @@ const logos = {
     "AZERBAIYAN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/bca6cfee989c5ac2c2d24257819ee223b9bac2df/logos/azerbaiyan.png",
     "ITALIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/italia.png",
     "URUGUAY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/uruguay.png",
-    "FRANCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/francia.png"
-
+    "FRANCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/francia.png",
+    "PARAGUAY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/paraguay.png",
+    "SUIZA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/suiza.png",
+    "SUECIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/suecia.png",
+    "NORUEGA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/noruega.png",
+    "UCRANIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ucrania.png",
+    "ISLANDIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/islandia.png",
+    "GRECIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/grecia.png",
+    "ESCOCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/escocia.png",
+    "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
 
 };
 
