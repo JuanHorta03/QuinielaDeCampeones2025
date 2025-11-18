@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN ---
 const QUINIELA_COST = 25;
-const WHATSAPP_NUMBER = '+524793184476'; // Tu número de WhatsApp (con el +)
+const WHATSAPP_NUMBER = '+524793184476'; // Tu número de WhatsApp (con el +) 
 const QUINIELA_TITLE = "QUINELA DEPORTIVA"; // Título principal (oculto si usas logo)
 
 // ¡IMPORTANTE! Esta es la URL de tu Google Apps Script.
