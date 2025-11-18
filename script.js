@@ -153,10 +153,10 @@ const logos = {
     "GRECIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/grecia.png",
     "ESCOCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/escocia.png",
     "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
-    "(REAL SOCIEDAD)": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realsociedad.png",  
-    "ATLÉTICO BILBAO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico-bilbao.png",  
+    "REAL SOCIEDAD": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realsociedad.png",  
+    "ATLETIC BILBAO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico-bilbao.png",  
     "STUTTGART": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/stuttgart.png",  
-    "BORUSSIA DORTMUND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/borussiadortmund.png",  
+    "DORTMUND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/borussiadortmund.png",  
     "ATALANTA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atalanta.png",  
     "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
 
