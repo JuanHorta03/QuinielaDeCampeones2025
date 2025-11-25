@@ -160,7 +160,7 @@ const logos = {
     "ATALANTA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atalanta.png",  
     "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
     "MALLORCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mallorca.png",
-    "BAYERLEVERKUSEN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayerleverkusen.png",
+    "LEVERKUSEN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayerleverkusen.png",
     "PISA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pisa.png",
 
 };
