@@ -163,12 +163,12 @@ const logos = {
     "LEVERKUSEN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayerleverkusen.png",
     "PISA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pisa.png",
     "BRIGHTON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/bha.png",
-    "CRYSTAL_PALACE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/crystalpalace.png",
+    "CRYSTAL PALACE": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/crystalpalace.png",
     "FREIBURG": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/freiburg.png",
     "MONACO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/monaco.png",
     "WOLVERHAMPTON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/wolves.png",
     "SUNDERLAND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/sunderland-fc-seeklogo.png",
-    "WESTHAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/westham.png",
+    "WEST HAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/westham.png",
     "NOTTINGHAM FOREST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/4478ed87eb1020445fd615e09d8a5c573063d7bf/logos/nottingham_forest.png"
     
 };
