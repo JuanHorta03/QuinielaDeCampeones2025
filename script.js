@@ -178,7 +178,7 @@ const partidosData = [
     ["ATLAS", "PUEBLA"],
     ["CHIVAS", "PACHUCA"],
     ["LEON", "CRUZ AZUL"],
-    ["SANTOS", "NECAXA"],
+    ["SANTOS FC", "NECAXA"],
     ["MONTERREY", "TOLUCA"],
     ["PUMAS", "QUERETARO"],
     ["SAN LUIS", "TIGRES"],
