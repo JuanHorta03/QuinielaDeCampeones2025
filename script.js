@@ -152,7 +152,6 @@ const logos = {
     "ISLANDIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/islandia.png",
     "GRECIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/grecia.png",
     "ESCOCIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/escocia.png",
-    "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
     "REAL SOCIEDAD": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realsociedad.png",  
     "ATLETIC BILBAO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico-bilbao.png",  
     "STUTTGART": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/stuttgart.png",  
@@ -174,16 +173,16 @@ const logos = {
 };
 
 const partidosData = [
-    ["TIJUANA", "AMERICA"],
-    ["ATLAS", "PUEBLA"],
-    ["CHIVAS", "PACHUCA"],
-    ["LEON", "CRUZ AZUL"],
-    ["SANTOS FC", "NECAXA"],
-    ["MONTERREY", "TOLUCA"],
-    ["PUMAS", "QUERETARO"],
-    ["SAN LUIS", "TIGRES"],
-    ["INTER MILAN", "NAPOLI"],
-    ["BAYERN MUNICH", "WOLFSBURGO"] // Este es el partido de reserva (el décimo, índice 9)
+    ["CHIVAS", "QUERETARO"],
+    ["NECAXA", "ATLAS"],
+    ["TIGRES", "TOLUCA"],
+    ["TIJUANA", "SAN LUIS"],
+    ["CRUZ AZUL", "PUEBLA"],
+    ["PUMAS", "LEON"],
+    ["SANTOS", "JUAREZ"],
+    ["PACHUCA", "AMERICA"],
+    ["MANCHESTER UNITED", "MANCHESTER CITY"],
+    ["MAZATLAN", "MONTERREY"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 // --- ELEMENTOS DEL DOM ---
