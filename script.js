@@ -105,7 +105,6 @@ const logos = {
     "PUEBLA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/puebla.png",
     "PUMAS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pumas.png",
     "QUERETARO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/queretaro.png",
-    "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png",
     "TIGRES": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tigres.png",
     "TIJUANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tijuana.png",
     "TOLUCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/toluca.png",
@@ -157,7 +156,6 @@ const logos = {
     "STUTTGART": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/stuttgart.png",  
     "DORTMUND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/borussiadortmund.png",  
     "ATALANTA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atalanta.png",  
-    "SANTOS FC": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos%20fc.png",
     "MALLORCA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/mallorca.png",
     "LEVERKUSEN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bayerleverkusen.png",
     "PISA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/pisa.png",
@@ -168,7 +166,8 @@ const logos = {
     "WOLVERHAMPTON": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/wolves.png",
     "SUNDERLAND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/sunderland-fc-seeklogo.png",
     "WEST HAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/westham.png",
-    "NOTTINGHAM FOREST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/4478ed87eb1020445fd615e09d8a5c573063d7bf/logos/nottingham_forest.png"
+    "NOTTINGHAM FOREST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/4478ed87eb1020445fd615e09d8a5c573063d7bf/logos/nottingham_forest.png",
+    "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png"
     
 };
 
