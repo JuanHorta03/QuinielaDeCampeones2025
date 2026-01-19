@@ -167,7 +167,13 @@ const logos = {
     "SUNDERLAND": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/sunderland-fc-seeklogo.png",
     "WEST HAM": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/51864b0cb1954dfee7ac4b939df50017349fd2c3/logos/westham.png",
     "NOTTINGHAM FOREST": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/4478ed87eb1020445fd615e09d8a5c573063d7bf/logos/nottingham_forest.png",
-    "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png"
+    "SANTOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santos.png",
+    "VILLAREAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/villareal.png",
+    "AUGSBURGO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/augsburgo.png",
+    "BOLIVIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bolivia.png",
+    "UNION BERLIN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/unionberlin.png",
+    "LENS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/racinglens.png",
+    "REAL OVIEDO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realoviedo.png"
     
 };
 
@@ -175,7 +181,7 @@ const partidosData = [
     ["BOLIVIA", "MEXICO"],
     ["VILLARREAL", "REAL MADRID"],
     ["WEST HAM", "SUNDERLAND"],
-    ["BAYERN MUNICH", "AUSBURG"],
+    ["BAYERN MUNICH", "AUSBURGO"],
     ["UNION BERLIN", "DORTMUND"],
     ["MARSELLA", "LENS"],
     ["CRYSTAL PALACE", "CHELSEA"],
