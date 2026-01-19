@@ -179,9 +179,9 @@ const logos = {
 
 const partidosData = [
     ["BOLIVIA", "MEXICO"],
-    ["VILLARREAL", "REAL MADRID"],
+    ["VILLAREAL", "REAL MADRID"],
     ["WEST HAM", "SUNDERLAND"],
-    ["BAYERN MUNICH", "AUSBURGO"],
+    ["BAYERN MUNICH", "AUGSBURGO"],
     ["UNION BERLIN", "DORTMUND"],
     ["MARSELLA", "LENS"],
     ["CRYSTAL PALACE", "CHELSEA"],
