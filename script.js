@@ -172,7 +172,7 @@ const logos = {
 };
 
 const partidosData = [
-    ["SEVILLA", "ATHLETIC BILBAO"],
+    ["BOLIVIA", "MEXICO"],
     ["VILLARREAL", "REAL MADRID"],
     ["WEST HAM", "SUNDERLAND"],
     ["BAYERN MUNICH", "AUSBURG"],
