@@ -173,12 +173,14 @@ const logos = {
     "BOLIVIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/bolivia.png",
     "UNION BERLIN": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/unionberlin.png",
     "LENS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/racinglens.png",
-    "REAL OVIEDO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realoviedo.png"
+    "REAL OVIEDO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realoviedo.png",
+    "RAYOVALLECANO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/rayovallecano.png",
+    "SANTOS.": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santosMX.png"
     
 };
 
 const partidosData = [
-    ["PUMAS", "SANTOS"],
+    ["PUMAS", "SANTOS."],
     ["JUAREZ", "CRUZ AZUL"],
     ["SAN LUIS", "CHIVAS"],
     ["ATLAS", "MAZATLAN"],
