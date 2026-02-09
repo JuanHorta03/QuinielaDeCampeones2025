@@ -189,7 +189,7 @@ const partidosData = [
     ["CRUZ AZUL", "TIGRES"],
     ["INTER MILAN", "JUVENTUS"],
     ["NAPOLI", "ROMA"],
-    ["SANTOS", "MAZATLAN"] // Este es el partido de reserva (el décimo, índice 9)
+    ["SANTOS.", "MAZATLAN"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 // --- ELEMENTOS DEL DOM ---
