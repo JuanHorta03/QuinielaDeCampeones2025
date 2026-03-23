@@ -175,7 +175,17 @@ const logos = {
     "LENS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/racinglens.png",
     "REAL OVIEDO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/realoviedo.png",
     "RAYO VALLECANO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/rayovallecano.png",
-    "SANTOS.": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santosMX.png"
+    "SANTOS.": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/santosMX.png",
+    "ALEMANIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/alemania.png",
+    "BELGICA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/belgica.png",
+    "CANADA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/canada.png",
+    "COREA DEL SUR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/coreadelsur.png",
+    "COLOMBIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/colombia.png",
+    "GHANA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ghana.png",
+    "PERU": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/peru.png",
+    "SENEGAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/senegal.png",
+    "IRAPUATO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/irapuato-seeklogo.png",
+    "MORELIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico_morelia.png"
     
 };
 
