@@ -185,7 +185,10 @@ const logos = {
     "PERU": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/peru.png",
     "SENEGAL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/senegal.png",
     "IRAPUATO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/irapuato-seeklogo.png",
-    "MORELIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico_morelia.png"
+    "MORELIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico_morelia.png",
+    "COSTA DE MARFIL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/costa_de_marfil.png",
+    "TAPATIO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tapatio.png",
+    "MINEROS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/zacatecas.png"
     
 };
 
