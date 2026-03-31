@@ -198,7 +198,7 @@ const partidosData = [
     ["QUERETARO", "TOLUCA"],
     ["CRUZ AZUL", "PACHUCA"],
     ["LEON", "ATLAS"],
-    ["SANTOS", "AMERICA"],
+    ["SANTOS.", "AMERICA"],
     ["CHIVAS", "PUMAS"],
     ["ATLETICO DE MADRID", "BARCELONA"],
     ["MANCHESTER CITY", "LIVERPOOL"],
