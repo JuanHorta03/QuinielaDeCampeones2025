@@ -197,7 +197,7 @@ const partidosData = [
     ["CRUZ AZUL", "ATLAS"],
     ["PUMAS", "AMERICA"],
     ["PACHUCA", "TOLUCA"],
-    ["STUTTGART", "BAYER LEVERKUSEN"],
+    ["STUTTGART", "LEVERKUSEN"],
     ["TORONTO FC", "INTER MIAMI"],
     ["LIVERPOOL", "CHELSEA"],
     ["BARCELONA", "REAL MADRID"],
