@@ -196,12 +196,12 @@ const partidosData = [
     ["MEXICO", "AUSTRALIA"],
     ["PSG", "ARSENAL"],
     ["TOLUCA", "TIGRES"],
-    ["TAMPICO", "TEPATITLAN"],
+    ["JAIBA-BRAVA", "TEPATITLAN"],
     ["ESTADOS UNIDOS", "SENEGAL"],
     ["NORUEGA", "SUECIA"],
     ["GREMIO", "CORINTHIANS"],
     ["JAPON", "ISLANDIA"],
-    ["BRASIL", "PANAMA000"],
+    ["BRASIL", "PANAMA"],
     ["ECUADOR", "ARABIA SAUDITA"] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
