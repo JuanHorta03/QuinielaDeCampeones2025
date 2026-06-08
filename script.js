@@ -188,7 +188,14 @@ const logos = {
     "MORELIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/atletico_morelia.png",
     "COSTA DE MARFIL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/costa_de_marfil.png",
     "TAPATIO": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tapatio.png",
-    "MINEROS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/zacatecas.png"
+    "MINEROS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/zacatecas.png",
+    "BRASIL": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/brasil.png",
+    "MARRUECOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/marruecos.png",
+    "QATAR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/qatar.png",
+    "AUSTRALIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/australia.png",
+    "PAÍSES BAJOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/paisesbajos.png",
+    "TÚNEZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tunez.png",
+    "ECUADOR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ecuador.png",
     
 };
 
