@@ -200,13 +200,13 @@ const logos = {
 };
 
 const partidosData = [
-    ["URUGUAY", "ESPAÑA"],
-    ["EGIPTO", "IRAN"],
-    ["NUEVA ZELANDA", "BELGICA"],
-    ["CROACIA", "GHANA"],
-    ["PANAMA", "INGLATERRA"],
-    ["COLOMBIA", "PORTUGAL"],
-    ["CONGO", "UZBEKISTAN"],
+    ["ALEMANIA/PARAGUAY", "FRANCIA/SUECIA"],
+    ["BRASIL/JAPON", "COSTA DE MARFIL/NORUEGA"],
+    ["MEXICO/ECUADOR", "INGLATERRA/RD CONGO"],
+    ["PORTUGAL/CROACIA", "ESPAÑA/AUSTRIA"],
+    ["ESTADOS UNIDOS/BOSNIA", "BELGICA/SENEGAL"],
+    ["ARGENTINA/CABO VERDE", "AUSTRALIA/EGIPTO"],
+    ["SUIZA/ARGELIA", "COLOMBIA/GHANA"],
     ["ARGELIA", "AUSTRIA"],
     ["JORDANIA", "ARGENTINA"],
     ["CABO VERDE", "ARABIA SAUDITA"] // Este es el partido de reserva (el décimo, índice 9)
