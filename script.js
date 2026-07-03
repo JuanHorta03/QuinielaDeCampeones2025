@@ -203,10 +203,10 @@ const partidosData = [
     ["PARAGUAY", "FRANCIA"],
     ["BRASIL", "NORUEGA"],
     ["MEXICO", "INGLATERRA"],
-    ["PORTUGAL/CROACIA", "ESPAÑA/AUSTRIA"],
-    ["ESTADOS UNIDOS/BOSNIA", "BELGICA/SENEGAL"],
+    ["PORTUGAL", "ESPAÑA"],
+    ["ESTADOS UNIDOS", "BELGICA"],
     ["ARGENTINA/CABO VERDE", "AUSTRALIA/EGIPTO"],
-    ["SUIZA/ARGELIA", "COLOMBIA/GHANA"],
+    ["SUIZA", "COLOMBIA/GHANA"],
     ["CANADA", "MARRUECOS"],
     ["SAN LUIS (CHILE)", "EVERTON (CHILE)"],
     ["GOTEBORG (SUECIA)", "AIK (SUECIA)"] // Este es el partido de reserva (el décimo, índice 9)
