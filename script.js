@@ -68,7 +68,7 @@ const logos = {
     "CINCINNATI": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/cincinnati.png", 
     "PORTLAND TIMBERS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/portland.png",
     "ST. LOUIS CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/st_louis_city.png", 
-    "LA GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png",
+    "L.A. GALAXY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/losangelesgalaxy.png",
     "PHILADELPHIA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/philadelphia.png", 
     "VANCOUVER WHITECAPS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/vancouver.png",
     "ORLANDO CITY": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/orlando-city.png",
@@ -200,16 +200,16 @@ const logos = {
 };
 
 const partidosData = [
-    ["PARAGUAY", "FRANCIA"],
-    ["BRASIL", "NORUEGA"],
-    ["MEXICO", "INGLATERRA"],
-    ["PORTUGAL", "ESPAÑA"],
-    ["ESTADOS UNIDOS", "BELGICA"],
-    ["ARGENTINA/CABO VERDE", "AUSTRALIA/EGIPTO"],
-    ["SUIZA", "COLOMBIA/GHANA"],
-    ["CANADA", "MARRUECOS"],
-    ["SAN LUIS (CHILE)", "EVERTON (CHILE)"],
-    ["GOTEBORG (SUECIA)", "AIK (SUECIA)"] // Este es el partido de reserva (el décimo, índice 9)
+    ["NORUEGA", "INGLATERRA"],
+    ["ARGENTINA", "SUIZA/COLOMBIA"],
+    ["L.A. GALAXY", "AMERICA"],
+    ["PUMAS", "AMERICA DE CALI"],
+    ["BENFICA", "FLAMENGO"],
+    ["ATLETICO GOIANIENSE", "FORTALEZA"],
+    ["MALMO", "IFK"],
+    ["COPIAPO", "EVERTON."],
+    ["EMELEC", "BARCELONA SC"],
+    ["MJALLBY", "AIK "] // Este es el partido de reserva (el décimo, índice 9)
 ];
 
 // --- ELEMENTOS DEL DOM ---
