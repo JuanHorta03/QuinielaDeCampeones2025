@@ -202,7 +202,7 @@ const logos = {
 
 const partidosData = [
     ["NORUEGA", "INGLATERRA"],
-    ["ARGENTINA", "SUIZA/COLOMBIA"],
+    ["ARGENTINA", "SUIZA"],
     ["L.A. GALAXY", "AMERICA"],
     ["PUMAS", "AMERICA DE CALI"],
     ["BENFICA", "FLAMENGO"],
