@@ -196,6 +196,7 @@ const logos = {
     "PAÍSES BAJOS": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/paisesbajos.png",
     "TÚNEZ": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/tunez.png",
     "ECUADOR": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/ecuador.png",
+    "ARGENTINA": "https://raw.githubusercontent.com/JuanHorta03/QuinielaDeCampeones2025/main/logos/argentina.png",
     
 };
 
