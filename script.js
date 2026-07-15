@@ -201,8 +201,8 @@ const logos = {
 };
 
 const partidosData = [
-    ["G.FRA/ESP", "G. ING/ARG"],
-    ["P.FRA/ESP", "P. ING/ARG"],
+    ["ESPAÑA", "ARGENTINA"],
+    ["FRANCIA", "INGLATERRA"],
     ["JUAREZ", "PUEBLA"],
     ["PUMAS", "PACHUCA"],
     ["MONTERREY", "SANTOS."],
